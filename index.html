@@ -92,5 +92,15 @@
         <div class="label">About us</div>
         <div class="label">Contact us</div>
     </div>
+    <script>
+    document.getElementById("languageSelect").addEventListener("change", function () {
+        const selectedValue = this.value;
+        if (selectedValue === "ar") {
+            window.location.href = "arabic.html";
+        } else if (selectedValue === "en") {
+            window.location.href = "index.html"; // Adjust to your English page if needed
+        }
+    });
+</script>
 </body>
 </html>
