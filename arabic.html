@@ -93,4 +93,14 @@
         <div class="label">تواصل معنا</div>
     </div>
 </body>
+    <script>
+    document.getElementById("languageSelect").addEventListener("change", function () {
+        const selectedValue = this.value;
+        if (selectedValue === "en") {
+            window.location.href = "index.html";
+        } else if (selectedValue === "ar") {
+            window.location.href = "arabic.html"; // Adjust to your English page if needed
+        }
+    });
+</script>
 </html>
