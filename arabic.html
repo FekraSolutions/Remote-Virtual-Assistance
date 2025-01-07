@@ -20,32 +20,52 @@
             overflow: hidden;
         }
 
-        .icon img {
-            width: 80%; /* Adjust image size */
-            height: auto; /* Keep aspect ratio */
+        .language-section {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .language-section img {
+            height: 40px;
+            margin-bottom: 5px;
         }
 
         #languageSelect {
             font-size: 16px;
             padding: 5px;
-            background-color: transparent; /* Transparent background */
-            color: white; /* White text */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Starry effect */
-            border: 1px solid; /* Thin border */
-            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1; /* Shiny gradient border */
+            background-color: transparent;
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
             border-radius: 5px;
-            outline: none; /* Remove default outline */
-            appearance: none; /* Hide default dropdown styling */
+            outline: none;
+            appearance: none;
             cursor: pointer;
         }
 
         #languageSelect:focus {
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8); /* Add glow effect when focused */
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
-#languageSelect option {
-    color: black;
-    background-color: transparent; /* Keep background transparent */
-}
+
+        #languageSelect option {
+            color: black;
+            background-color: transparent;
+        }
+
+        .logo {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.5; /* 50% transparency */
+            width: 100%; /* Fit the screen width */
+            max-width: 600px; /* Optional: Limit max width */
+        }
 
         .label-container {
             display: flex;
@@ -62,29 +82,32 @@
             border-radius: 5px;
             cursor: pointer;
             text-align: center;
-            background-color: #D6B77E; /* Darker sand color */
+            background-color: #D6B77E;
         }
 
         .label:hover {
             background-color: #e0e0e0;
         }
 
-        /* Style specifically for the "Contact Us" label */
         .label:last-child {
-            background-color: #8c6e4f; /* Even darker sand color */
+            background-color: #8c6e4f;
         }
     </style>
 </head>
 <body>
-    <div style="position: absolute; top: 10px; left: 10px;">
-         <img src="media/Tlogo.png" alt="Language" style="height: 50px;margin-left: 1px;">
-        <br>
-        <img src="media/Language.png" alt="Language" style="height: 40px; margin-left: 2px;">
-        <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
-          <option value="ar">العربية</option> 
-          <option value="en">English</option>
-          </select>
+    <!-- Language Section -->
+    <div class="language-section">
+        <img src="media/Language.png" alt="Language">
+        <select id="languageSelect">
+            <option value="ar">العربية</option> 
+            <option value="en">English</option>
+        </select>
     </div>
+
+    <!-- Logo Section -->
+    <img src="media/Tlogo.png" alt="Tlogo" class="logo">
+
+    <!-- Title Section -->
     <div class="label-container">
         <div class="label">التطبيقات</div>
         <div class="label">خدماتنا</div>
@@ -92,15 +115,16 @@
         <div class="label">تعرف علينا</div>
         <div class="label">تواصل معنا</div>
     </div>
-</body>
+
     <script>
-    document.getElementById("languageSelect").addEventListener("change", function () {
-        const selectedValue = this.value;
-        if (selectedValue === "en") {
-            window.location.href = "index.html";
-        } else if (selectedValue === "ar") {
-            window.location.href = "arabic.html"; // Adjust to your English page if needed
-        }
-    });
-</script>
+        document.getElementById("languageSelect").addEventListener("change", function () {
+            const selectedValue = this.value;
+            if (selectedValue === "en") {
+                window.location.href = "index.html";
+            } else if (selectedValue === "ar") {
+                window.location.href = "arabic.html";
+            }
+        });
+    </script>
+</body>
 </html>
