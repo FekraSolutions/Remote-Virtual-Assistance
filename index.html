@@ -28,6 +28,26 @@ body {
             font-size: 16px;
             padding: 5px;
         }
+          .label-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .label {
+            font-size: 24px;
+            direction: rtl;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #D6B77E; /* Darker sand color */
+        }
+
+        .label:hover {
+            background-color: #e0e0e0;
 </style>
 </head>
 <body>
@@ -37,5 +57,13 @@ body {
             <option value="ar">العربية</option>
         </select>
     </div>
+    <div class="label-container">
+        <div class="label">الكاشير</div>
+        <div class="label">شراء المخزون</div>
+        <div class="label">رصيد المخزون</div>
+        <div class="label">رصيد النقدية</div>
+        <div class="label">رصيد الآجل</div>
+    </div>
+
    </body>
 </html>
