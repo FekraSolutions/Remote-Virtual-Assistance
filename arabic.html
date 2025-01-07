@@ -1,1 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>فكرة! خدمات تقنية اونلاين</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .icon img {
+            width: 80%; /* Adjust image size */
+            height: auto; /* Keep aspect ratio */
+        }
+
+        #languageSelect {
+            font-size: 16px;
+            padding: 5px;
+            background-color: transparent; /* Transparent background */
+            color: white; /* White text */
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Starry effect */
+            border: 1px solid; /* Thin border */
+            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1; /* Shiny gradient border */
+            border-radius: 5px;
+            outline: none; /* Remove default outline */
+            appearance: none; /* Hide default dropdown styling */
+            cursor: pointer;
+        }
+
+        #languageSelect:focus {
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8); /* Add glow effect when focused */
+        }
+#languageSelect option {
+    color: black;
+    background-color: transparent; /* Keep background transparent */
+}
+
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 60px;
+        }
+
+        .label {
+            font-size: 24px;
+            direction: rtl;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #D6B77E; /* Darker sand color */
+        }
+
+        .label:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Style specifically for the "Contact Us" label */
+        .label:last-child {
+            background-color: #8c6e4f; /* Even darker sand color */
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <img src="media/Language.png" alt="Language" style="height: 40px; margin-left: 2px;">
+        <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
+          <option value="ar">العربية</option>
+          <option value="en">English</option>
+        </select>
+    </div>
+    <div class="label-container">
+        <div class="label">التطبيقات</div>
+        <div class="label">خدماتنا</div>
+        <div class="label">مقالات</div>
+        <div class="label">تعرف علينا</div>
+        <div class="label">تواصل معنا</div>
+    </div>
+</body>
+</html>
