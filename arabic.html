@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,6 +73,25 @@
         .label:last-child {
             background-color: #8c6e4f; /* Even darker sand color */
         }
+        #contact-us-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.contact-options {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.contact-options img {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -88,7 +107,9 @@
         <div class="label">خدماتنا</div>
         <div class="label">المقالات</div>
         <div class="label">تعرف علينا</div>
-        <div class="label">تواصل معنا</div>
+        <div id="contact-us-container">
+  <div id="contact-us-button" class="label">تواصل معنا</div>
+</div>
     </div>
     <script>
     document.getElementById("languageSelect").addEventListener("change", function () {
@@ -99,6 +120,33 @@
             window.location.href = "arabic.html"; // Adjust to your English page if needed
         }
     });
+        //contact us
+        document.getElementById('contact-us-button').addEventListener('click', function () {
+  // Hide the "Contact us" button
+  this.style.display = 'none';
+
+  // Create a container for the new buttons
+  const contactOptions = document.createElement('div');
+  contactOptions.classList.add('contact-options');
+
+  // WhatsApp button
+  const whatsappButton = document.createElement('img');
+  whatsappButton.src = 'media/whatsapp.png';
+  whatsappButton.alt = 'WhatsApp';
+  whatsappButton.onclick = () => window.open('https://wa.me/201060469453?text=Hi', '_blank');
+  contactOptions.appendChild(whatsappButton);
+
+  // Outlook button
+  const outlookButton = document.createElement('img');
+  outlookButton.src = 'media/outlook.png';
+  outlookButton.alt = 'Outlook';
+  outlookButton.onclick = () => window.location.href = 'mailto:fekrabusinesssolutions@gmail.com';
+  contactOptions.appendChild(outlookButton);
+
+  // Append the new buttons to the container
+  document.getElementById('contact-us-container').appendChild(contactOptions);
+});
+
 </script>
 </body>
 </html>
