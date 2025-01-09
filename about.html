@@ -18,24 +18,24 @@
             background-size: 100% 100%;
             position: relative;
             overflow: hidden;
-            }
+        }
 
-.content-container {
-  width: 80%;
-  margin-top: 3%;  /* Set top margin separately */
-  margin-left: auto;
-  margin-right: auto;
-  background: rgba(211, 211, 211, 0.8); /* Light grey, 80% transparent */
-  padding: 20px;
-  text-align: center;
-  border-radius: 10px;
-  position: relative;
-}
+        .content-container {
+            width: 80%;
+            margin-top: 3%;  /* Set top margin separately */
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(211, 211, 211, 0.8); /* Light grey, 80% transparent */
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
 
-.content-text {
-  max-height: 400px;
-  overflow-y: auto;  /* Makes text scrollable if too much */
-}
+        .content-text {
+            max-height: 400px;
+            overflow-y: auto;  /* Makes text scrollable if too much */
+        }
     </style>
 </head>
 <body>
@@ -43,20 +43,20 @@
         <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
     </div>
     <div class="content-container">
-  <div class="content-text"></div>
-</div>
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-  fetch('media/about.md')
-    .then(response => response.text())
-    .then(data => {
-      // Parse the Markdown into HTML
-      document.querySelector('.content-text').innerHTML = marked.parse(data);
-    })
-    .catch(error => console.error('Error loading the Markdown:', error));
-});
-
-
-</script>
+        <div class="content-text"></div>
+    </div>
+    <!-- Include marked.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('media/about.md')
+            .then(response => response.text())
+            .then(data => {
+                // Parse the Markdown into HTML
+                document.querySelector('.content-text').innerHTML = marked.parse(data);
+            })
+            .catch(error => console.error('Error loading the Markdown:', error));
+    });
+    </script>
 </body>
 </html>
