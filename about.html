@@ -18,13 +18,57 @@
             background-size: 100% 100%;
             position: relative;
             overflow: hidden;
+            }
+
+        .content-container {
+  width: 80%;
+  margin: 10% auto;
+  background: rgba(169, 169, 169, 0.6); /* Grey, 60% transparent */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.content-text {
+  max-height: 400px;
+  overflow-y: auto;  /* Makes text scrollable if too much */
+}
+
+.scroll-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #008CBA;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.scroll-button:hover {
+  background-color: #005f73;
+}
+
     </style>
 </head>
 <body>
     <div style="position: absolute; top: 10px; left: 10px;">
         <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
     </div>
+    <div class="content-container">
+  <div class="content-text"></div>
+  <button class="scroll-button">Scroll</button>
+</div>
 <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  fetch('media/about.txt')
+    .then(response => response.text())
+    .then(data => {
+      document.querySelector('.content-text').innerText = data;
+    })
+    .catch(error => console.error('Error loading the text:', error));
+});
+
 </script>
 </body>
 </html>
