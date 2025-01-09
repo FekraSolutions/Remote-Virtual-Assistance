@@ -73,11 +73,6 @@
         .label:last-child {
             background-color: #8c6e4f; /* Even darker sand color */
         }
-
-            #robot {
-        transition: transform 0.3s;
-    }
-        
     </style>
 </head>
 <body>
@@ -95,7 +90,6 @@
         <div class="label">About us</div>
         <div class="label">Contact us</div>
     </div>
-    <div id="robot" style="position: absolute; width: 50px; height: 50px; background-color: gray; border-radius: 50%;"></div>
     <script>
     document.getElementById("languageSelect").addEventListener("change", function () {
         const selectedValue = this.value;
@@ -105,28 +99,6 @@
             window.location.href = "index.html"; // Adjust to your English page if needed
         }
     });
-
-         const robot = document.getElementById('robot');
-    let x = 0, y = 0;
-
-    function moveRobot() {
-        x += Math.random() * 100 - 50;
-        y += Math.random() * 100 - 50;
-        robot.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    setInterval(moveRobot, 1000);
-
-
-        robot.addEventListener('click', () => {
-    clearInterval(moveInterval); // Stop the robot
-    robot.style.transform = 'rotate(0deg)'; // Make it "look at the screen"
-    alert('Hello!'); // Show a message box
-});
-
-const moveInterval = setInterval(moveRobot, 1000); // Save the interval ID
-
-        
 </script>
 </body>
 </html>
