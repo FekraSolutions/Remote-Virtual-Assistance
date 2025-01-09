@@ -92,6 +92,17 @@
   height: 50px;
   cursor: pointer;
 }
+        #robot-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#robot {
+    width: 100px; /* Adjust size as needed */
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -111,6 +122,10 @@
   <div id="contact-us-button" class="label">Contact us</div>
 </div>
     </div>
+    <div id="robot-container">
+    <img id="robot" src="media/robot.gif" alt="Flying Robot">
+</div>
+
     <script>
     document.getElementById("languageSelect").addEventListener("change", function () {
         const selectedValue = this.value;
@@ -147,6 +162,40 @@
   document.getElementById('contact-us-container').appendChild(contactOptions);
 });
 
+
+         const robot = document.getElementById('robot');
+    let x = 0, y = 0; // Initial position
+    let xDirection = 1, yDirection = 1; // Movement direction
+    const speed = 2; // Adjust speed
+
+    function moveRobot() {
+        const screenWidth = window.innerWidth;
+        const screenHeight = window.innerHeight;
+        const robotWidth = robot.offsetWidth;
+        const robotHeight = robot.offsetHeight;
+
+        // Update position
+        x += speed * xDirection;
+        y += speed * yDirection;
+
+        // Check boundaries and reverse direction if needed
+        if (x <= 0 || x + robotWidth >= screenWidth) xDirection *= -1;
+        if (y <= 0 || y + robotHeight >= screenHeight) yDirection *= -1;
+
+        // Apply position
+        robot.style.transform = `translate(${x}px, ${y}px)`;
+        requestAnimationFrame(moveRobot); // Continue animation
+    }
+
+    // Start movement
+    moveRobot();
+
+    // Add click event
+    robot.addEventListener('click', () => {
+        alert('Hello world');
+    });
+
+        
 </script>
 </body>
 </html>
