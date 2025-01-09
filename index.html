@@ -73,32 +73,6 @@
         .label:last-child {
             background-color: #8c6e4f; /* Even darker sand color */
         }
-        .submenu {
-  display: none;
-  position: absolute;
-  background: white;
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 5px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.submenu a {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-  text-decoration: none;
-}
-
-.submenu a img {
-  width: 24px;
-  height: 24px;
-  margin-right: 8px;
-}
-
-.submenu a:last-child {
-  margin-bottom: 0;
-}
     </style>
 </head>
 <body>
@@ -114,23 +88,9 @@
         <div class="label">Our Services</div>
         <div class="label">BLOG</div>
         <div class="label">About us</div>
-        <div class="label" onclick="toggleSubMenu()">Contact us</div>
-<div class="submenu" id="submenu">
-  <a href="https://wa.me/201060469453?text=Hi" target="_blank">
-    <img src="media/whatsapp.png" alt="WhatsApp" title="Contact us on WhatsApp">
-  </a>
-  <a href="mailto:fekrabusinesssolutions@gmail.com">
-    <img src="media/outlook.png" alt="Outlook Email" title="Contact us via Email">
-  </a>
-</div>
-
+        <div class="label">Contact us</div>
     </div>
     <script>
-        function toggleSubMenu() {
-  const submenu = document.getElementById("submenu");
-  submenu.style.display = submenu.style.display === "block" ? "none" : "block";
-}
-
     document.getElementById("languageSelect").addEventListener("change", function () {
         const selectedValue = this.value;
         if (selectedValue === "ar") {
