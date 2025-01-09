@@ -166,26 +166,38 @@
          const robot = document.getElementById('robot');
     let x = 0, y = 0; // Initial position
     let xDirection = 1, yDirection = 1; // Movement direction
-    const speed = 2; // Adjust speed
+    const speed = 0.5; // Slower speed
 
-    function moveRobot() {
-        const screenWidth = window.innerWidth;
-        const screenHeight = window.innerHeight;
-        const robotWidth = robot.offsetWidth;
-        const robotHeight = robot.offsetHeight;
+function moveRobot() {
+    const screenWidth = window.innerWidth;
+    const screenHeight = window.innerHeight;
+    const robotWidth = robot.offsetWidth;
+    const robotHeight = robot.offsetHeight;
 
-        // Update position
-        x += speed * xDirection;
-        y += speed * yDirection;
+    // Update position
+    x += speed * xDirection;
+    y += speed * yDirection;
 
-        // Check boundaries and reverse direction if needed
-        if (x <= 0 || x + robotWidth >= screenWidth) xDirection *= -1;
-        if (y <= 0 || y + robotHeight >= screenHeight) yDirection *= -1;
-
-        // Apply position
-        robot.style.transform = `translate(${x}px, ${y}px)`;
-        requestAnimationFrame(moveRobot); // Continue animation
+    // Check boundaries and reverse direction if needed
+    if (x <= 0) {
+        x = 0;
+        xDirection *= -1;
+    } else if (x + robotWidth >= screenWidth) {
+        x = screenWidth - robotWidth;
+        xDirection *= -1;
     }
+    if (y <= 0) {
+        y = 0;
+        yDirection *= -1;
+    } else if (y + robotHeight >= screenHeight) {
+        y = screenHeight - robotHeight;
+        yDirection *= -1;
+    }
+
+    // Apply position
+    robot.style.transform = `translate(${x}px, ${y}px)`;
+    requestAnimationFrame(moveRobot); // Continue animation
+}
 
     // Start movement
     moveRobot();
