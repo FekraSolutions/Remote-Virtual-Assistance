@@ -20,33 +20,6 @@
             overflow: hidden;
         }
 
-        .icon img {
-            width: 80%; /* Adjust image size */
-            height: auto; /* Keep aspect ratio */
-        }
-
-        #languageSelect {
-            font-size: 16px;
-            padding: 5px;
-            background-color: transparent; /* Transparent background */
-            color: white; /* White text */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Starry effect */
-            border: 1px solid; /* Thin border */
-            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1; /* Shiny gradient border */
-            border-radius: 5px;
-            outline: none; /* Remove default outline */
-            appearance: none; /* Hide default dropdown styling */
-            cursor: pointer;
-        }
-
-        #languageSelect:focus {
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8); /* Add glow effect when focused */
-        }
-#languageSelect option {
-    color: black;
-    background-color: transparent; /* Keep background transparent */
-}
-
         .label-container {
             display: flex;
             flex-direction: column;
@@ -63,15 +36,36 @@
             cursor: pointer;
             text-align: center;
             background-color: #D6B77E; /* Darker sand color */
+            position: relative;
         }
 
         .label:hover {
             background-color: #e0e0e0;
         }
 
-        /* Style specifically for the "Contact Us" label */
         .label:last-child {
             background-color: #8c6e4f; /* Even darker sand color */
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #8c6e4f;
+            border-radius: 5px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .submenu img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            cursor: pointer;
         }
     </style>
 </head>
@@ -88,17 +82,32 @@
         <div class="label">Our Services</div>
         <div class="label">BLOG</div>
         <div class="label">About us</div>
-        <div class="label">Contact us</div>
+        <div class="label contact-us">
+            Contact us
+            <div class="submenu">
+                <img src="media/whatsapp.png" alt="WhatsApp" onclick="window.open('https://wa.me/201060469453?text=Hi', '_blank')">
+                <img src="media/outlook.png" alt="Outlook" onclick="window.location.href='mailto:fekrabusinesssolutions@gmail.com'">
+            </div>
+        </div>
     </div>
+
     <script>
-    document.getElementById("languageSelect").addEventListener("change", function () {
-        const selectedValue = this.value;
-        if (selectedValue === "ar") {
-            window.location.href = "arabic.html";
-        } else if (selectedValue === "en") {
-            window.location.href = "index.html"; // Adjust to your English page if needed
-        }
-    });
-</script>
+        document.getElementById("languageSelect").addEventListener("change", function () {
+            const selectedValue = this.value;
+            if (selectedValue === "ar") {
+                window.location.href = "arabic.html";
+            } else if (selectedValue === "en") {
+                window.location.href = "index.html"; // Adjust to your English page if needed
+            }
+        });
+
+        const contactUsLabel = document.querySelector(".contact-us");
+        const submenu = contactUsLabel.querySelector(".submenu");
+
+        contactUsLabel.addEventListener("click", function () {
+            // Toggle submenu visibility
+            submenu.style.display = submenu.style.display === "flex" ? "none" : "flex";
+        });
+    </script>
 </body>
 </html>
