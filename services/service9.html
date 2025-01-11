@@ -1,1 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fekra! Web site building & Developments</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('../media/back.webp') center center no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            overflow: hidden;
+        }
+     .header-container {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Dark background, 80% transparent */
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            gap: 30px; /* Space between icons */
+        }
 
+        .header-item {
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .header-item img {
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .header-item span {
+            display: block;
+            margin-top: 5px;
+            font-size: 14px;
+            color: white;
+        }
+        .content-container {
+            width: 80%;
+            margin-top: 3%;  /* Set top margin separately */
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(211, 211, 211, 0.8); /* Light grey, 80% transparent */
+            padding: 20px;
+            text-align: left;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .content-text {
+            max-height: 400px;
+            overflow-y: auto;  /* Makes text scrollable if too much */
+        }
+    </style>
+</head>
+<body>
+<div class="header-container">
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLScZMQ_X7PJuiOERaMxiKClD8Gx39clGmStDTHG9VZtW0-68Rg/viewform?usp=header" target="_blank">
+        <div class="header-item">
+            <img src="../media/shop.png" alt="Purchase Icon">
+            <span>PURCHASE</span>
+        </div>
+    </a>
+    <a href="https://wa.me/201060469453?text=Hi" target="_blank">
+        <div class="header-item">
+            <img src="../media/whatsapp.png" alt="WhatsApp Icon">
+            <span>WHATSAPP</span>
+        </div>
+    </a>
+    <a href="mailto:fekrabusinesssolutions@gmail.com" target="_blank">
+        <div class="header-item">
+            <img src="../media/outlook.png" alt="Contact Icon">
+            <span>CONTACT</span>
+        </div>
+    </a>
+</div>
+       <div class="content-container">
+        <div class="content-text">
+            <!-- Content goes here -->
+        </div>
+    </div>
+    <!-- Include marked.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('../services/service9.md')
+            .then(response => response.text())
+            .then(data => {
+                // Parse the Markdown into HTML
+                document.querySelector('.content-text').innerHTML = marked.parse(data);
+            })
+            .catch(error => console.error('Error loading the Markdown:', error));
+    });
+    </script>
+</body>
+</html>
