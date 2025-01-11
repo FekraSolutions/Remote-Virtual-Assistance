@@ -1,21 +1,12 @@
 ## About this Service
-Do you need Assistance with Ms Excel Work and Calculations?
-Do you need help with Macro? Visual Basic?
+Do you need assistance with Microsoft Office tasks, including Excel, Word, Outlook, or PowerPoint? Are you looking for a professional to help with Macros, Visual Basic programming, or custom automation solutions?
 
-## I will help you with my ten years of MS Excel and Visual Basic Experiences in:
-- Excel Data Scrapping
-- Excel Data Mining
-- Excel Data collection
-- Excel Data Entry
-- Excel Data Editing
-- Excel Data Cleaning
-- Convert Excel to PDF
-- Convert PDF to Excel to Word
-- Excel for Accounting
-- Excel Financial presentations and analysis
-- Macro and VBA create and modify
-- Charts, tables, and presentations
-- Custom formulas and calculations
-
-## Order Now
-You will be asked to submit requirements; In a few minutes you will receive my confirmation to start the work on your order.
+## I offer expert assistance backed by ten years of experience in MS Excel, Word, Outlook, PowerPoint, and Visual Basic, including:
+### Excel Services:
+- Excel Data Scraping and Mining
+- Data Collection, Entry, Editing, and Cleaning
+- Creating and Customizing Charts, Tables, and Dashboards
+- Accounting Spreadsheets and Financial Analysis
+- Custom Formulas and Calculations
+- Converting Excel to PDF or vice versa
+- Automation through Macros and VBA
