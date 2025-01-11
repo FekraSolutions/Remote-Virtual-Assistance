@@ -1,1 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fekra! MS Office Services</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
+        .content-container {
+            width: 80%;
+            margin-top: 3%;  /* Set top margin separately */
+            margin-left: auto;
+            margin-right: auto;
+            background: rgba(211, 211, 211, 0.8); /* Light grey, 80% transparent */
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            position: relative;
+        }
+
+        .content-text {
+            max-height: 400px;
+            overflow-y: auto;  /* Makes text scrollable if too much */
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+    </div>
+    <div class="content-container">
+        <div class="content-text"></div>
+    </div>
+    <!-- Include marked.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('services/service1.md')
+            .then(response => response.text())
+            .then(data => {
+                // Parse the Markdown into HTML
+                document.querySelector('.content-text').innerHTML = marked.parse(data);
+            })
+            .catch(error => console.error('Error loading the Markdown:', error));
+    });
+    </script>
+</body>
+</html>
