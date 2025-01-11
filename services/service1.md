@@ -37,5 +37,9 @@ Do you need assistance with Microsoft Office tasks, including Excel, Word, Outlo
 - Creating User Forms for Data Input and Management
 - Streamlining Data Integration Between Office Applications
 
-With my skills and expertise, I will help you save time, reduce manual effort, and achieve professional results for all your Microsoft Office projects.
-Let’s work together to bring your ideas to life!
+## How to Purchase?
+Check header's icons! There are three easy options to get started:
+- Fill out a quick Google Form with your requirements, and we will send you a quote within minutes.
+- Contact us now via WhatsApp for immediate assistance.
+- Reach out via email to discuss your project in detail.
+Choose the option that works best for you, and let’s get started!
