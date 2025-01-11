@@ -40,7 +40,7 @@
 </head>
 <body>
     <div style="position: absolute; top: 10px; left: 10px;">
-        <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+        <img src="../media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
     </div>
     <div class="content-container">
         <div class="content-text"></div>
@@ -49,7 +49,7 @@
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
     document.addEventListener("DOMContentLoaded", function() {
-        fetch('services/service1.md')
+        fetch('../services/service1.md')
             .then(response => response.text())
             .then(data => {
                 // Parse the Markdown into HTML
