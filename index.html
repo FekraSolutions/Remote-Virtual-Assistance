@@ -101,17 +101,25 @@
 }
 #introVideo {
     position: absolute;
-    top: 80px;  /* Position the video just below the logo and language select */
+    top: 80px;  /* Position below the logo and language select */
     left: 0;
     width: 100%; /* Full width */
-    max-height: 50vh; /* Limit the height to 50% of the viewport height */
-    object-fit: cover; /* Scale the video proportionally */
-    z-index: -1; /* Keep the video behind the other elements */
+    max-height: 50vh; /* Limit the height */
+    object-fit: cover; /* Maintain aspect ratio */
+    z-index: -1; /* Ensure it's behind other elements */
+    filter: brightness(70%) blur(5px); /* Optional: Add blur for a soft background effect */
 }
 
-
-
-
+#introVideo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0)); /* Darkens top and fades to transparent */
+    z-index: 1; /* Put the gradient overlay above the video */
+}
     </style>
 </head>
 <body>
