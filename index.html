@@ -21,24 +21,27 @@
             overflow: hidden;
         }
 
-        .icon img {
-            width: 80%; /* Adjust image size */
-            height: auto; /* Keep aspect ratio */
-        }
+.icon img {
+    width: 80%; /* Adjust image size */
+    height: auto;
+}
 
-        #languageSelect {
-            font-size: 16px;
-            padding: 5px;
-            background-color: transparent; /* Transparent background */
-            color: white; /* White text */
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8); /* Starry effect */
-            border: 1px solid; /* Thin border */
-            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1; /* Shiny gradient border */
-            border-radius: 5px;
-            outline: none; /* Remove default outline */
-            appearance: none; /* Hide default dropdown styling */
-            cursor: pointer;
-        }
+#languageSelect {
+    font-size: 16px;
+    padding: 5px;
+    background-color: transparent;
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    border: 1px solid;
+    border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
+    border-radius: 5px;
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+    position: relative; /* Ensure it stays in place */
+    top: -12px; /* Adjust as needed */
+}
+
 
         #languageSelect:focus {
             box-shadow: 0 0 8px rgba(212, 175, 55, 0.8); /* Add glow effect when focused */
@@ -98,13 +101,14 @@
 }
 #introVideo {
     position: absolute;
-    top: 0;  /* Position video at the top */
+    top: 80px;  /* Position the video just below the logo and language select */
     left: 0;
-    width: 100%; /* Ensure video takes the full width of the screen */
+    width: 100%; /* Full width */
     max-height: 50vh; /* Limit the height to 50% of the viewport height */
-    object-fit: cover; /* Make sure the video scales proportionally */
-    z-index: -1; /* Keep the video behind other elements */
+    object-fit: cover; /* Scale the video proportionally */
+    z-index: -1; /* Keep the video behind the other elements */
 }
+
 
 
 
