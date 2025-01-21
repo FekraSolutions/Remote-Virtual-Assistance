@@ -132,6 +132,12 @@
 </div>
     </div>
     <script>
+                window.onload = function() {
+    var video = document.getElementById('introVideo');
+    video.onended = function() {
+        video.pause();
+    };
+};
     document.getElementById("languageSelect").addEventListener("change", function () {
         const selectedValue = this.value;
         if (selectedValue === "en") {
