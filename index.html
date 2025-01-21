@@ -7,19 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="Tlogo.png" href="media/Tlogo.png">
     <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    flex-direction: column;
-    background: url('media/back.webp') center center no-repeat;
-    background-size: 100% 100%;
-    position: relative;
-    overflow: hidden;
-}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            overflow: hidden;
+        }
 
         .icon img {
             width: 80%; /* Adjust image size */
@@ -48,34 +48,37 @@ body {
     background-color: transparent; /* Keep background transparent */
 }
 
-.label-container {
-    position: relative; /* Keeps labels on top of the video */
-    z-index: 1; /* Makes sure the label container stays above the video */
-}
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 60px;
+        }
 
-.label {
-    font-size: 24px;
-    direction: rtl;
-    padding: 10px 20px;
-    border: 1px solid black;
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    background-color: #D6B77E; /* Darker sand color */
-}
+        .label {
+            font-size: 24px;
+            direction: rtl;
+            padding: 10px 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #D6B77E; /* Darker sand color */
+        }
 
-.label:hover {
-    background-color: #e0e0e0;
-}
+        .label:hover {
+            background-color: #e0e0e0;
+        }
 
-.label:last-child {
-    background-color: #8c6e4f; /* Even darker sand color */
-}
-#contact-us-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+        /* Style specifically for the "Contact Us" label */
+        .label:last-child {
+            background-color: #8c6e4f; /* Even darker sand color */
+        }
+        #contact-us-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .contact-options {
@@ -90,24 +93,9 @@ body {
   height: 50px;
   cursor: pointer;
 }
-.background-video {
-    position: absolute; /* Ensures it overlays content */
-    top: 50px; /* Adjust as needed to position it below the language selector */
-    left: 0;
-    width: 100%; /* Keep full width or adjust */
-    max-height: 300px; /* Limit height to avoid fullscreen effect */
-    object-fit: cover; /* Maintain aspect ratio */
-    z-index: -1; /* Ensures the video stays behind content */
-}
-.label-container {
-    position: relative; /* Keeps labels on top of the video */
-    z-index: 1;
-}
-
     </style>
 </head>
 <body>
-    <!-- Language Selector -->
     <div style="position: absolute; top: 10px; left: 10px;">
         <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
         <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
@@ -115,22 +103,14 @@ body {
             <option value="ar">العربية</option>
         </select>
     </div>
-
-    <!-- Background Video -->
-    <video class="background-video" autoplay muted playsinline id="backgroundVideo">
-        <source src="media/intro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <!-- Label Buttons -->
     <div class="label-container">
         <div class="label" onclick="location.href='apps.html'">Applications</div>
         <div class="label" onclick="location.href='services.html'">Our Services</div>
         <div class="label" onclick="location.href='blog.html'">BLOG</div>
         <div class="label" onclick="location.href='about.html'">About us</div>
         <div id="contact-us-container">
-            <div id="contact-us-button" class="label">Contact us</div>
-        </div>
+  <div id="contact-us-button" class="label">Contact us</div>
+</div>
     </div>
     <script>
     document.getElementById("languageSelect").addEventListener("change", function () {
@@ -168,11 +148,6 @@ body {
   document.getElementById('contact-us-container').appendChild(contactOptions);
 });
 
-                const video = document.getElementById('backgroundVideo');
-        video.addEventListener('ended', () => {
-            video.pause(); // Ensure it doesn't restart
-            video.currentTime = video.duration; // Hold at the last frame
-        });
 </script>
 </body>
 </html>
