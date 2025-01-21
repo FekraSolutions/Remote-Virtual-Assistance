@@ -7,19 +7,19 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="Tlogo.png" href="media/Tlogo.png">
     <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Cairo', sans-serif;
-            flex-direction: column;
-            background: url('media/back.webp') center center no-repeat;
-            background-size: 100% 100%;
-            position: relative;
-            overflow: hidden;
-        }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    flex-direction: column;
+    background: url('media/back.webp') center center no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    overflow: hidden;
+}
 
         .icon img {
             width: 80%; /* Adjust image size */
@@ -48,37 +48,34 @@
     background-color: transparent; /* Keep background transparent */
 }
 
-        .label-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin-top: 60px;
-        }
+.label-container {
+    position: relative; /* Keeps labels on top of the video */
+    z-index: 1; /* Makes sure the label container stays above the video */
+}
 
-        .label {
-            font-size: 24px;
-            direction: rtl;
-            padding: 10px 20px;
-            border: 1px solid black;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            background-color: #D6B77E; /* Darker sand color */
-        }
+.label {
+    font-size: 24px;
+    direction: rtl;
+    padding: 10px 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    background-color: #D6B77E; /* Darker sand color */
+}
 
-        .label:hover {
-            background-color: #e0e0e0;
-        }
+.label:hover {
+    background-color: #e0e0e0;
+}
 
-        /* Style specifically for the "Contact Us" label */
-        .label:last-child {
-            background-color: #8c6e4f; /* Even darker sand color */
-        }
-        #contact-us-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+.label:last-child {
+    background-color: #8c6e4f; /* Even darker sand color */
+}
+#contact-us-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
 .contact-options {
@@ -93,14 +90,14 @@
   height: 50px;
   cursor: pointer;
 }
-               .background-video {
+.background-video {
     position: absolute; /* Ensures it overlays content */
     top: 50px; /* Adjust as needed to position it below the language selector */
     left: 0;
     width: 100%; /* Keep full width or adjust */
     max-height: 300px; /* Limit height to avoid fullscreen effect */
     object-fit: cover; /* Maintain aspect ratio */
-    z-index: 0; /* Ensure it appears above the background but below content */
+    z-index: -1; /* Ensures the video stays behind content */
 }
 .label-container {
     position: relative; /* Keeps labels on top of the video */
