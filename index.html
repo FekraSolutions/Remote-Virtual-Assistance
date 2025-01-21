@@ -93,6 +93,16 @@
   height: 50px;
   cursor: pointer;
 }
+        #introVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adjust video to full width */
+    height: 100vh; /* Cover the viewport height */
+    object-fit: cover; /* Ensure video covers the background */
+    z-index: -1; /* Ensure the video is in the background */
+}
+
     </style>
 </head>
 <body>
@@ -103,6 +113,10 @@
             <option value="ar">العربية</option>
         </select>
     </div>
+    <video id="introVideo" autoplay muted playsinline>
+    <source src="media/intro.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
     <div class="label-container">
         <div class="label" onclick="location.href='apps.html'">Applications</div>
         <div class="label" onclick="location.href='services.html'">Our Services</div>
@@ -113,6 +127,13 @@
 </div>
     </div>
     <script>
+        window.onload = function() {
+    var video = document.getElementById('introVideo');
+    video.onended = function() {
+        video.pause();
+    };
+};
+
     document.getElementById("languageSelect").addEventListener("change", function () {
         const selectedValue = this.value;
         if (selectedValue === "ar") {
