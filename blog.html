@@ -3,29 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLOG</title>
+    <title>BLOG - Fekra! Business Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="media/Tlogo.png">
+    <link rel="icon" type="Tlogo.png" href="media/Tlogo.png">
     <style>
-        /* Ensure full screen background */
 body {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
     margin: 0;
     font-family: 'Cairo', sans-serif;
+    flex-direction: column;
     background: url('media/back.webp') center center no-repeat;
-    background-size: cover; /* Ensures the image fully fits the screen */
-    background-attachment: fixed; /* Keeps it fixed when scrolling */
-    background-position: center; /* Centers the image */
-    min-height: 100vh;
-    width: 100%;
-    overflow: auto; /* Enables scrolling if content is too long */
+    background-size: 100% 100%;
+    position: relative;
+    overflow: auto; /* Enable scrolling */
 }
 
-
-
-        /* Scrollable main container */
 .container {
     background: rgba(255, 255, 255, 0.9);
     padding: 20px;
@@ -33,14 +27,10 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     width: 90%;
     max-width: 600px;
-    min-height: 100vh; /* Allows auto-expansion */
-    margin-top: 5vh;
-    overflow: hidden; /* Prevents unnecessary scrolling inside the container */
+    margin-top: 5vh; /* Provides suitable spacing for all devices */
 }
 
-
-        /* Blog styling */
-        .blog-subcontainer {
+                .blog-subcontainer {
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 8px;
@@ -65,36 +55,28 @@ body {
             font-size: 16px;
             color: #333;
         }
-
-        /* Make links look clickable */
-        .blog-subcontainer:hover {
-            background: #f0f0f0;
-        }
     </style>
 </head>
 <body>
     <div style="position: absolute; top: 10px; left: 10px;">
         <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-            <img src="media/Tlogo.png" alt="Logo" style="height: 40px;">
-        </a>
+    <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+</a>
     </div>
 
-    <div class="container">
-        <div class="blog-subcontainer" data-url="blogs/Howtousefekracashiererp.html">
+     <div class="container">
+        <div class="blog-subcontainer">
             <div class="blog-item">
                 <img src="media/برنامج كاشير وحسابات المحلات.jpg" alt="Blog Thumbnail">
-                <div class="blog-text">شرح استخدام برنامج كاشير وحسابات المحلات من فكرة</div>
+                <div class="blog-text">User-Manual Store Cashier & ERP Systems from Fekra!</div>
             </div>
         </div>
-        <div class="blog-subcontainer" data-url="blogs/AnotherBlog.html">
+        <div class="blog-subcontainer">
             <div class="blog-item">
                 <img src="media/منبه مجاني.png" alt="Blog Thumbnail">
-                <div class="blog-text">منبه راحة العين المجاني - كل المعلومات</div>
+                <div class="blog-text">Eyerelax - 202020 - Free Web Alarm</div>
             </div>
         </div>
     </div>
-
-    <script>
-    </script>
 </body>
 </html>
