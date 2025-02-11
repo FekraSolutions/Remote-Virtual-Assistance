@@ -15,10 +15,14 @@ body {
     font-family: 'Cairo', sans-serif;
     flex-direction: column;
     background: url('media/back.webp') center center no-repeat;
-    background-size: 100% 100%;
-    position: relative;
-    overflow: auto; /* Enable scrolling */
+    background-size: cover; /* Ensures the image fully fits the screen */
+    background-attachment: fixed; /* Keeps background fixed while scrolling */
+    background-position: center; /* Centers the image */
+    min-height: 100vh; /* Ensures the background covers the full screen */
+    width: 100%;
+    overflow: auto; /* Enables scrolling if content is longer */
 }
+
 
 .container {
     background: rgba(255, 255, 255, 0.9);
