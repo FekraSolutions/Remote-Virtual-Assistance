@@ -8,17 +8,21 @@
     <link rel="icon" type="image/png" href="media/Tlogo.png">
     <style>
         /* Ensure full screen background */
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            font-family: 'Cairo', sans-serif;
-            background: url('media/back.webp') center center no-repeat;
-            background-size: cover;
-            min-height: 100vh;
-            overflow: auto; /* Enables scrolling when needed */
-        }
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: url('media/back.webp') center center no-repeat;
+    background-size: contain;  /* Show full background image */
+    background-attachment: fixed;  /* Prevent zoom effect */
+    background-color: #000;  /* Fallback color */
+    min-height: 100vh;
+    width: 100%;
+    overflow: auto; /* Enable scrolling */
+}
+
 
         /* Scrollable main container */
         .container {
