@@ -15,25 +15,29 @@ body {
     margin: 0;
     font-family: 'Cairo', sans-serif;
     background: url('media/back.webp') center center no-repeat;
-    background-size: contain;  /* Show full background image */
-    background-attachment: fixed;  /* Prevent zoom effect */
-    background-color: #000;  /* Fallback color */
+    background-size: cover; /* Ensures the image fully fits the screen */
+    background-attachment: fixed; /* Keeps it fixed when scrolling */
+    background-position: center; /* Centers the image */
     min-height: 100vh;
     width: 100%;
-    overflow: auto; /* Enable scrolling */
+    overflow: auto; /* Enables scrolling if content is too long */
 }
 
 
+
         /* Scrollable main container */
-        .container {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            width: 90%;
-            max-width: 600px;
-            margin: 5vh auto; /* Provides suitable spacing for all devices */
-        }
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    min-height: 100vh; /* Allows auto-expansion */
+    margin-top: 5vh;
+    overflow: hidden; /* Prevents unnecessary scrolling inside the container */
+}
+
 
         /* Blog styling */
         .blog-subcontainer {
@@ -91,14 +95,6 @@ body {
     </div>
 
     <script>
-        document.querySelectorAll(".blog-subcontainer").forEach(item => {
-            item.addEventListener("click", function() {
-                const url = this.getAttribute("data-url");
-                if (url) {
-                    window.open(url, "_blank");
-                }
-            });
-        });
     </script>
 </body>
 </html>
