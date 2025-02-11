@@ -5,32 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLOG</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="Tlogo.png" href="media/Tlogo.png">
+    <link rel="icon" type="image/png" href="media/Tlogo.png">
     <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    flex-direction: column;
-    background: url('media/back.webp') center center no-repeat;
-    background-size: 100% 100%;
-    position: relative;
-    overflow: auto; /* Enable scrolling */
-}
+        /* Ensure full screen background */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            overflow: auto; /* Enables scrolling when needed */
+        }
 
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    margin-top: 5vh; /* Provides suitable spacing for all devices */
-}
+        /* Scrollable main container */
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            margin: 5vh auto; /* Provides suitable spacing for all devices */
+        }
 
-                .blog-subcontainer {
+        /* Blog styling */
+        .blog-subcontainer {
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 8px;
@@ -55,33 +57,44 @@ body {
             font-size: 16px;
             color: #333;
         }
+
+        /* Make links look clickable */
+        .blog-subcontainer:hover {
+            background: #f0f0f0;
+        }
     </style>
 </head>
 <body>
     <div style="position: absolute; top: 10px; left: 10px;">
         <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-    <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-</a>
+            <img src="media/Tlogo.png" alt="Logo" style="height: 40px;">
+        </a>
     </div>
 
-     <div class="container">
-        <div class="blog-subcontainer">
+    <div class="container">
+        <div class="blog-subcontainer" data-url="blogs/Howtousefekracashiererp.html">
             <div class="blog-item">
                 <img src="media/برنامج كاشير وحسابات المحلات.jpg" alt="Blog Thumbnail">
                 <div class="blog-text">شرح استخدام برنامج كاشير وحسابات المحلات من فكرة</div>
             </div>
         </div>
-        <div class="blog-subcontainer">
+        <div class="blog-subcontainer" data-url="blogs/AnotherBlog.html">
             <div class="blog-item">
                 <img src="media/منبه مجاني.png" alt="Blog Thumbnail">
                 <div class="blog-text">منبه راحة العين المجاني - كل المعلومات</div>
             </div>
         </div>
-      </div>
-  <script>
-    document.querySelector(".blog-subcontainer").addEventListener("click", function() {
-    window.open("blogs/Howtousefekracashiererp.html", "_blank");
-});
-  </script>
+    </div>
+
+    <script>
+        document.querySelectorAll(".blog-subcontainer").forEach(item => {
+            item.addEventListener("click", function() {
+                const url = this.getAttribute("data-url");
+                if (url) {
+                    window.open(url, "_blank");
+                }
+            });
+        });
+    </script>
 </body>
 </html>
