@@ -89,9 +89,22 @@ body {
             </div>
         </div>
         <div class="blog-subcontainer" >
-            <div class="blog-item">
-            </div>
+        <div class="content-text"></div>
         </div>
     </div>
+    
+    <!-- Include marked.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        fetch('media/Howtousefekracashiererp.md')
+            .then(response => response.text())
+            .then(data => {
+                // Parse the Markdown into HTML
+                document.querySelector('.content-text').innerHTML = marked.parse(data);
+            })
+            .catch(error => console.error('Error loading the Markdown:', error));
+    });
+    </script>
 </body>
 </html>
