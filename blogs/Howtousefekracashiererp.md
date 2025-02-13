@@ -6,10 +6,10 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier1.png)
 * Register an account from the homepage.
 * From the same page, you can log in afterward.
-* You record the inventory purchase transactions on this purchase inventory page.
-FAQ: I already have a running business. How can we record the on-hand inventory balance to use the application?
-Answer: Option (1) is to record them as purchases. Option (2) is to contact us. And we can help in mass amounts.
 ### Record Inventory Purchases
+* You record the inventory purchase transactions on this purchase inventory page.
+**FAQ:** I already have a running business. How can we record the on-hand inventory balance to use the application?
+**Answer:** Option (1) is to record them as purchases. Option (2) is to contact us. And we can help in mass amounts.
 * Let's learn how to record inventory purchases.
 * Go to the Inventory Purchases page.
 * With the camera/scanner of any device, you scan the barcode to find it appearing like this.
