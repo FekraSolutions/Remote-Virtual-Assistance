@@ -47,13 +47,20 @@ body {
     margin-top: 5vh; /* Provides suitable spacing for all devices */
 }
 
-                .blog-subcontainer {
-            border: 1px solid #ccc;
-            padding: 10px;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            cursor: pointer;
-        }
+.blog-subcontainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+
+.content-text img {
+    max-width: 100%; /* Make sure the image fits within the container */
+    height: auto;    /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the image stays contained within the bounds */
+}
 
         .blog-item {
             display: flex;
