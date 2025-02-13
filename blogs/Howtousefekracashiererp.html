@@ -96,15 +96,29 @@ body {
     <!-- Include marked.js library -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        fetch('../blogs/Howtousefekracashiererp.md')
-            .then(response => response.text())
-            .then(data => {
-                // Parse the Markdown into HTML
-                document.querySelector('.content-text').innerHTML = marked.parse(data);
-            })
-            .catch(error => console.error('Error loading the Markdown:', error));
-    });
-    </script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('../blogs/Howtousefekracashiererp.md')
+        .then(response => response.text())
+        .then(data => {
+            // Parse the Markdown into HTML
+            var htmlContent = marked.parse(data);
+
+            // Manually fix image URLs if necessary
+            var container = document.querySelector('.content-text');
+            container.innerHTML = htmlContent;
+
+            // Fix any potential image URL issues dynamically
+            var images = container.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.src.startsWith('https://raw.githubusercontent.com/')) {
+                    img.src = img.src; // Ensure the URL is correct
+                }
+            });
+        })
+        .catch(error => console.error('Error loading the Markdown:', error));
+});
+</script>
+
 </body>
 </html>
