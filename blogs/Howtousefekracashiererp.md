@@ -3,7 +3,7 @@ A simple web application that runs on any mobile or computer internet browser. I
 In return, you get ready-to-print reports for both inventory & cash (So far. We do update!). Therefore, you gain control over all balances and get the space to leave your store to employees with peace of mind.
 ## How to Use Fekra! Stores' Cashier & ERP System
 ### Register a New Account
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/howtocashier1.png)
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier1.png)
 * Register an account from the homepage.
 * From the same page, you can log in afterward.
 * You record the inventory purchase transactions on this purchase inventory page.
