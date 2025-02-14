@@ -5,7 +5,22 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 ### Register a New Account
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier1.png)
 * Register an account from the homepage.
+* In one minute, register via a simple Google form with any Google mail. 
+* You CHOOSE store type during registration. (e.g. Supermarket, Gift shop, Building materials, etc.)
 * From the same page, you can log in afterward.
+### Main Menu
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier2.png)
+1- Mobile/Computer friendly Store Cashier Application
+2- Record Inventory Purchases
+3- Access Inventory Report
+4- Access Cash Report
+### Use the Cashier Application
+* Go to the Cashier Page.
+* With the camera/scanner of any device, you can scan the barcode to find it appearing like his.
+* The default quantity is 1.
+* That's it! You can press save or scan another item.
+* You type how much the client paid, and the change appears automatically.
+* Then, you post the sale.
 ### Record Inventory Purchases
 * You record the inventory purchase transactions on this purchase inventory page.
 * **FAQ:** I already have a running business. How can we record the on-hand inventory balance to use the application?
@@ -21,13 +36,6 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 * Let's try to press "Save."
 * Here, you write the invoice number and vendor name.
 * Here, you choose cash and press save.
-### Use the Cashier Application
-* Go to the Cashier Page.
-* With the camera/scanner of any device, you can scan the barcode to find it appearing like his.
-* The default quantity is 1.
-* That's it! You can press save or scan another item.
-* You type how much the client paid, and the change appears automatically.
-* Then, you post the sale.
 ### Using the Inventory Report
 * Choose the inventory report starting date
 * Choose the inventory report ending date
