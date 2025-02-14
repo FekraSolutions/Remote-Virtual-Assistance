@@ -4,7 +4,7 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 ## How to Use Fekra! Stores' Cashier & ERP System
 ### Register a New Account
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier1.png)
-* Register an account from the homepage.
+* [Register an account from the homepage.]([https://google.com](https://fekrasolutions.github.io/Stores-Cashier-ERP-System/))
 * In one minute, register via a simple Google form with any Google mail. 
 * You CHOOSE store type during registration. (e.g. Supermarket, Gift shop, Building materials, etc.)
 * From the same page, you can log in afterward.
