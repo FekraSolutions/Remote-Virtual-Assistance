@@ -8,12 +8,12 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 * In one minute, register via a simple Google form with any Google mail. 
 * You CHOOSE store type during registration. (e.g. Supermarket, Gift shop, Building materials, etc.)
 * From the same page, you can log in afterward.
-### Main Menu
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier2.png)
-1- Mobile/Computer friendly Store Cashier Application
-2- Record Inventory Purchases
-3- Access Inventory Report
-4- Access Cash Report
+### Main Menu  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier2.png)  
+1. Mobile/Computer friendly Store Cashier Application  
+2. Record Inventory Purchases  
+3. Access Inventory Report  
+4. Access Cash Report  
 ### Use the Cashier Application
 * Go to the Cashier Page.
 * With the camera/scanner of any device, you can scan the barcode to find it appearing like his.
