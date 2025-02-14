@@ -13,14 +13,24 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 1. Mobile/Computer friendly Store Cashier Application  
 2. Record Inventory Purchases  
 3. Access Inventory Report  
-4. Access Cash Report  
-### Use the Cashier Application
-* Go to the Cashier Page.
-* With the camera/scanner of any device, you can scan the barcode to find it appearing like his.
-* The default quantity is 1.
-* That's it! You can press save or scan another item.
-* You type how much the client paid, and the change appears automatically.
-* Then, you post the sale.
+4. Access Cash Report
+* **FAQ:** How do I scan barcodes?
+* **Answer:** Via mobile, with the camera! You can also use a camera/scanner with computers.  
+### Online Cashier Application
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier3.png)  
+* Once you scan, automatic generation of:
+1. Barcode.
+2. Invoice number.
+3. Invoice Date. 
+4. Item Category
+5. Item Name
+6. Unit of Measurement
+7. Default quantity is (1). You can change it. 
+8. Selling price
+9. Total
+10. Will take you to the "Pay and Next!" page. 
+11. Will cancel the invoice. 
+12. Your camera/scanner preview.
 ### Record Inventory Purchases
 * You record the inventory purchase transactions on this purchase inventory page.
 * **FAQ:** I already have a running business. How can we record the on-hand inventory balance to use the application?
