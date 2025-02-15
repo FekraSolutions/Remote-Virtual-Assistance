@@ -1,6 +1,10 @@
 # Free Stores Cashier POS | Fekra! User Manual
 A simple web application that runs on any mobile or computer internet browser. It already contains an item database for posting purchases and sales for many fields, such as supermarkets, gift shops, herbs & seeds, stationery shops, etc.
 In return, you get ready-to-print reports for both inventory & cash (So far. We do update!). Therefore, you gain control over all balances and get the space to leave your store to employees with peace of mind.
+**Contents:**
+1. How to Use Fekra! Stores' Cashier & ERP System
+2. Why Use It
+3. Is It Updating Continuously? Will It Stay Free?
 ## How to Use Fekra! Stores' Cashier & ERP System
 ### Register a New Account
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier1.png)
