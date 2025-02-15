@@ -10,14 +10,14 @@
 
 ## كيفية استخدام نظام نقاط البيع وإدارة المخزون من Fekra!  
 ### تسجيل حساب جديد  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier1.png)  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/Arabichowtocashier1.png)  
 * [سجّل حسابًا من الصفحة الرئيسية.](https://fekrasolutions.github.io/Stores-Cashier-ERP-System/)  
 * في دقيقة واحدة، قم بالتسجيل عبر نموذج جوجل بسيط باستخدام أي بريد Gmail.  
 * اختر نوع المتجر أثناء التسجيل (مثل السوبر ماركت، متاجر الهدايا، مواد البناء، إلخ).  
 * من نفس الصفحة، يمكنك الدخول لاحقًا.  
 
 ### القائمة الرئيسية  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier2.png)  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/Arabichowtocashier2.png)  
 1. تطبيق نقاط البيع المتوافق مع الهاتف المحمول والكمبيوتر.  
 2. تسجيل مشتريات المخزون.  
 3. الوصول إلى تقرير المخزون.  
@@ -27,7 +27,7 @@
 * **الإجابة:** عبر الهاتف المحمول باستخدام الكاميرا! كما يمكنك استخدام كاميرا أو ماسح ضوئي مع الكمبيوتر.  
 
 ### تطبيق الكاشير الإلكتروني  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier3.png)  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/Arabichowtocashier3.png)  
 
 **بمجرد المسح، يتم إنشاء ما يلي تلقائيًا:**  
 1. الباركود.  
@@ -44,7 +44,7 @@
 12. معاينة الكاميرا/الماسح الضوئي الخاص بك.  
 
 ### تسجيل مشتريات المخزون  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier4.png)  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/Arabichowtocashier4.png)  
 1. مسح الباركود باستخدام الكاميرا/الماسح الضوئي.  
 2. اختيار/البحث/إدخال يدوي لفئة العنصر.  
 3. اختيار/البحث/إدخال يدوي لاسم العنصر.  
@@ -60,12 +60,12 @@
 * **الإجابة:** الخيار (1) هو تسجيلها كمشتريات. الخيار (2) هو الاتصال بنا، ويمكننا المساعدة في إدخال كميات كبيرة دفعة واحدة.  
 
 ### استخدام تقرير المخزون  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier5.png)  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/Arabichowtocashier5.png)  
 1. اختيار تاريخ بداية تقرير المخزون.  
 2. اختيار تاريخ نهاية تقرير المخزون.  
 
 ### استخدام تقرير النقدية  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier6.png)  
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/Arabichowtocashier6.png)  
 * اختيار تاريخ بداية تقرير النقدية.  
 * اختيار تاريخ نهاية تقرير النقدية.  
 
