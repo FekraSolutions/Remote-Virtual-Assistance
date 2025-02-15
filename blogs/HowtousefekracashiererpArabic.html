@@ -34,8 +34,10 @@ body {
     min-height: 100vh; /* Ensures the background covers the full screen */
     width: 100%;
     overflow: auto; /* Enables scrolling if content is longer */
+    direction: rtl;
+    text-align: right;
+    unicode-bidi: embed; /* Ensures proper RTL rendering */
 }
-
 
 .container {
     background: rgba(255, 255, 255, 0.9);
