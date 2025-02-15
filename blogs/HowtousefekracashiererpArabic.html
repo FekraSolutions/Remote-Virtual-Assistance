@@ -1,1 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="شرح طريقة استخدام تطبيق كاشير وحسابات المحلات المجاني من فكرة! مراقبة سهلة ومحكمة للنقدية، المخزون، أرصدة الآجل، والمزيد">
+    <title>طريقة الاستخدام = برنامج كاشير المحلات التجارية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="../media/Tlogo.png" href="../media/Tlogo.png">
+    <meta property="og:title" content="تطبيق كاشير وحسابات المحلات التجارية">
+<meta property="og:description" content="إدارة متجرك بسهولة مع نظام كاشير مجاني وآمن يوفر لك كل ما تحتاجه لتنظيم عمليات البيع والمخزون بكفاءة. جربه اليوم!">
+<meta property="og:image" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png">
+<meta property="og:url" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/blogs/Howtousefekracashiererp.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Fekra! Business Solutions">
 
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="تطبيق كاشير وحسابات المحلات التجارية">
+<meta name="twitter:description" content="إدارة متجرك بسهولة مع نظام كاشير مجاني وآمن يوفر لك كل ما تحتاجه لتنظيم عمليات البيع والمخزون بكفاءة. جربه اليوم!">
+<meta name="twitter:image" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png">
+<meta name="twitter:url" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/blogs/Howtousefekracashiererp.html">
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    flex-direction: column;
+    background: url('../media/back.webp') center center no-repeat;
+    background-size: cover; /* Ensures the image fully fits the screen */
+    background-attachment: fixed; /* Keeps background fixed while scrolling */
+    background-position: center; /* Centers the image */
+    min-height: 100vh; /* Ensures the background covers the full screen */
+    width: 100%;
+    overflow: auto; /* Enables scrolling if content is longer */
+}
+
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1200px; /* Increase max-width for wider screens */
+    margin-top: 5vh; /* Provides suitable spacing for all devices */
+}
+
+.blog-subcontainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+.blog-textsubcontainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+.content-text img {
+    max-width: 100%; /* Make sure the image fits within the container */
+    height: auto;    /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the image stays contained within the bounds */
+}
+
+        .blog-item {
+            display: flex;
+            align-items: center;
+        }
+        .blog-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .blog-item .blog-text {
+            font-size: 16px;
+            color: #333;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
+    <img src="../media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+</a>
+    </div>
+
+     <div class="container">
+        <div class="blog-subcontainer" onclick="window.open('https://youtu.be/6SF1ifh--8Q', '_blank')">
+            <div class="blog-item">
+                <img src="../media/برنامج كاشير وحسابات المحلات.jpg" alt="Blog Thumbnail">
+                <div class="blog-text">مشاهدة فيديو يوتيوب (3 دقائق)</div>
+            </div>
+        </div>
+        <div class="blog-textsubcontainer" >
+        <div class="content-text"></div>
+        </div>
+    </div>
+    
+    <!-- Include marked.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('../blogs/HowtousefekracashiererpArabic.md')
+        .then(response => response.text())
+        .then(data => {
+            // Parse the Markdown into HTML
+            var htmlContent = marked.parse(data);
+
+            // Manually fix image URLs if necessary
+            var container = document.querySelector('.content-text');
+            container.innerHTML = htmlContent;
+
+            // Fix any potential image URL issues dynamically
+            var images = container.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.src.startsWith('https://raw.githubusercontent.com/')) {
+                    img.src = img.src; // Ensure the URL is correct
+                }
+            });
+        })
+        .catch(error => console.error('Error loading the Markdown:', error));
+});
+</script>
+
+</body>
+</html>
