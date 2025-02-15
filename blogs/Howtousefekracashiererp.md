@@ -75,3 +75,6 @@ The system comes with an extensive item database covering various store types, m
 
 ✅ Seamless & Free Store Management
 From checkout to reporting, everything is streamlined for a smooth experience. Best of all, it’s completely free—no hidden fees, no subscriptions.
+## Is It Updating Continuously? Will It Stay Free?
+Absolutely! Every time you refresh your browser, you’ll find updates! We are constantly improving the system 24/7, adding new features, enhancing performance, and ensuring a seamless experience.
+This app is on a fast track to innovation, and it will soon stun the world. Best of all, it will always remain free—empowering businesses without hidden costs. Stay tuned for what’s coming next! 🔥
