@@ -50,9 +50,8 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier5.png)
 1. Choose the inventory report starting date
 2. Choose the inventory report ending date
-* That's it!
+
 ### Using the Cash Report
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier6.png)
 * Choose the cash report starting date.
 * Choose the cash report ending date.
-* That's it! 
