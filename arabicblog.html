@@ -1,1 +1,86 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مقالات المدونة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="Tlogo.png" href="media/Tlogo.png">
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    flex-direction: column;
+    background: url('media/back.webp') center center no-repeat;
+    background-size: cover; /* Ensures the image fully fits the screen */
+    background-attachment: fixed; /* Keeps background fixed while scrolling */
+    background-position: center; /* Centers the image */
+    min-height: 100vh; /* Ensures the background covers the full screen */
+    width: 100%;
+    overflow: auto; /* Enables scrolling if content is longer */
+}
 
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 600px;
+    margin-top: 5vh; /* Provides suitable spacing for all devices */
+}
+
+                .blog-subcontainer {
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+
+        .blog-item {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px;
+        }
+
+        .blog-item .blog-text {
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
+    <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+</a>
+    </div>
+
+     <div class="container">
+        <div class="blog-subcontainer" onclick="window.open('blogs/HowtousefekracashiererpArabic.html', '_blank')">
+            <div class="blog-item">
+                <img src="media/برنامج كاشير وحسابات المحلات.jpg" alt="Blog Thumbnail">
+                <div class="blog-text">دليل استخدام تطبيق كاشير وحسابات المحلات</div>
+            </div>
+        </div>
+        <div class="blog-subcontainer">
+            <div class="blog-item">
+                <img src="media/منبه مجاني.png" alt="Blog Thumbnail">
+                <div class="blog-text">Eyerelax - 202020 - Free Web Alarm</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
