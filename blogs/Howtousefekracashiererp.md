@@ -33,7 +33,7 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 11. Will cancel the invoice. 
 12. Your camera/scanner preview.
 ### Record Inventory Purchases
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier3.png)
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier4.png)
 1. Scan a barcode with a camera/scanner.
 2. Choose/search/free type category name. 
 3. Choose/search/free type item name. 
