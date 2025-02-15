@@ -18,7 +18,8 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 * **Answer:** Via mobile, with the camera! You can also use a camera/scanner with computers.  
 ### Online Cashier Application
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier3.png)  
-* Once you scan, automatic generation of:
+
+**Once you scan, automatic generation of:**
 1. Barcode.
 2. Invoice number.
 3. Invoice Date. 
@@ -32,25 +33,26 @@ In return, you get ready-to-print reports for both inventory & cash (So far. We 
 11. Will cancel the invoice. 
 12. Your camera/scanner preview.
 ### Record Inventory Purchases
-* You record the inventory purchase transactions on this purchase inventory page.
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier3.png)
+1. Scan a barcode with a camera/scanner.
+2. Choose/search/free type category name. 
+3. Choose/search/free type item name. 
+4. Choose the unit of measurement.
+5. Type quantity
+6. Type the purchase price.
+7. Automatic total
+8. Type the selling price. 
+9. Press Another Item to scan an additional item in the same invoice. 
+10. Or press Save to save the invoice. 
 * **FAQ:** I already have a running business. How can we record the on-hand inventory balance to use the application?
 * **Answer:** Option (1) is to record them as purchases. Option (2) is to contact us. And we can help in mass amounts.
-* Let's learn how to record inventory purchases.
-* Go to the Inventory Purchases page.
-* With the camera/scanner of any device, you scan the barcode to find it appearing like this.
-* Search, select, or type the category name.
-* Search, select, or type the item name.
-* Choose the unit of measurement.
-* Type the quantity, purchase price, and selling price per unit.
-* Now, we can start recording another item in the same invoice by selecting "Another item" or posting the invoice by pressing "Save."
-* Let's try to press "Save."
-* Here, you write the invoice number and vendor name.
-* Here, you choose cash and press save.
 ### Using the Inventory Report
-* Choose the inventory report starting date
-* Choose the inventory report ending date
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier5.png)
+1. Choose the inventory report starting date
+2. Choose the inventory report ending date
 * That's it!
 ### Using the Cash Report
-* Choose the inventory report starting date.
-* Choose the inventory report ending date.
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/main/media/howtocashier6.png)
+* Choose the cash report starting date.
+* Choose the cash report ending date.
 * That's it! 
