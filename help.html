@@ -1,130 +1,188 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>الصفحة الرئيسية</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fekra Chat App</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Cairo', sans-serif;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      flex-direction: column;
+    body { font-family: Arial, sans-serif; padding: 10px; margin: 0; background: #f9f9f9; }
+    .btn { padding: 10px 20px; margin: 10px; background: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer; }
+    .hidden { display: none; }
+    #chat, #loginForm, #teamPanel { max-width: 500px; margin: 20px auto; }
+    input[type="text"], input[type="password"], input[type="file"] {
+      width: 100%; padding: 8px; margin: 5px 0; border-radius: 4px; border: 1px solid #ccc;
     }
-
-    .button {
-      padding: 20px 40px;
-      font-size: 1.2rem;
-      margin: 15px;
-      border: none;
-      border-radius: 12px;
-      background-color: #007bff;
-      color: white;
-      cursor: pointer;
-      width: 80%;
-      max-width: 300px;
-      transition: background-color 0.3s ease;
-    }
-
-    .button:hover {
-      background-color: #0056b3;
-    }
-
-    /* النافذة المنبثقة */
-    .popup {
-      position: fixed;
-      top: 0; right: 0; bottom: 0; left: 0;
-      background: rgba(0, 0, 0, 0.5);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      z-index: 999;
-    }
-
-    .popup-content {
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-      text-align: center;
-    }
-
-    .popup-content h2 {
-      margin-bottom: 20px;
-    }
-
-    .popup-content input {
-      width: 100%;
-      padding: 12px;
-      margin: 10px 0;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .popup-content .action-button {
-      background-color: #28a745;
-      margin-top: 10px;
-    }
-
-    .popup-content .register-button {
-      background-color: #6c757d;
-    }
-
-    .close-popup {
-      margin-top: 15px;
-      background: none;
-      border: none;
-      color: #888;
-      cursor: pointer;
-    }
+    #messages { background: white; border: 1px solid #ddd; height: 300px; overflow-y: auto; padding: 10px; margin-top: 10px; }
+    .msg { margin-bottom: 10px; }
+    .msg span { font-weight: bold; }
+    .file-link { display: block; margin-top: 5px; }
   </style>
 </head>
 <body>
 
-  <button class="button" onclick="openPopup()">تحدث مع فريقنا</button>
-  <button class="button" onclick="alert('دخول العاملين')">دخول العاملين</button>
+  <h2>Fekra! All-in-One Page</h2>
+  <button class="btn" onclick="showTeamLogin()">Team Login</button>
+  <button class="btn" onclick="showClientAccess()">Chat with Team</button>
 
-  <!-- النافذة المنبثقة -->
-  <div class="popup" id="loginPopup">
-    <div class="popup-content">
-      <h2>تسجيل الدخول</h2>
-      <input type="text" placeholder="اسم المستخدم" id="username">
-      <input type="password" placeholder="كلمة المرور" id="password">
-      <button class="button action-button" onclick="login()">دخول</button>
-      <button class="button register-button" onclick="register()">تسجيل حساب جديد</button>
-      <button class="close-popup" onclick="closePopup()">إغلاق</button>
-    </div>
+  <div id="teamPanel" class="hidden">
+    <input type="text" id="teamUsername" placeholder="Username">
+    <input type="password" id="teamPassword" placeholder="Password">
+    <button class="btn" onclick="loginTeam()">Login as Team</button>
+    <div id="clientList" class="hidden"></div>
   </div>
 
-  <script>
-    function openPopup() {
-      document.getElementById("loginPopup").style.display = "flex";
+  <div id="loginForm" class="hidden">
+    <input type="text" id="user" placeholder="Username">
+    <input type="password" id="pass" placeholder="Password">
+    <button class="btn" onclick="loginUser()">Login</button>
+    <button class="btn" onclick="registerUser()">Register</button>
+  </div>
+
+  <div id="chat" class="hidden">
+    <h3 id="chatWith"></h3>
+    <div id="messages"></div>
+    <input type="text" id="msgInput" placeholder="Type your message...">
+    <input type="file" id="fileInput" />
+    <button class="btn" onclick="sendMessage()">Send</button>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+    import {
+      getDatabase, ref, set, get, child, onChildAdded, push
+    } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
+    import {
+      getStorage, ref as sRef, uploadBytes, getDownloadURL
+    } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCqUWUNGBe6zCJwcIsj27uPOlr6N92GU3g",
+      authDomain: "fekra-chat-4da6f.firebaseapp.com",
+      databaseURL: "https://fekra-chat-4da6f-default-rtdb.firebaseio.com",
+      projectId: "fekra-chat-4da6f",
+      storageBucket: "fekra-chat-4da6f.appspot.com",
+      messagingSenderId: "324902121384",
+      appId: "1:324902121384:web:aba7b13f6e0f8acf17379d"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+    const storage = getStorage(app);
+
+    let currentUser = "";
+    let currentChat = "";
+
+    function showTeamLogin() {
+      document.getElementById("teamPanel").classList.remove("hidden");
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("chat").classList.add("hidden");
     }
 
-    function closePopup() {
-      document.getElementById("loginPopup").style.display = "none";
+    function showClientAccess() {
+      document.getElementById("loginForm").classList.remove("hidden");
+      document.getElementById("teamPanel").classList.add("hidden");
+      document.getElementById("chat").classList.add("hidden");
     }
 
-    function login() {
-      const username = document.getElementById("username").value;
-      const password = document.getElementById("password").value;
-      alert("تم تسجيل الدخول بواسطة: " + username);
-      closePopup();
+    window.loginTeam = () => {
+      const u = document.getElementById("teamUsername").value;
+      const p = document.getElementById("teamPassword").value;
+      if (u === "Fekraassistant" && p === "999") {
+        const listRef = ref(db, "users/");
+        get(listRef).then(snapshot => {
+          const clients = snapshot.val() || {};
+          const div = document.getElementById("clientList");
+          div.innerHTML = "<h3>Clients:</h3>";
+          for (let user in clients) {
+            div.innerHTML += `<button class="btn" onclick="startChat('${user}', true)">${user}</button>`;
+          }
+          div.classList.remove("hidden");
+        });
+      } else {
+        alert("Incorrect credentials");
+      }
+    };
+
+    window.registerUser = () => {
+      const u = document.getElementById("user").value;
+      const p = document.getElementById("pass").value;
+      if (!u || !p) return alert("Enter both fields");
+      set(ref(db, "users/" + u), { password: p }).then(() => {
+        alert("Registered! Now log in.");
+      });
+    };
+
+    window.loginUser = () => {
+      const u = document.getElementById("user").value;
+      const p = document.getElementById("pass").value;
+      get(ref(db, "users/" + u)).then(snapshot => {
+        const data = snapshot.val();
+        if (data && data.password === p) {
+          currentUser = u;
+          startChat("Fekraassistant");
+        } else {
+          alert("Invalid login");
+        }
+      });
+    };
+
+    window.startChat = (partner, isTeam = false) => {
+      currentChat = isTeam ? partner : "Fekraassistant";
+      currentUser = isTeam ? "Fekraassistant" : currentUser;
+      document.getElementById("chatWith").innerText = "Chat with " + currentChat;
+      document.getElementById("chat").classList.remove("hidden");
+      document.getElementById("loginForm").classList.add("hidden");
+      document.getElementById("teamPanel").classList.add("hidden");
+      loadMessages();
+    };
+
+    function loadMessages() {
+      document.getElementById("messages").innerHTML = "";
+      const chatPath = `chats/${currentUser}_${currentChat}`;
+      const reversePath = `chats/${currentChat}_${currentUser}`;
+      const chatRef = ref(db, chatPath);
+
+      onChildAdded(chatRef, (data) => {
+        const msg = data.val();
+        const container = document.createElement("div");
+        container.classList.add("msg");
+        container.innerHTML = `<span>${msg.sender}:</span> ${msg.text || ""}`;
+        if (msg.fileURL) {
+          container.innerHTML += `<a class="file-link" href="${msg.fileURL}" target="_blank">📎 Download File</a>`;
+        }
+        document.getElementById("messages").appendChild(container);
+      });
     }
 
-    function register() {
-      alert("سيتم توجيهك إلى تسجيل حساب جديد (لاحقًا)");
-      closePopup();
-    }
+    window.sendMessage = () => {
+      const text = document.getElementById("msgInput").value;
+      const file = document.getElementById("fileInput").files[0];
+      const chatPath = `chats/${currentUser}_${currentChat}`;
+      const chatRef = ref(db, chatPath);
+
+      const newMsgRef = push(chatRef);
+      if (file) {
+        const fileRef = sRef(storage, `uploads/${Date.now()}_${file.name}`);
+        uploadBytes(fileRef, file).then(snapshot => {
+          getDownloadURL(snapshot.ref).then(url => {
+            set(newMsgRef, {
+              sender: currentUser,
+              text,
+              fileURL: url
+            });
+          });
+        });
+      } else {
+        set(newMsgRef, {
+          sender: currentUser,
+          text
+        });
+      }
+
+      document.getElementById("msgInput").value = "";
+      document.getElementById("fileInput").value = "";
+    };
   </script>
-
 </body>
 </html>
