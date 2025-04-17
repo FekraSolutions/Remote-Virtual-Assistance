@@ -34,13 +34,97 @@
     .button:hover {
       background-color: #0056b3;
     }
+
+    /* النافذة المنبثقة */
+    .popup {
+      position: fixed;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .popup-content h2 {
+      margin-bottom: 20px;
+    }
+
+    .popup-content input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .popup-content .action-button {
+      background-color: #28a745;
+      margin-top: 10px;
+    }
+
+    .popup-content .register-button {
+      background-color: #6c757d;
+    }
+
+    .close-popup {
+      margin-top: 15px;
+      background: none;
+      border: none;
+      color: #888;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
-  <button class="button" onclick="alert('سيتم التحدث مع فريقنا')">تحدث مع فريقنا</button>
+  <button class="button" onclick="openPopup()">تحدث مع فريقنا</button>
   <button class="button" onclick="alert('دخول العاملين')">دخول العاملين</button>
+
+  <!-- النافذة المنبثقة -->
+  <div class="popup" id="loginPopup">
+    <div class="popup-content">
+      <h2>تسجيل الدخول</h2>
+      <input type="text" placeholder="اسم المستخدم" id="username">
+      <input type="password" placeholder="كلمة المرور" id="password">
+      <button class="button action-button" onclick="login()">دخول</button>
+      <button class="button register-button" onclick="register()">تسجيل حساب جديد</button>
+      <button class="close-popup" onclick="closePopup()">إغلاق</button>
+    </div>
+  </div>
+
+  <script>
+    function openPopup() {
+      document.getElementById("loginPopup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("loginPopup").style.display = "none";
+    }
+
+    function login() {
+      const username = document.getElementById("username").value;
+      const password = document.getElementById("password").value;
+      alert("تم تسجيل الدخول بواسطة: " + username);
+      closePopup();
+    }
+
+    function register() {
+      alert("سيتم توجيهك إلى تسجيل حساب جديد (لاحقًا)");
+      closePopup();
+    }
+  </script>
 
 </body>
 </html>
-
