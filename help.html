@@ -2,187 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Fekra Chat App</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fekra! Chat</title>
   <style>
-    body { font-family: Arial, sans-serif; padding: 10px; margin: 0; background: #f9f9f9; }
-    .btn { padding: 10px 20px; margin: 10px; background: #007BFF; color: white; border: none; border-radius: 6px; cursor: pointer; }
-    .hidden { display: none; }
-    #chat, #loginForm, #teamPanel { max-width: 500px; margin: 20px auto; }
-    input[type="text"], input[type="password"], input[type="file"] {
-      width: 100%; padding: 8px; margin: 5px 0; border-radius: 4px; border: 1px solid #ccc;
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      text-align: center;
+      padding: 50px;
     }
-    #messages { background: white; border: 1px solid #ddd; height: 300px; overflow-y: auto; padding: 10px; margin-top: 10px; }
-    .msg { margin-bottom: 10px; }
-    .msg span { font-weight: bold; }
-    .file-link { display: block; margin-top: 5px; }
+    h1 {
+      color: #222;
+    }
   </style>
 </head>
 <body>
+  <h1>👋 Welcome to Fekra! Chat</h1>
+  <p>You can now chat with us directly from this page.</p>
 
-  <h2>Fekra! All-in-One Page</h2>
-  <button class="btn" onclick="showTeamLogin()">Team Login</button>
-  <button class="btn" onclick="showClientAccess()">Chat with Team</button>
-
-  <div id="teamPanel" class="hidden">
-    <input type="text" id="teamUsername" placeholder="Username">
-    <input type="password" id="teamPassword" placeholder="Password">
-    <button class="btn" onclick="loginTeam()">Login as Team</button>
-    <div id="clientList" class="hidden"></div>
-  </div>
-
-  <div id="loginForm" class="hidden">
-    <input type="text" id="user" placeholder="Username">
-    <input type="password" id="pass" placeholder="Password">
-    <button class="btn" onclick="loginUser()">Login</button>
-    <button class="btn" onclick="registerUser()">Register</button>
-  </div>
-
-  <div id="chat" class="hidden">
-    <h3 id="chatWith"></h3>
-    <div id="messages"></div>
-    <input type="text" id="msgInput" placeholder="Type your message...">
-    <input type="file" id="fileInput" />
-    <button class="btn" onclick="sendMessage()">Send</button>
-  </div>
-
-  <!-- Firebase -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
-    import {
-      getDatabase, ref, set, get, child, onChildAdded, push
-    } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-database.js";
-    import {
-      getStorage, ref as sRef, uploadBytes, getDownloadURL
-    } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-storage.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyCqUWUNGBe6zCJwcIsj27uPOlr6N92GU3g",
-      authDomain: "fekra-chat-4da6f.firebaseapp.com",
-      databaseURL: "https://fekra-chat-4da6f-default-rtdb.firebaseio.com",
-      projectId: "fekra-chat-4da6f",
-      storageBucket: "fekra-chat-4da6f.appspot.com",
-      messagingSenderId: "324902121384",
-      appId: "1:324902121384:web:aba7b13f6e0f8acf17379d"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const storage = getStorage(app);
-
-    let currentUser = "";
-    let currentChat = "";
-
-    function showTeamLogin() {
-      document.getElementById("teamPanel").classList.remove("hidden");
-      document.getElementById("loginForm").classList.add("hidden");
-      document.getElementById("chat").classList.add("hidden");
-    }
-
-    function showClientAccess() {
-      document.getElementById("loginForm").classList.remove("hidden");
-      document.getElementById("teamPanel").classList.add("hidden");
-      document.getElementById("chat").classList.add("hidden");
-    }
-
-    window.loginTeam = () => {
-      const u = document.getElementById("teamUsername").value;
-      const p = document.getElementById("teamPassword").value;
-      if (u === "Fekraassistant" && p === "999") {
-        const listRef = ref(db, "users/");
-        get(listRef).then(snapshot => {
-          const clients = snapshot.val() || {};
-          const div = document.getElementById("clientList");
-          div.innerHTML = "<h3>Clients:</h3>";
-          for (let user in clients) {
-            div.innerHTML += `<button class="btn" onclick="startChat('${user}', true)">${user}</button>`;
-          }
-          div.classList.remove("hidden");
-        });
-      } else {
-        alert("Incorrect credentials");
-      }
-    };
-
-    window.registerUser = () => {
-      const u = document.getElementById("user").value;
-      const p = document.getElementById("pass").value;
-      if (!u || !p) return alert("Enter both fields");
-      set(ref(db, "users/" + u), { password: p }).then(() => {
-        alert("Registered! Now log in.");
-      });
-    };
-
-    window.loginUser = () => {
-      const u = document.getElementById("user").value;
-      const p = document.getElementById("pass").value;
-      get(ref(db, "users/" + u)).then(snapshot => {
-        const data = snapshot.val();
-        if (data && data.password === p) {
-          currentUser = u;
-          startChat("Fekraassistant");
-        } else {
-          alert("Invalid login");
-        }
-      });
-    };
-
-    window.startChat = (partner, isTeam = false) => {
-      currentChat = isTeam ? partner : "Fekraassistant";
-      currentUser = isTeam ? "Fekraassistant" : currentUser;
-      document.getElementById("chatWith").innerText = "Chat with " + currentChat;
-      document.getElementById("chat").classList.remove("hidden");
-      document.getElementById("loginForm").classList.add("hidden");
-      document.getElementById("teamPanel").classList.add("hidden");
-      loadMessages();
-    };
-
-    function loadMessages() {
-      document.getElementById("messages").innerHTML = "";
-      const chatPath = `chats/${currentUser}_${currentChat}`;
-      const reversePath = `chats/${currentChat}_${currentUser}`;
-      const chatRef = ref(db, chatPath);
-
-      onChildAdded(chatRef, (data) => {
-        const msg = data.val();
-        const container = document.createElement("div");
-        container.classList.add("msg");
-        container.innerHTML = `<span>${msg.sender}:</span> ${msg.text || ""}`;
-        if (msg.fileURL) {
-          container.innerHTML += `<a class="file-link" href="${msg.fileURL}" target="_blank">📎 Download File</a>`;
-        }
-        document.getElementById("messages").appendChild(container);
-      });
-    }
-
-    window.sendMessage = () => {
-      const text = document.getElementById("msgInput").value;
-      const file = document.getElementById("fileInput").files[0];
-      const chatPath = `chats/${currentUser}_${currentChat}`;
-      const chatRef = ref(db, chatPath);
-
-      const newMsgRef = push(chatRef);
-      if (file) {
-        const fileRef = sRef(storage, `uploads/${Date.now()}_${file.name}`);
-        uploadBytes(fileRef, file).then(snapshot => {
-          getDownloadURL(snapshot.ref).then(url => {
-            set(newMsgRef, {
-              sender: currentUser,
-              text,
-              fileURL: url
-            });
-          });
-        });
-      } else {
-        set(newMsgRef, {
-          sender: currentUser,
-          text
-        });
-      }
-
-      document.getElementById("msgInput").value = "";
-      document.getElementById("fileInput").value = "";
-    };
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+  (function(){
+  var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+  s1.async = true;
+  s1.src = 'https://embed.tawk.to/6800d9e2bd8fc2190b5f4adc/1ip1l67jt';
+  s1.charset = 'UTF-8';
+  s1.setAttribute('crossorigin', '*');
+  s0.parentNode.insertBefore(s1, s0);
+  })();
   </script>
+  <!--End of Tawk.to Script-->
+
 </body>
 </html>
