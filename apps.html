@@ -27,20 +27,26 @@
             margin-top: 60px;
         }
 
-        .label {
-            font-size: 24px;
-            direction: rtl;
-            padding: 10px 20px;
-            border: 1px solid black;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            background-color: #D6B77E; /* Darker sand color */
-        }
+.label {
+    font-size: 24px;
+    direction: rtl;
+    padding: 10px 20px;
+    border: 1px solid;
+    border-image: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0) 1; /* silver gradient */
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    background-color: transparent;
+    color: white;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
 
-        .label:hover {
-            background-color: #e0e0e0;
-        }
+.label:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgba(192, 192, 192, 0.6); /* silver glow on hover */
+}
+
     </style>
 </head>
 <body>
