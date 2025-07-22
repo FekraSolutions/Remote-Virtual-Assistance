@@ -108,6 +108,27 @@
 
 <script>
 
+    async function handleLogin() {
+        const username = document.getElementById('username').value.trim();
+        const password = document.getElementById('password').value.trim();
+
+        const apiUrl = 'https://script.google.com/macros/s/AKfycbyCss2nzYgGaX9sKz2RVcv9M1RV3nJ1bpXOidH0A6rszWaGFSFg30M8mq-8jMv-yvhNEw/exec'; // Replace with your Web App URL
+
+        try {
+            const response = await fetch(`${apiUrl}?username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`);
+            const result = await response.json();
+
+            if (result.success) {
+                window.location.href = result.url;
+            } else {
+                alert('اسم المستخدم أو كلمة المرور غير صحيحة');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('حدث خطأ في الاتصال. حاول مرة أخرى.');
+        }
+    }
+
 </script>
 
 </body>
