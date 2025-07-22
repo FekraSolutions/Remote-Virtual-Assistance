@@ -89,14 +89,21 @@
     </style>
 </head>
 <body>
+    <!-- Logo in top-left corner -->
     <div style="position: absolute; top: 10px; left: 10px;">
         <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-    <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-</a>
-    <div class="login-form">
-        <input type="text" placeholder="اسم المستخدم" id="username">
-        <input type="password" placeholder="كلمة المرور" id="password">
-        <button class="login-button" onclick="handleLogin()">تسجيل الدخول</button>
+            <img src="media/Tlogo.png" alt="Logo" style="height: 40px; margin-left: 2px;">
+        </a>
+    </div>
+
+    <!-- Centered content -->
+    <div style="display: flex; flex-direction: column; align-items: center;">
+        <h1 style="color: white; text-shadow: 0 0 5px rgba(255,255,255,0.8); font-family: 'Cairo', sans-serif;">Clinic ERP 2025</h1>
+        <div class="login-form">
+            <input type="text" placeholder="اسم المستخدم" id="username">
+            <input type="password" placeholder="كلمة المرور" id="password">
+            <button class="login-button" onclick="handleLogin()">تسجيل الدخول</button>
+        </div>
     </div>
 
 <script>
