@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinic-ERP 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="media/Tlogo.png">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: 100% 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .label-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 60px;
+            align-items: center;
+        }
+
+        .label {
+            font-size: 24px;
+            direction: rtl;
+            padding: 10px 20px;
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0) 1;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            background-color: transparent;
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .label:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.6);
+        }
+
+        .login-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 40px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+        }
+
+        .login-form input {
+            font-family: 'Cairo', sans-serif;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            direction: rtl;
+        }
+
+        .login-button {
+            background-color: transparent;
+            color: white;
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0) 1;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 20px;
+            cursor: pointer;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 10px rgba(192, 192, 192, 0.6);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-form">
+        <input type="text" placeholder="اسم المستخدم" id="username">
+        <input type="password" placeholder="كلمة المرور" id="password">
+        <button class="login-button" onclick="handleLogin()">تسجيل الدخول</button>
+    </div>
+
+<script>
+
+</script>
+
+</body>
+</html>
