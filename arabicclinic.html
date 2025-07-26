@@ -15,7 +15,7 @@
             margin: 0;
             font-family: 'Cairo', sans-serif;
             flex-direction: column;
-            background: url('media/back.webp') center center no-repeat;
+            background: url('media/clinicback.webp') center center no-repeat;
             background-size: 100% 100%;
             position: relative;
             overflow: hidden;
@@ -86,6 +86,16 @@
             background-color: rgba(255, 255, 255, 0.1);
             box-shadow: 0 0 10px rgba(192, 192, 192, 0.6);
         }
+
+        @media only screen and (max-width: 768px) {
+    body {
+        background-size: auto;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: calc(100% * var(--rand-x, 0)) calc(100% * var(--rand-y, 0));
+    }
+}
+
     </style>
 </head>
 <body>
@@ -127,6 +137,13 @@
             alert('حدث خطأ في الاتصال. حاول مرة أخرى.');
         }
     }
+
+        // Generate a random position for mobile background
+    if (window.innerWidth <= 768) {
+        document.body.style.setProperty('--rand-x', Math.random());
+        document.body.style.setProperty('--rand-y', Math.random());
+    }
+    
 </script>
 
 
