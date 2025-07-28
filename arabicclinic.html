@@ -100,12 +100,12 @@
 </head>
 <body>
     <!-- Logo in top-left corner -->
-    <div style="position: absolute; top: 10px; left: 10px;">
-        <a href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank">
-            <img src="media/whatsapp.png" alt="Logo" style="height: 40px; margin-left: 2px;">
-        </a>
-    </div>
-
+<div style="position: absolute; top: 10px; left: 10px; display: flex; gap: 5px;">
+    <a href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank">
+        <img src="media/whatsapp.png" alt="WhatsApp" style="height: 40px;">
+    </a>
+    <img src="media/youtube.webp" alt="Watch Video" style="height: 40px; cursor: pointer;" onclick="openVideoPopup()">
+</div>
     <!-- Centered content -->
     <div style="display: flex; flex-direction: column; align-items: center;">
         <h1 style="color: white; text-shadow: 0 0 5px rgba(255,255,255,0.8); font-family: 'Cairo', sans-serif;">Clinic ERP 2025</h1>
@@ -115,6 +115,14 @@
             <button class="login-button" onclick="handleLogin()">تسجيل الدخول</button>
         </div>
     </div>
+
+    <!-- YouTube Video Popup -->
+<div id="videoPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+    <div style="position: relative; width: 90%; max-width: 600px;">
+        <iframe id="youtubeFrame" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
+        <button onclick="closeVideoPopup()" style="position: absolute; top: -15px; right: -15px; background: red; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; font-weight: bold; cursor: pointer;">×</button>
+    </div>
+</div>
 
 <script>
     async function handleLogin() {
@@ -143,7 +151,21 @@
         document.body.style.setProperty('--rand-x', Math.random());
         document.body.style.setProperty('--rand-y', Math.random());
     }
-    
+
+
+    function openVideoPopup() {
+    const popup = document.getElementById("videoPopup");
+    const iframe = document.getElementById("youtubeFrame");
+    iframe.src = "https://www.youtube.com/embed/KxJRO3k_sHY?autoplay=1&rel=0&modestbranding=1";
+    popup.style.display = "flex";
+}
+
+function closeVideoPopup() {
+    const popup = document.getElementById("videoPopup");
+    const iframe = document.getElementById("youtubeFrame");
+    iframe.src = "";
+    popup.style.display = "none";
+}
 </script>
 
 
