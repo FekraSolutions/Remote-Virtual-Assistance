@@ -183,23 +183,26 @@ function closeVideoPopup() {
 </dotlottie-wc>
 
 <script>
-    // make robot move randomly around the screen
-    const robot = document.getElementById("robot");
+    window.addEventListener("DOMContentLoaded", () => {
+        const robot = document.getElementById("robot");
 
-    function moveRobot() {
-        const x = Math.random() * (window.innerWidth - 80); // keep inside screen
-        const y = Math.random() * (window.innerHeight - 80);
-        robot.style.transition = "transform 3s ease-in-out";
-        robot.style.transform = `translate(${x}px, ${y}px)`;
-    }
+        function moveRobot() {
+            const x = Math.random() * (window.innerWidth - 80); // keep inside screen
+            const y = Math.random() * (window.innerHeight - 80);
+            robot.style.transition = "transform 3s ease-in-out";
+            robot.style.transform = `translate(${x}px, ${y}px)`;
+        }
 
-    // move every 4 seconds
-    setInterval(moveRobot, 4000);
-
-    // start with an initial random move
-    moveRobot();
+        if (robot) {
+            // move every 4 seconds
+            setInterval(moveRobot, 4000);
+            // start with an initial random move
+            moveRobot();
+        } else {
+            console.error("Robot element not found!");
+        }
+    });
 </script>
-
 
 </body>
 </html>
