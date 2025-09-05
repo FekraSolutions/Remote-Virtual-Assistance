@@ -172,11 +172,11 @@ function closeVideoPopup() {
 
 
 
-    <!-- Robot character -->
+   <!-- Robot character -->
 <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
 <dotlottie-wc id="robot"
     src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
-    style="width: 60px; height: 60px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
+    style="width: 72px; height: 72px; position: fixed; top: 100px; left: 100px; z-index: 9999; cursor: pointer;"
     speed="1"
     autoplay
     loop>
@@ -187,22 +187,21 @@ function closeVideoPopup() {
         const robot = document.getElementById("robot");
 
         function moveRobot() {
-            const x = Math.random() * (window.innerWidth - 80); // keep inside screen
-            const y = Math.random() * (window.innerHeight - 80);
-            robot.style.transition = "transform 3s ease-in-out";
-            robot.style.transform = `translate(${x}px, ${y}px)`;
+            const x = Math.random() * (window.innerWidth - robot.offsetWidth - 20);
+            const y = Math.random() * (window.innerHeight - robot.offsetHeight - 20);
+
+            robot.style.transition = "all 3s ease-in-out";
+            robot.style.left = `${x}px`;
+            robot.style.top = `${y}px`;
         }
 
         if (robot) {
-            // move every 4 seconds
             setInterval(moveRobot, 4000);
-            // start with an initial random move
             moveRobot();
-        } else {
-            console.error("Robot element not found!");
         }
     });
 </script>
+
 
 </body>
 </html>
