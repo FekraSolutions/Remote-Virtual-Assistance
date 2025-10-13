@@ -150,13 +150,24 @@
 }
 
 /* hide textual label on very small widths to keep icon-only size */
-.text-btn .btn-text {
-  font-family: 'Cairo', sans-serif;
-  font-size: 14px;
-  white-space: nowrap;
-  direction: rtl;
-  margin-left: 6px;
+.text-btn {
+  gap: 8px;
+  padding-right: 10px;
+  padding-left: 8px;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(0,0,0,0.8);
+  border: 1px solid rgba(255,255,255,0.4);
+  background: linear-gradient(135deg, rgba(0,80,200,0.85), rgba(0,40,100,0.85));
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  transition: all 0.3s ease;
 }
+
+.text-btn:hover {
+  background: linear-gradient(135deg, rgba(0,100,255,0.9), rgba(0,60,160,0.9));
+  transform: scale(1.05);
+}
+
 
 /* optional: responsive: collapse text under 360px */
 @media (max-width: 360px) {
