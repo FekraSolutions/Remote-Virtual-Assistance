@@ -181,12 +181,25 @@
   box-shadow: 0 0 10px rgba(192,192,192,0.4);
 }
 
-        
+ #langBtn {
+  font-size: 20px;
+  background: rgba(255,255,255,0.08);
+  color: white;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+#langBtn:hover {
+  background: rgba(255,255,255,0.2);
+}
+       
     </style>
 </head>
 <body>
 <!-- Top-left contact container: WhatsApp, YouTube, Programmable button -->
 <div id="contact-container" style="position: absolute; top: 10px; left: 10px; z-index:9999;">
+    <!-- Language selector -->
+<button id="langBtn" class="icon-btn" type="button" aria-label="Change language" onclick="toggleLanguage()">
+  🌐
+</button>
   <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
     <img src="media/whatsapp.png" alt="WhatsApp" />
   </a>
@@ -319,8 +332,38 @@ function configureTestButton({ text, href, onClick, ariaLabel }) {
   }
 }
 
-/* Example usage: change language or behavior on the fly */
- // configureTestButton({ text: 'Try App', href: 'https://example.com/test', ariaLabel: 'Try the app in English' });
+/language function
+ let currentLang = 'ar'; // default Arabic
+
+function toggleLanguage() {
+  const testBtn = document.querySelector('#testButton .btn-text');
+  const title = document.querySelector('h1');
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const loginBtn = document.querySelector('.login-button');
+  const langBtn = document.getElementById('langBtn');
+
+  if (currentLang === 'ar') {
+    // Switch to English
+    testBtn.textContent = 'TRY NOW!';
+    title.textContent = 'Clinic ERP';
+    usernameInput.placeholder = 'Username';
+    passwordInput.placeholder = 'Password';
+    loginBtn.textContent = 'LOGIN';
+    langBtn.textContent = '🇸🇦';
+    currentLang = 'en';
+  } else {
+    // Switch to Arabic
+    testBtn.textContent = 'تجربة التطبيق';
+    title.textContent = 'تطبيق إدارة العيادات - Clinic ERP';
+    usernameInput.placeholder = 'اسم المستخدم';
+    passwordInput.placeholder = 'كلمة المرور';
+    loginBtn.textContent = 'تسجيل الدخول';
+    langBtn.textContent = '🌐';
+    currentLang = 'ar';
+  }
+}
+
 
 </script>
 
