@@ -143,17 +143,6 @@
   gap: 8px;
   padding-right: 10px;
   padding-left: 8px;
-  color: white;
-  text-shadow: 0 0 4px rgba(0,0,0,0.4);
-  border: 1px solid rgba(255,255,255,0.06);
-  background-color: rgba(0,0,0,0.25); /* subtle background to match look */
-}
-
-/* hide textual label on very small widths to keep icon-only size */
-.text-btn {
-  gap: 8px;
-  padding-right: 10px;
-  padding-left: 8px;
   color: #ffffff;
   font-weight: 600;
   text-shadow: 0 0 6px rgba(0,0,0,0.8);
@@ -168,7 +157,6 @@
   transform: scale(1.05);
 }
 
-
 /* optional: responsive: collapse text under 360px */
 @media (max-width: 360px) {
   .text-btn .btn-text { display: none; }
@@ -181,17 +169,79 @@
   box-shadow: 0 0 10px rgba(192,192,192,0.4);
 }
 
+/* --- Language selector styles --- */
+.lang-container {
+  position: relative;
+  display: inline-block;
+}
+
+.lang-container .icon-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  padding: 6px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.lang-container .icon-btn img {
+  width: 22px;
+  height: 22px;
+  display: block;
+}
+
+.lang-menu {
+  position: absolute;
+  top: 52px;
+  left: 0;
+  background: rgba(0,0,0,0.85);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 120px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+  z-index: 99999;
+}
+
+.lang-menu div {
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+  white-space: nowrap;
+  direction: ltr;
+}
+
+.lang-menu div[lang="ar"] { direction: rtl; text-align: right; }
+.lang-menu div:hover {
+  background: rgba(255,255,255,0.08);
+}
         
     </style>
 </head>
 <body>
-<!-- Top-left contact container: WhatsApp, YouTube, Programmable button -->
+<!-- Top-left contact container: Language, WhatsApp, Test button -->
 <div id="contact-container" style="position: absolute; top: 10px; left: 10px; z-index:9999;">
-  <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
+
+  <!-- language selector (first) -->
+  <div class="lang-container" id="langContainer">
+    <button id="langBtn" class="icon-btn" type="button" aria-label="Change language" onclick="toggleLangMenu()">
+      <!-- small neutral globe icon (CDN) -->
+      <img src="https://cdn-icons-png.flaticon.com/512/484/484167.png" alt="language">
+    </button>
+
+    <div id="langMenu" class="lang-menu" style="display:none;">
+      <div lang="ar" onclick="setLanguage('ar')">🇸🇦 العربية</div>
+      <div lang="en" onclick="setLanguage('en')">🇬🇧 English</div>
+    </div>
+  </div>
+
+  <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" rel="noopener noreferrer" aria-label="Contact on WhatsApp">
     <img src="media/whatsapp.png" alt="WhatsApp" />
   </a>
 
-  <!-- Programmable test button: icon + text (keeps same height) -->
+  <!-- Programmable test button: text only -->
   <button id="testButton" class="icon-btn text-btn" type="button" aria-label="Open test app" onclick="openTestApp()" >
     <span class="btn-text">تجربة التطبيق</span>
   </button>
@@ -199,7 +249,7 @@
 
     <!-- Centered content -->
     <div style="display: flex; flex-direction: column; align-items: center;">
-        <h1 style="color: white; text-shadow: 0 0 5px rgba(255,255,255,0.8); font-family: 'Cairo', sans-serif;">Clinic ERP - تطبيق إدارة العيادات</h1>
+        <h1 id="pageTitle" style="color: white; text-shadow: 0 0 5px rgba(255,255,255,0.8); font-family: 'Cairo', sans-serif;">Clinic ERP - تطبيق إدارة العيادات</h1>
         <div class="login-form">
             <input type="text" placeholder="اسم المستخدم" id="username">
             <input type="password" placeholder="كلمة المرور" id="password">
@@ -207,7 +257,7 @@
         </div>
     </div>
 
-    <!-- YouTube Video Popup -->
+    <!-- YouTube Video Popup (kept in case you re-enable) -->
 <div id="videoPopup" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
     <div style="position: relative; width: 90%; max-width: 600px;">
         <iframe id="youtubeFrame" width="100%" height="315" frameborder="0" allowfullscreen></iframe>
@@ -237,93 +287,111 @@
         }
     }
 
-        // Generate a random position for mobile background
+    // Generate a random position for mobile background
     if (window.innerWidth <= 768) {
         document.body.style.setProperty('--rand-x', Math.random());
         document.body.style.setProperty('--rand-y', Math.random());
     }
 
-
     function openVideoPopup() {
-    const popup = document.getElementById("videoPopup");
-    const iframe = document.getElementById("youtubeFrame");
-    iframe.src = "https://www.youtube.com/embed/KxJRO3k_sHY?autoplay=1&rel=0&modestbranding=1";
-    popup.style.display = "flex";
-}
+        const popup = document.getElementById("videoPopup");
+        const iframe = document.getElementById("youtubeFrame");
+        iframe.src = "https://www.youtube.com/embed/KxJRO3k_sHY?autoplay=1&rel=0&modestbranding=1";
+        popup.style.display = "flex";
+    }
 
-function closeVideoPopup() {
-    const popup = document.getElementById("videoPopup");
-    const iframe = document.getElementById("youtubeFrame");
-    iframe.src = "";
-    popup.style.display = "none";
-}
-</script>
+    function closeVideoPopup() {
+        const popup = document.getElementById("videoPopup");
+        const iframe = document.getElementById("youtubeFrame");
+        iframe.src = "";
+        popup.style.display = "none";
+    }
 
-
-
-
-   <!-- Robot character -->
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-<dotlottie-wc id="robot"
-    src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
-    style="width: 72px; height: 72px; position: fixed; top: 100px; left: 100px; z-index: 9999; cursor: pointer;"
-    speed="1"
-    autoplay
-    loop>
-</dotlottie-wc>
-
-<script>
-    window.addEventListener("DOMContentLoaded", () => {
-        const robot = document.getElementById("robot");
-
-       function moveRobot() {
-    const x = Math.random() * (window.innerWidth - robot.offsetWidth - 20);
-    const y = Math.random() * (window.innerHeight - robot.offsetHeight - 20);
-
-    robot.style.transition = "all 15s ease-in-out"; // much slower movement
-    robot.style.left = `${x}px`;
-    robot.style.top = `${y}px`;
-}
-
-if (robot) {
-    setInterval(moveRobot, 16000); // move every 16 seconds
-    moveRobot();
-}
-});
-
-
-
+    // Test app opener
     function openTestApp() {
-  // default action — open the spreadsheet in a new tab
-  window.open('https://docs.google.com/spreadsheets/d/1ilS6OXCyvfDOY9XpMGGJ499g90An8R5e3cavoKM5LKE/edit?usp=sharing', '_blank');
-}
+      window.open('https://docs.google.com/spreadsheets/d/1ilS6OXCyvfDOY9XpMGGJ499g90An8R5e3cavoKM5LKE/edit?usp=sharing', '_blank', 'noopener');
+    }
 
-/* Programmatic API to change the programmable button safely */
-function configureTestButton({ text, href, onClick, ariaLabel }) {
-  const btn = document.getElementById('testButton');
-  const textSpan = btn.querySelector('.btn-text');
+    /* Programmatic API to change the programmable button safely */
+    function configureTestButton({ text, href, onClick, ariaLabel }) {
+      const btn = document.getElementById('testButton');
+      const textSpan = btn.querySelector('.btn-text');
 
-  if (typeof text === 'string') {
-    textSpan.textContent = text;
-  }
+      if (typeof text === 'string') {
+        textSpan.textContent = text;
+      }
 
-  if (typeof ariaLabel === 'string') {
-    btn.setAttribute('aria-label', ariaLabel);
-  }
+      if (typeof ariaLabel === 'string') {
+        btn.setAttribute('aria-label', ariaLabel);
+      }
 
-  // if href provided — replace onclick to open link
-  if (typeof href === 'string') {
-    btn.onclick = () => window.open(href, '_blank');
-  } else if (typeof onClick === 'function') {
-    btn.onclick = onClick;
-  }
-}
+      if (typeof href === 'string') {
+        btn.onclick = () => window.open(href, '_blank', 'noopener');
+      } else if (typeof onClick === 'function') {
+        btn.onclick = onClick;
+      }
+    }
 
-/* Example usage: change language or behavior on the fly */
- // configureTestButton({ text: 'Try App', href: 'https://example.com/test', ariaLabel: 'Try the app in English' });
+    /* ---------------- Language menu & switching ---------------- */
+
+    // Read saved language or default to Arabic
+    let currentLang = localStorage.getItem('lang') || 'ar';
+
+    // Show/hide the language dropdown
+    function toggleLangMenu() {
+      const menu = document.getElementById('langMenu');
+      menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+    }
+
+    // Set language and update UI
+    function setLanguage(lang) {
+      const testBtn = document.querySelector('#testButton .btn-text');
+      const title = document.getElementById('pageTitle');
+      const usernameInput = document.getElementById('username');
+      const passwordInput = document.getElementById('password');
+      const loginBtn = document.querySelector('.login-button');
+      const menu = document.getElementById('langMenu');
+
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
+      menu.style.display = 'none'; // hide menu after selection
+
+      if (lang === 'en') {
+        // English
+        document.documentElement.lang = 'en';
+        document.documentElement.dir = 'ltr';
+        testBtn.textContent = 'TRY NOW!';
+        title.textContent = 'Clinic ERP';
+        usernameInput.placeholder = 'Username';
+        passwordInput.placeholder = 'Password';
+        loginBtn.textContent = 'LOGIN';
+      } else {
+        // Arabic
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        testBtn.textContent = 'تجربة التطبيق';
+        title.textContent = 'تطبيق إدارة العيادات - Clinic ERP';
+        usernameInput.placeholder = 'اسم المستخدم';
+        passwordInput.placeholder = 'كلمة المرور';
+        loginBtn.textContent = 'تسجيل الدخول';
+      }
+    }
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      const container = document.getElementById('langContainer');
+      const menu = document.getElementById('langMenu');
+      if (!container.contains(e.target)) {
+        menu.style.display = 'none';
+      }
+    });
+
+    // Apply saved language on load
+    window.addEventListener('DOMContentLoaded', () => {
+      setLanguage(currentLang);
+    });
 
 </script>
-
 
 </body>
 </html>
