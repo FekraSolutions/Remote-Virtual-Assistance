@@ -181,18 +181,40 @@
   box-shadow: 0 0 10px rgba(192,192,192,0.4);
 }
 
+/* Language selector styling */
+#languageSelector {
+  appearance: none;
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  outline: none;
+  margin-right: 6px;
+}
+
+/* Dropdown list items */
+#languageSelector option {
+  background-color: white;
+  color: white;              /* text is white initially */
+}
+
+/* Text only visible on hover */
+#languageSelector option:hover {
+  color: black;
+}
         
     </style>
 </head>
 <body>
 <!-- Top-left contact container: WhatsApp, YouTube, Programmable button -->
 <div id="contact-container" style="position: absolute; top: 10px; left: 10px; z-index:9999;">
-    <!-- Language selector -->
-<select id="languageSelector" class="icon-btn text-btn" style="min-width: 100px;">
+<!-- Language selector -->
+<select id="languageSelector" aria-label="Language selector">
+  <option value="" disabled selected>🌍</option>
   <option value="ar">العربية</option>
   <option value="en">English</option>
 </select>
-
   <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
     <img src="media/whatsapp.png" alt="WhatsApp" />
   </a>
@@ -329,7 +351,7 @@ function configureTestButton({ text, href, onClick, ariaLabel }) {
 
 
 
-      const translations = {
+  const translations = {
     ar: {
       testBtn: "تجربة التطبيق",
       title: "Clinic ERP - تطبيق إدارة العيادات",
@@ -350,11 +372,10 @@ function configureTestButton({ text, href, onClick, ariaLabel }) {
 
   languageSelector.addEventListener('change', () => {
     const lang = languageSelector.value;
-    document.documentElement.lang = lang; // set page language attribute
+    if (!lang) return;
+    document.documentElement.lang = lang;
 
     const t = translations[lang];
-
-    // Update text content
     document.querySelector('h1').textContent = t.title;
     document.querySelector('#testButton .btn-text').textContent = t.testBtn;
     document.getElementById('username').placeholder = t.username;
