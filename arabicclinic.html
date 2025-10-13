@@ -182,35 +182,43 @@
 }
 
 /* Language selector styling */
-/* LANGUAGE SELECTOR — Compact & clean */
+/* LANGUAGE SELECTOR — Perfect circle, compact, clean */
 #languageSelector {
   appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
   background: transparent;
   border: none;
   color: white;
   font-size: 22px;
   cursor: pointer;
   outline: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;           /* makes it circular */
+  text-align: center;
+  line-height: 36px;            /* centers the 🌍 vertically */
+  padding: 0;
   margin-right: 6px;
-  padding: 4px 6px;
-  height: 40px;
-  line-height: 40px;
-  vertical-align: middle;
+}
+
+/* Remove extra padding from internal browser default styles */
+#languageSelector::-ms-expand {
+  display: none;
+}
+
+/* Dropdown list */
+#languageSelector option {
+  background-color: rgba(25, 25, 25, 0.95);
+  color: white;
+  font-size: 16px;
+  padding: 6px 10px;
   text-align: center;
 }
 
-/* Dropdown list styling */
-#languageSelector option {
-  background-color: rgba(20, 20, 20, 0.95);
-  color: white;
-  font-size: 16px;
-  padding: 8px;
-}
-
-/* On hover — highlight the option */
+/* Highlight on hover */
 #languageSelector option:hover {
-  background-color: rgba(0, 120, 255, 0.9);
-  color: #fff;
+  background-color: rgba(0, 120, 255, 0.85);
 }
 
         
