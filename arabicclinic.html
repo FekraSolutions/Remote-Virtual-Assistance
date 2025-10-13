@@ -181,60 +181,12 @@
   box-shadow: 0 0 10px rgba(192,192,192,0.4);
 }
 
- #langBtn {
-  font-size: 20px;
-  background: rgba(255,255,255,0.08);
-  color: white;
-  border: 1px solid rgba(255,255,255,0.2);
-}
-#langBtn:hover {
-  background: rgba(255,255,255,0.2);
-}
-.lang-container {
-  position: relative;
-}
-
-.lang-menu {
-  position: absolute;
-  top: 45px;
-  left: 0;
-  background: rgba(0,0,0,0.85);
-  border: 1px solid rgba(255,255,255,0.2);
-  border-radius: 8px;
-  overflow: hidden;
-  min-width: 110px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.5);
-  z-index: 99999;
-}
-
-.lang-menu div {
-  color: white;
-  padding: 8px 10px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background 0.2s ease;
-}
-
-.lang-menu div:hover {
-  background: rgba(255,255,255,0.15);
-}
-     
+        
     </style>
 </head>
 <body>
 <!-- Top-left contact container: WhatsApp, YouTube, Programmable button -->
 <div id="contact-container" style="position: absolute; top: 10px; left: 10px; z-index:9999;">
-    <!-- Language selector -->
-<div class="lang-container">
-  <button id="langBtn" class="icon-btn" type="button" aria-label="Change language" onclick="toggleLangMenu()">
-    <img src="https://cdn-icons-png.flaticon.com/512/484/484167.png" alt="Language" style="width:22px;height:22px;">
-  </button>
-  <div id="langMenu" class="lang-menu" style="display:none;">
-    <div onclick="setLanguage('ar')">🇸🇦 العربية</div>
-    <div onclick="setLanguage('en')">🇬🇧 English</div>
-  </div>
-</div>
-
   <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
     <img src="media/whatsapp.png" alt="WhatsApp" />
   </a>
@@ -320,7 +272,7 @@ function closeVideoPopup() {
     loop>
 </dotlottie-wc>
 
-
+<script>
     window.addEventListener("DOMContentLoaded", () => {
         const robot = document.getElementById("robot");
 
@@ -367,40 +319,8 @@ function configureTestButton({ text, href, onClick, ariaLabel }) {
   }
 }
 
-/language function
-let currentLang = 'ar';
-
-function toggleLangMenu() {
-  const menu = document.getElementById('langMenu');
-  menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
-}
-
-function setLanguage(lang) {
-  const testBtn = document.querySelector('#testButton .btn-text');
-  const title = document.querySelector('h1');
-  const usernameInput = document.getElementById('username');
-  const passwordInput = document.getElementById('password');
-  const loginBtn = document.querySelector('.login-button');
-  const menu = document.getElementById('langMenu');
-
-  currentLang = lang;
-  menu.style.display = 'none'; // hide after selection
-
-  if (lang === 'en') {
-    testBtn.textContent = 'TRY NOW!';
-    title.textContent = 'Clinic ERP';
-    usernameInput.placeholder = 'Username';
-    passwordInput.placeholder = 'Password';
-    loginBtn.textContent = 'LOGIN';
-  } else {
-    testBtn.textContent = 'تجربة التطبيق';
-    title.textContent = 'تطبيق إدارة العيادات - Clinic ERP';
-    usernameInput.placeholder = 'اسم المستخدم';
-    passwordInput.placeholder = 'كلمة المرور';
-    loginBtn.textContent = 'تسجيل الدخول';
-  }
-}
-
+/* Example usage: change language or behavior on the fly */
+ // configureTestButton({ text: 'Try App', href: 'https://example.com/test', ariaLabel: 'Try the app in English' });
 
 </script>
 
