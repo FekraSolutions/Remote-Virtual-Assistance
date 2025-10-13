@@ -182,27 +182,37 @@
 }
 
 /* Language selector styling */
+/* LANGUAGE SELECTOR — Compact & clean */
 #languageSelector {
   appearance: none;
   background: transparent;
   border: none;
   color: white;
-  font-size: 24px;
+  font-size: 22px;
   cursor: pointer;
   outline: none;
   margin-right: 6px;
+  padding: 4px 6px;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+  text-align: center;
 }
 
-/* Dropdown list items */
+/* Dropdown list styling */
 #languageSelector option {
-  background-color: white;
-  color: white;              /* text is white initially */
+  background-color: rgba(20, 20, 20, 0.95);
+  color: white;
+  font-size: 16px;
+  padding: 8px;
 }
 
-/* Text only visible on hover */
+/* On hover — highlight the option */
 #languageSelector option:hover {
-  color: black;
+  background-color: rgba(0, 120, 255, 0.9);
+  color: #fff;
 }
+
         
     </style>
 </head>
@@ -215,6 +225,7 @@
   <option value="ar">العربية</option>
   <option value="en">English</option>
 </select>
+
   <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
     <img src="media/whatsapp.png" alt="WhatsApp" />
   </a>
