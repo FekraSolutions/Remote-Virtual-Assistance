@@ -187,6 +187,12 @@
 <body>
 <!-- Top-left contact container: WhatsApp, YouTube, Programmable button -->
 <div id="contact-container" style="position: absolute; top: 10px; left: 10px; z-index:9999;">
+    <!-- Language selector -->
+<select id="languageSelector" class="icon-btn text-btn" style="min-width: 100px;">
+  <option value="ar">العربية</option>
+  <option value="en">English</option>
+</select>
+
   <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
     <img src="media/whatsapp.png" alt="WhatsApp" />
   </a>
@@ -319,8 +325,43 @@ function configureTestButton({ text, href, onClick, ariaLabel }) {
   }
 }
 
-/* Example usage: change language or behavior on the fly */
- // configureTestButton({ text: 'Try App', href: 'https://example.com/test', ariaLabel: 'Try the app in English' });
+
+
+
+
+      const translations = {
+    ar: {
+      testBtn: "تجربة التطبيق",
+      title: "Clinic ERP - تطبيق إدارة العيادات",
+      username: "اسم المستخدم",
+      password: "كلمة المرور",
+      login: "تسجيل الدخول"
+    },
+    en: {
+      testBtn: "TRY NOW!",
+      title: "Clinic ERP",
+      username: "Username",
+      password: "Password",
+      login: "LOGIN"
+    }
+  };
+
+  const languageSelector = document.getElementById('languageSelector');
+
+  languageSelector.addEventListener('change', () => {
+    const lang = languageSelector.value;
+    document.documentElement.lang = lang; // set page language attribute
+
+    const t = translations[lang];
+
+    // Update text content
+    document.querySelector('h1').textContent = t.title;
+    document.querySelector('#testButton .btn-text').textContent = t.testBtn;
+    document.getElementById('username').placeholder = t.username;
+    document.getElementById('password').placeholder = t.password;
+    document.querySelector('.login-button').textContent = t.login;
+  });
+    
 
 </script>
 
