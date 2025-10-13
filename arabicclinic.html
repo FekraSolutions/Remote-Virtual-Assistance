@@ -107,12 +107,26 @@
 }
 
 
-        #contact-container {
+#contact-container {
   display: flex;
   gap: 8px;
-  align-items: center;
-  /* keep the absolute positioning declared inline so it won't break layout */
+  align-items: flex-start;      /* Align items to the top edge */
+  height: 40px;                 /* Locks uniform height */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
 }
+
+#contact-container > * {
+  display: flex;
+  align-items: center;
+  height: 100%;                 /* Ensures all icons/buttons share height */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 
 /* base styles for both anchors and buttons so they match */
 .icon-link,
