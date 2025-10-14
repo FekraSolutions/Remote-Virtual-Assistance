@@ -169,16 +169,16 @@
 }
 
 
-/* optional: responsive: collapse text under 360px */
-@media (max-width: 360px) {
-  /* Only hide text for icon buttons, not for full text buttons like تجربة التطبيق */
-  .icon-btn .btn-text, .icon-link .btn-text {
-    display: none;
+@media (max-width: 768px) {
+  #testButton {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: auto !important;
+    min-width: 120px !important; /* ensures it's not a square */
+    padding: 10px 16px !important;
   }
-  .icon-btn, .icon-link {
-    padding: 4px;
-  }
-}
+
 
 
 /* hover effects similar to your earlier styles */
@@ -236,11 +236,13 @@
   border-radius: 12px !important;    /* smooth rounded look */
 }
 
-#testButton .btn-text {
-  display: inline !important;
-  visibility: visible !important;
-  opacity: 1 !important;
-  font-size: 16px !important;
+  #testButton .btn-text {
+    display: inline !important;
+    font-size: 16px !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    white-space: nowrap !important;
+  }
 }
 
 
