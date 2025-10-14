@@ -107,12 +107,17 @@
 }
 
 
-        #contact-container {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  /* keep the absolute positioning declared inline so it won't break layout */
+#contact-container {
+  position: fixed !important;   /* not absolute */
+  top: 10px;
+  left: 10px;
+  z-index: 9999;
+  flex-wrap: wrap;
+  background: rgba(0,0,0,0.2);  /* slight contrast so it's always visible */
+  border-radius: 8px;
+  padding: 4px;
 }
+
 
 /* base styles for both anchors and buttons so they match */
 .icon-link,
@@ -170,11 +175,18 @@
 
 
 /* optional: responsive: collapse text under 360px */
-@media (max-width: 360px) {
-  .text-btn .btn-text { display: none; }
-  .icon-btn, .icon-link { padding: 4px; }
+@media (max-width: 480px) {
+  #contact-container {
+    left: 5px;
+    right: 5px;
+    justify-content: space-between;
+    background: rgba(0,0,0,0.4);
+  }
+  #testButton {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
 }
-
 /* hover effects similar to your earlier styles */
 .icon-link:hover, .icon-btn:hover {
   background-color: rgba(255,255,255,0.06);
