@@ -227,12 +227,22 @@
   background-color: rgba(0, 120, 255, 0.85);
 }
 
-        /* Force show text inside the test button even on mobile */
+/* --- Fix for تجربة التطبيق button on mobile --- */
+#testButton {
+  min-width: unset !important;       /* allow text to define width */
+  width: auto !important;            /* prevent square forcing */
+  white-space: nowrap !important;    /* keep text on one line */
+  padding: 8px 14px !important;      /* compact padding but enough for readability */
+  border-radius: 12px !important;    /* smooth rounded look */
+}
+
 #testButton .btn-text {
   display: inline !important;
   visibility: visible !important;
   opacity: 1 !important;
+  font-size: 16px !important;
 }
+
 
     </style>
 </head>
