@@ -366,21 +366,21 @@ if (robot) {
 
 function openTestApp() {
   const url = "https://docs.google.com/spreadsheets/d/1ilS6OXCyvfDOY9XpMGGJ499g90An8R5e3cavoKM5LKE/edit?usp=sharing";
+  
+  // This makes the browser treat it as a "real" user click, even on mobile.
+  const a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener noreferrer';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
 
-  // Detect mobile browser
-  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-
-  if (isMobile) {
-    // Force same-tab navigation — guaranteed to work on mobile
-    window.top.location.href = url;
-  } else {
-    // Desktop: try opening in a new tab
-    const newTab = window.open(url, "_blank");
-    if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-      // Fallback if popup blocked
-      window.location.href = url;
-    }
-  }
+  // Extra safety: fallback to same-tab navigation if new tab fails
+  setTimeout(() => {
+    window.location.href = url;
+  }, 1200);
 }
 
 /* Programmatic API to change the programmable button safely */
