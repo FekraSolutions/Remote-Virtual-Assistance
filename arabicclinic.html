@@ -171,9 +171,15 @@
 
 /* optional: responsive: collapse text under 360px */
 @media (max-width: 360px) {
-  .text-btn .btn-text { display: none; }
-  .icon-btn, .icon-link { padding: 4px; }
+  /* Only hide text for icon buttons, not for full text buttons like تجربة التطبيق */
+  .icon-btn .btn-text, .icon-link .btn-text {
+    display: none;
+  }
+  .icon-btn, .icon-link {
+    padding: 4px;
+  }
 }
+
 
 /* hover effects similar to your earlier styles */
 .icon-link:hover, .icon-btn:hover {
