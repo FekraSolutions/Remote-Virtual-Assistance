@@ -364,9 +364,19 @@ if (robot) {
 
 
 
-    function openTestApp() {
-  // default action — open the spreadsheet in a new tab
-  window.open('https://docs.google.com/spreadsheets/d/1ilS6OXCyvfDOY9XpMGGJ499g90An8R5e3cavoKM5LKE/edit?usp=sharing', '_blank');
+function openTestApp() {
+  const url = "https://docs.google.com/spreadsheets/d/1ilS6OXCyvfDOY9XpMGGJ499g90An8R5e3cavoKM5LKE/edit?usp=sharing";
+
+  try {
+    const win = window.open(url, "_blank");
+    if (!win || win.closed || typeof win.closed === "undefined") {
+      // Mobile browser blocked it — fallback
+      window.location.href = url;
+    }
+  } catch (err) {
+    // As a final fallback, redirect in the same tab
+    window.location.href = url;
+  }
 }
 
 /* Programmatic API to change the programmable button safely */
