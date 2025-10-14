@@ -367,15 +367,19 @@ if (robot) {
 function openTestApp() {
   const url = "https://docs.google.com/spreadsheets/d/1ilS6OXCyvfDOY9XpMGGJ499g90An8R5e3cavoKM5LKE/edit?usp=sharing";
 
-  try {
-    const win = window.open(url, "_blank");
-    if (!win || win.closed || typeof win.closed === "undefined") {
-      // Mobile browser blocked it — fallback
+  // Detect mobile browser
+  const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  if (isMobile) {
+    // Force same-tab navigation — guaranteed to work on mobile
+    window.top.location.href = url;
+  } else {
+    // Desktop: try opening in a new tab
+    const newTab = window.open(url, "_blank");
+    if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+      // Fallback if popup blocked
       window.location.href = url;
     }
-  } catch (err) {
-    // As a final fallback, redirect in the same tab
-    window.location.href = url;
   }
 }
 
