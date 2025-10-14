@@ -17,6 +17,32 @@
 <meta property="og:url" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html">
 
     <style>
+
+        /* Top left bar fix */
+.top-left-bar {
+  position: fixed;
+  top: 20px;        /* increase vertical distance from top */
+  left: 20px;       /* increase horizontal distance from left */
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Optional: give it a subtle background for visibility */
+.top-left-bar {
+  background: rgba(0, 0, 0, 0.3); /* translucent background */
+  padding: 6px 10px;
+  border-radius: 12px;
+  backdrop-filter: blur(6px);
+}
+
+/* Keep buttons inside aligned properly */
+.top-left-bar button,
+.top-left-bar a {
+  margin: 0;
+}
+
         body {
             display: flex;
             justify-content: center;
