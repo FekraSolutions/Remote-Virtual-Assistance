@@ -227,7 +227,13 @@
   background-color: rgba(0, 120, 255, 0.85);
 }
 
-        
+        /* Force show text inside the test button even on mobile */
+#testButton .btn-text {
+  display: inline !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
     </style>
 </head>
 <body>
@@ -245,9 +251,10 @@
   </a>
 
   <!-- Programmable test button: icon + text (keeps same height) -->
-  <button id="testButton" class="icon-btn text-btn" type="button" aria-label="Open test app" onclick="openTestApp()" >
-    <span class="btn-text">تجربة التطبيق</span>
-  </button>
+<button id="testButton" class="icon-btn text-btn">
+  <span class="btn-text">تجربة التطبيق</span>
+</button>
+
 </div>
 
     <!-- Centered content -->
