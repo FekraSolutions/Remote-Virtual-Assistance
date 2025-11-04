@@ -157,6 +157,37 @@ document.getElementById('contact-us-button').addEventListener('click', function 
   window.location.href = 'help.html';
 });
 
+
+           <!-- Robot character -->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+<dotlottie-wc id="robot"
+    src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
+    style="width: 72px; height: 72px; position: fixed; top: 100px; left: 100px; z-index: 9999; cursor: pointer;"
+    speed="1"
+    autoplay
+    loop>
+</dotlottie-wc>
+
+<script>
+    window.addEventListener("DOMContentLoaded", () => {
+        const robot = document.getElementById("robot");
+
+       function moveRobot() {
+    const x = Math.random() * (window.innerWidth - robot.offsetWidth - 20);
+    const y = Math.random() * (window.innerHeight - robot.offsetHeight - 20);
+
+    robot.style.transition = "all 15s ease-in-out"; // much slower movement
+    robot.style.left = `${x}px`;
+    robot.style.top = `${y}px`;
+}
+
+if (robot) {
+    setInterval(moveRobot, 16000); // move every 16 seconds
+    moveRobot();
+}
+});
+
+
 </script>
 </body>
 </html>
