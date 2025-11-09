@@ -143,38 +143,43 @@
   <div id="contact-us-button" class="label">Contact us</div>
 </div>
     </div>
-    <script>
-        window.onload = function() {
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+<script>
+window.onload = function() {
     var video = document.getElementById('introVideo');
     video.onended = function() {
         video.pause();
     };
 };
 
-    document.getElementById("languageSelect").addEventListener("change", function () {
-        const selectedValue = this.value;
-        if (selectedValue === "ar") {
-            window.location.href = "arabic.html";
-        } else if (selectedValue === "en") {
-            window.location.href = "index.html"; // Adjust to your English page if needed
-        }
-    });
-        //contact us
-document.getElementById('contact-us-button').addEventListener('click', function () {
-  window.location.href = 'help.html';
+document.getElementById("languageSelect").addEventListener("change", function () {
+    const selectedValue = this.value;
+    if (selectedValue === "ar") {
+        window.location.href = "arabic.html";
+    } else if (selectedValue === "en") {
+        window.location.href = "index.html"; // Adjust to your English page if needed
+    }
 });
 
+// Contact us button
+document.getElementById('contact-us-button').addEventListener('click', function () {
+    window.location.href = 'help.html';
+});
 
-    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-    <dotlottie-wc id="robot"
-        src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
-        style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
-        speed="1"
-        autoplay
-        loop>
-    </dotlottie-wc>
+// Add robot
+const robot = document.createElement('dotlottie-wc');
+robot.id = 'robot';
+robot.src = 'https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie';
+robot.style = 'width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;';
+robot.setAttribute('speed', '1');
+robot.setAttribute('autoplay', '');
+robot.setAttribute('loop', '');
+document.body.appendChild(robot);
 
-    
+// Robot click reaction
+robot.addEventListener('click', () => {
+    alert('Hello from Fekra! 🤖');
+});
 </script>
 </body>
 </html>
