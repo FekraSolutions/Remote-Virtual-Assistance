@@ -53,11 +53,13 @@
 
 .label-container {
     position: relative;
-    z-index: 1;  /* Bring buttons in front of the video */
+    z-index: 1;
     display: flex;
-    flex-direction: column;
-    gap: 10px;
+    flex-direction: row;      /* make buttons horizontal */
+    gap: 20px;                /* add spacing between buttons */
     margin-top: 60px;
+    flex-wrap: wrap;          /* optional: wrap on smaller screens */
+    justify-content: center;  /* center them horizontally */
 }
 
 
