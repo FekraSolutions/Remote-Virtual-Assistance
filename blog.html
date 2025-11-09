@@ -5,36 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLOG - Fekra! Business Solutions</title>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="Tlogo.png" href="media/Tlogo.png">
+    <link rel="icon" type="image/png" href="media/Tlogo.png">
+
     <style>
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    font-family: 'Cairo', sans-serif;
-    flex-direction: column;
-    background: url('media/back.webp') center center no-repeat;
-    background-size: cover; /* Ensures the image fully fits the screen */
-    background-attachment: fixed; /* Keeps background fixed while scrolling */
-    background-position: center; /* Centers the image */
-    min-height: 100vh; /* Ensures the background covers the full screen */
-    width: 100%;
-    overflow: auto; /* Enables scrolling if content is longer */
-}
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            width: 100%;
+            overflow: auto;
+        }
 
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            margin-top: 5vh;
+        }
 
-.container {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 90%;
-    max-width: 600px;
-    margin-top: 5vh; /* Provides suitable spacing for all devices */
-}
-
-                .blog-subcontainer {
+        .blog-subcontainer {
             border: 1px solid #ccc;
             padding: 10px;
             border-radius: 8px;
@@ -61,20 +61,24 @@ body {
         }
     </style>
 </head>
+
 <body>
+    <!-- Logo -->
     <div style="position: absolute; top: 10px; left: 10px;">
         <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-    <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-</a>
+            <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+        </a>
     </div>
 
-     <div class="container">
+    <!-- Blog list -->
+    <div class="container">
         <div class="blog-subcontainer" onclick="window.open('blogs/Howtousefekracashiererp.html', '_blank')">
             <div class="blog-item">
                 <img src="media/برنامج كاشير وحسابات المحلات.jpg" alt="Blog Thumbnail">
                 <div class="blog-text">User-Manual Store Cashier & ERP Systems from Fekra!</div>
             </div>
         </div>
+
         <div class="blog-subcontainer" onclick="window.open('blogs/202020.html', '_blank')">
             <div class="blog-item">
                 <img src="media/منبه مجاني.png" alt="Blog Thumbnail">
@@ -82,5 +86,22 @@ body {
             </div>
         </div>
     </div>
+
+    <!-- Robot character -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc id="robot"
+        src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
+        style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
+        speed="1"
+        autoplay
+        loop>
+    </dotlottie-wc>
+
+    <script>
+        // Example: Robot reacts when clicked
+        document.getElementById('robot').addEventListener('click', () => {
+            alert('Hello from Fekra! 🤖');
+        });
+    </script>
 </body>
 </html>
