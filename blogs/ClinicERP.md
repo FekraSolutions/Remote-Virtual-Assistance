@@ -16,7 +16,7 @@ After activating your subscription, you can use the same homepage to log in and 
 
 ### Homepage
 You can select the app language and access all ClinicERP features from the main page. You’ll also find simple instructions to help in some cases, such as allowing the app to run for the first time or undoing any unwanted changes.  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/clinicERPhomepage.png)
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/EnglishclinicERPhomepage.png)
 
 ### Patient Admission
 Easily register a new patient or create an invoice from a single, simple window. It displays and stores all patient details in the admission log. After generating an invoice, you can directly book the patient’s sessions or appointments.
