@@ -107,15 +107,19 @@
   height: 50px;
   cursor: pointer;
 }
-#introVideo {
+
+
+ #introVideo::after {
+    content: '';
     position: absolute;
-    top: 80px;  /* Position the video just below the logo and language select */
+    top: 0;
     left: 0;
-    width: 100%; /* Full width */
-    max-height: 50vh; /* Limit the height to 50% of the viewport height */
-    object-fit: cover; /* Scale the video proportionally */
-    z-index: -1; /* Keep the video behind the other elements */
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0) 70%, rgba(255,255,255,0.6) 100%);
+    pointer-events: none; /* Allows clicks through overlay */
 }
+
 
 
 
