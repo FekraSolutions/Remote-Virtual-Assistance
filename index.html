@@ -146,63 +146,44 @@
 <!-- Your original script -->
 <script>
 window.onload = function() {
-    // Keep your existing video, language, and contact scripts here
     var video = document.getElementById('introVideo');
-    if(video){
-        video.onended = function() {
-            video.pause();
-        };
-    }
-
-    const langSelect = document.getElementById("languageSelect");
-    if(langSelect){
-        langSelect.addEventListener("change", function () {
-            const selectedValue = this.value;
-            if (selectedValue === "ar") {
-                window.location.href = "arabic.html";
-            } else if (selectedValue === "en") {
-                window.location.href = "index.html";
-            }
-        });
-    }
-
-    const contactBtn = document.getElementById('contact-us-button');
-    if(contactBtn){
-        contactBtn.addEventListener('click', () => {
-            window.location.href = 'help.html';
-        });
-    }
-
-    // Robot movement on sand
-    const robot = document.getElementById('robot');
-    if(robot){
-        let x = 20; // start from left
-        let direction = 1; // 1 = moving right, -1 = moving left
-        const leftLimit = 20; // pixels from left edge
-        const rightLimit = window.innerWidth - 92; // 72px robot width + 20px margin
-
-        function moveRobot() {
-            x += 1 * direction; // speed 1px per frame
-
-            // Reverse direction at edges
-            if(x >= rightLimit) direction = -1;
-            if(x <= leftLimit) direction = 1;
-
-            robot.style.left = x + 'px';
-            robot.style.bottom = '20px'; // stays on sand area
-            requestAnimationFrame(moveRobot);
-        }
-
-        moveRobot();
-
-        // Click alert
-        robot.addEventListener('click', function() {
-            alert('مرحبا من فكرة! 🤖');
-        });
-    }
+    video.onended = function() {
+        video.pause();
+    };
 };
+
+document.getElementById("languageSelect").addEventListener("change", function () {
+    const selectedValue = this.value;
+    if (selectedValue === "ar") {
+        window.location.href = "arabic.html";
+    } else if (selectedValue === "en") {
+        window.location.href = "index.html"; // Adjust to your English page if needed
+    }
+});
+
+// Contact us
+document.getElementById('contact-us-button').addEventListener('click', function () {
+    window.location.href = 'help.html';
+});
 </script>
 
+<!-- DotLottie library for robot -->
+<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+
+<!-- Robot character -->
+<dotlottie-wc id="robot"
+    src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
+    style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
+    speed="1"
+    autoplay
+    loop>
+</dotlottie-wc>
+
+<script>
+document.getElementById('robot').addEventListener('click', function() {
+    alert('مرحبا من فكرة! 🤖');
+});
+</script>
 
 </body>
 </html>
