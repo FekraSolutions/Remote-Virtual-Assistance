@@ -105,7 +105,13 @@
     </select>
   </div>
 
-const texts = {
+  <!-- Centered Text -->
+  <div id="content"></div>
+
+  <script>
+    const content = document.getElementById("content");
+
+    const texts = {
   ar: `
 <b style="font-size:1.8rem;">برامج الشراكة مع فكرة</b><br><br>
 💼 <b>فرصة لكل الناس!</b><br><br>
@@ -140,26 +146,24 @@ Contact clinics, message business owners, connect with your friends and acquaint
 `
 };
 
+    const select = document.getElementById("languageSelect");
+    select.addEventListener("change", () => {
+      const lang = select.value;
+      content.style.opacity = 0;
+      content.style.transform = "translate(-50%, -45%)";
+      setTimeout(() => {
+        content.innerHTML = texts[lang];
+        content.style.direction = lang === "ar" ? "rtl" : "ltr";   // TEXT ONLY
+        content.style.textAlign = lang === "ar" ? "right" : "left"; // TEXT ONLY
+        content.style.opacity = 1;
+        content.style.transform = "translate(-50%, -50%)";
+      }, 300);
+    });
 
-const select = document.getElementById("languageSelect");
-select.addEventListener("change", () => {
-  const lang = select.value;
-  content.style.opacity = 0;
-  content.style.transform = "translate(-50%, -45%)";
-  setTimeout(() => {
-    content.innerHTML = texts[lang];
-    content.style.direction = lang === "ar" ? "rtl" : "ltr";   // TEXT ONLY
-    content.style.textAlign = lang === "ar" ? "right" : "left"; // TEXT ONLY
-    content.style.opacity = 1;
-    content.style.transform = "translate(-50%, -50%)";
-  }, 300);
-});
-
-// Default load
-content.innerHTML = texts["ar"];
-content.style.direction = "rtl";
-content.style.textAlign = "right";
-</script>
-
+    // Default load
+    content.innerHTML = texts["ar"];
+    content.style.direction = "rtl";
+    content.style.textAlign = "right";
+  </script>
 </body>
 </html>
