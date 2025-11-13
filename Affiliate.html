@@ -1,112 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Affiliate Program - Fekra! Business Solutions</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="icon" type="image/png" href="media/Tlogo.png">
-
-  <style>
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      font-family: 'Cairo', sans-serif;
-      flex-direction: column;
-      background: url('media/back.webp') center center no-repeat;
-      background-size: cover;
-      background-attachment: fixed;
-      min-height: 100vh;
-      width: 100%;
-      overflow: auto;
-    }
-
-    /* Language Select */
-    #languageSelect {
-      font-size: 16px;
-      padding: 5px 10px;
-      background-color: transparent;
-      color: white;
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-      border: 1px solid;
-      border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
-      border-radius: 5px;
-      outline: none;
-      appearance: none;
-      cursor: pointer;
-      position: relative;
-      top: -12px;
-      transition: all 0.3s ease;
-    }
-
-    #languageSelect:focus {
-      box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
-    }
-
-    #languageSelect option {
-      color: black;
-      background-color: transparent;
-    }
-
-    /* Main Content Box */
-    #content {
-      color: black;
-      max-width: 90%;
-      line-height: 1.8;
-      font-size: 1.1rem;
-      background-color: rgba(240, 240, 240, 0.8);
-      border: 2px solid;
-      border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
-      border-radius: 15px;
-      padding: 25px 30px;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      transition: opacity 0.4s ease, transform 0.4s ease;
-      opacity: 0;
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -45%);
-      }
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-      }
-    }
-
-    @media (max-width: 768px) {
-      #content {
-        font-size: 1rem;
-        padding: 20px;
-      }
-    }
-  </style>
-</head>
-
 <body>
-  <!-- Logo + Language Select -->
-  <div style="position: absolute; top: 10px; left: 10px;">
-    <img src="media/Tlogo.png" alt="Logo" style="height: 40px; margin-left: 2px;">
-    <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
+  <!-- Logo + Language Select (fixed top-left, does NOT change) -->
+  <div style="position: absolute; top: 10px; left: 10px; display: flex; align-items: center; gap:10px;">
+    <img src="media/Tlogo.png" alt="Logo" style="height: 40px;">
+    <select id="languageSelect">
       <option value="en">English</option>
       <option value="ar">العربية</option>
     </select>
   </div>
 
   <!-- Centered Text -->
-  <div id="content"></div>
+  <div id="content"
+       style="max-width: 800px; margin: 0 20px; 
+              background-color: rgba(240,240,240,0.8);
+              padding: 25px 30px; border-radius: 15px;
+              border: 2px solid; border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
+              box-shadow: 0 0 10px rgba(212,175,55,0.3);
+              font-family: 'Cairo', sans-serif;
+              position: absolute; top: 50%; left: 50%;
+              transform: translate(-50%, -50%);
+              transition: all 0.4s ease;">
+  </div>
 
   <script>
     const content = document.getElementById("content");
+    const select = document.getElementById("languageSelect");
 
     const texts = {
       ar: `
@@ -116,7 +33,8 @@
       منتجنا نظام <b>ERP</b> أساسي لأي نشاط، والعميل اللي بيبدأ معانا بيكمل لسنين لأسباب كتير جدًا.<br><br>
       <b>كيف تبدأ:</b><br><br>
       1️⃣ <b>اطّلع على التفاصيل:</b><br>
-      في الصفحة الرئيسية هتلاقي كل المعلومات اللي محتاجها — تجربة مجانية للتطبيق، ملف يحتوي على كل الخصائص، وفيديوهات شرح مفصلة.<br><br>
+      في <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_blank" style="color:#d4af37; text-decoration:none; font-weight:bold;">الصفحة الرئيسية</a> 
+      هتلاقي كل المعلومات اللي محتاجها — تجربة مجانية للتطبيق، ملف يحتوي على كل الخصائص، وفيديوهات شرح مفصلة.<br><br>
       2️⃣ <b>انطلق وشارك:</b><br>
       اتصل بالعيادات، راسل أصحاب الأنشطة، تواصل مع أصدقائك ومعارفك، أو شارك الروابط والملفات على وسائل التواصل الاجتماعي.<br><br>
       3️⃣ <b>ابدأ الكسب:</b><br>
@@ -129,7 +47,8 @@
       Our product is an essential <b>ERP system</b> for any business, and clients who start with us stay for years for many reasons.<br><br>
       <b>How to get started:</b><br><br>
       1️⃣ <b>Check out the details:</b><br>
-      On the homepage, you'll find all the information you need — a free trial of the application, a file containing all the features, and detailed tutorial videos.<br><br>
+      On the <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_blank" style="color:#d4af37; text-decoration:none; font-weight:bold;">homepage</a>, 
+      you'll find all the information you need — a free trial of the application, a file containing all the features, and detailed tutorial videos.<br><br>
       2️⃣ <b>Get started and share:</b><br>
       Contact clinics, message business owners, connect with your friends and acquaintances, or share links and files on social media.<br><br>
       3️⃣ <b>Start earning:</b><br>
@@ -137,24 +56,20 @@
       `
     };
 
-    const select = document.getElementById("languageSelect");
-    select.addEventListener("change", () => {
-      const lang = select.value;
-      content.style.opacity = 0;
-      content.style.transform = "translate(-50%, -45%)";
-      setTimeout(() => {
-        content.innerHTML = texts[lang];
-        document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
-        content.style.textAlign = lang === "ar" ? "right" : "left";
-        content.style.opacity = 1;
-        content.style.transform = "translate(-50%, -50%)";
-      }, 300);
-    });
+    function updateText(lang) {
+      content.innerHTML = texts[lang];
+      if(lang === 'ar') {
+        content.style.direction = 'rtl';
+        content.style.textAlign = 'right';
+      } else {
+        content.style.direction = 'ltr';
+        content.style.textAlign = 'left';
+      }
+    }
 
-    // Default language
-    content.innerHTML = texts["ar"];
-    document.body.style.direction = "rtl";
-    content.style.textAlign = "right";
+    select.addEventListener('change', () => updateText(select.value));
+
+    // Default load
+    updateText('ar');
   </script>
 </body>
-</html>
