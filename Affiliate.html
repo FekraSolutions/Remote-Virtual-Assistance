@@ -18,7 +18,6 @@
       background: url('media/back.webp') center center no-repeat;
       background-size: cover;
       background-attachment: fixed;
-      background-position: center;
       min-height: 100vh;
       width: 100%;
       overflow: auto;
@@ -51,21 +50,19 @@
       background-color: transparent;
     }
 
-    /* Centered Content */
+    /* Main Content Box */
     #content {
-      color: white;
-      text-align: center;
+      color: black;
       max-width: 90%;
       line-height: 1.8;
       font-size: 1.1rem;
-      background-color: rgba(0, 0, 0, 0.55);
+      background-color: rgba(240, 240, 240, 0.8);
       border: 2px solid;
       border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
       border-radius: 15px;
       padding: 25px 30px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-      text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
       position: absolute;
       top: 50%;
       left: 50%;
@@ -148,13 +145,13 @@
       setTimeout(() => {
         content.innerHTML = texts[lang];
         document.body.style.direction = lang === "ar" ? "rtl" : "ltr";
-        content.style.textAlign = lang === "ar" ? "right" : "center";
+        content.style.textAlign = lang === "ar" ? "right" : "left";
         content.style.opacity = 1;
         content.style.transform = "translate(-50%, -50%)";
       }, 300);
     });
 
-    // Default load
+    // Default language
     content.innerHTML = texts["ar"];
     document.body.style.direction = "rtl";
     content.style.textAlign = "right";
