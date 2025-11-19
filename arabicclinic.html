@@ -369,8 +369,7 @@ if (robot) {
 
 function openTestApp() {
   const url = "https://docs.google.com/spreadsheets/d/1Ft1PKAZw3HsJmjSRCiZOT1Rw9Bu58X26YIkfoWx1wdM/edit?usp=sharing";
-  
-  // This makes the browser treat it as a "real" user click, even on mobile.
+
   const a = document.createElement('a');
   a.href = url;
   a.target = '_blank';
@@ -379,6 +378,7 @@ function openTestApp() {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
+}
 
   // Extra safety: fallback to same-tab navigation if new tab fails
   setTimeout(() => {
