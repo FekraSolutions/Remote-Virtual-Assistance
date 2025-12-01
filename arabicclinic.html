@@ -259,6 +259,7 @@
   <option value="" disabled selected>🌍</option>
   <option value="ar">العربية</option>
   <option value="en">English</option>
+  <option value="fr">Français</option>
 </select>
 
   <a id="whatsappLink" class="icon-link" href="https://wa.me/201060469453?text=Hi, Mazen. I have a question!" target="_blank" aria-label="Contact on WhatsApp">
@@ -405,22 +406,32 @@ function configureTestButton({ text, href, onClick, ariaLabel }) {
 
 
 
-  const translations = {
-    ar: {
-      testBtn: "تجربة التطبيق",
-      title: "Clinic ERP - تطبيق إدارة العيادات",
-      username: "اسم المستخدم",
-      password: "كلمة المرور",
-      login: "تسجيل الدخول"
-    },
-    en: {
-      testBtn: "TRY NOW!",
-      title: "Clinic ERP",
-      username: "Username",
-      password: "Password",
-      login: "LOGIN"
-    }
-  };
+const translations = {
+  ar: {
+    testBtn: "تجربة التطبيق",
+    title: "Clinic ERP - تطبيق إدارة العيادات",
+    username: "اسم المستخدم",
+    password: "كلمة المرور",
+    login: "تسجيل الدخول"
+  },
+
+  en: {
+    testBtn: "TRY NOW!",
+    title: "Clinic ERP",
+    username: "Username",
+    password: "Password",
+    login: "LOGIN"
+  },
+
+  fr: {
+    testBtn: "ESSAYER MAINTENANT !",
+    title: "Clinic ERP - Gestion de Clinique",
+    username: "Nom d'utilisateur",
+    password: "Mot de passe",
+    login: "SE CONNECTER"
+  }
+};
+
 
   const languageSelector = document.getElementById('languageSelector');
 
