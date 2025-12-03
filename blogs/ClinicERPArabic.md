@@ -12,6 +12,7 @@
 بعد تفعيل اشتراكك، يمكنك استخدام نفس الصفحة الرئيسية للدخول على حسابك واستخدام تطبيق إدارة العيادات ClinicERP.
 
 ### الصفحة الرئيسية
+<a href="https://youtu.be/Z_C2wkD7THg" target="_blank">Go to video</a>
 يمكنك اختيار لغة التطبيق، والدخول على كل مزايا التطبيق من الصفحة الرئيسية. تجد أيضًا تعليمات بسيطة تساعدك في بعض الحالات مثل السماح للتطبيق بالتشغيل أول مرة، والرجوع في أي خطأ أو تعديل لا تريده.
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/clinicERPhomepage.png)
 
