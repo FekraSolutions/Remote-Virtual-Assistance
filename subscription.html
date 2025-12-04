@@ -177,13 +177,14 @@
     display: none !important;
 }
 
-    /* Language dropdown menu fix */
-.language-dropdown .dropdown-menu {
-    background-color: #111 !important;   /* dark background */
+/* Safe fix for ALL dropdown menus */
+.dropdown-menu {
+    background-color: #111 !important;
 }
 
-.language-dropdown .dropdown-menu a {
-    color: #fff !important;               /* white text */
+.dropdown-menu .dropdown-item,
+.dropdown-menu a {
+    color: #fff !important;
 }
 
   </style>
