@@ -1,0 +1,554 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ClinicERP — Subscription</title>
+  <meta name="description" content="ClinicERP subscription page — Reception, QR invoices, scheduling, WhatsApp invoices, payroll, 24/7 support." />
+  <link rel="icon" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinic-preview.jpg" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted: rgba(255,255,255,0.75);
+      --glass: rgba(255,255,255,0.04);
+      --accent: linear-gradient(135deg,#00c853,#009624);
+      --accent-2: linear-gradient(135deg,#0066ff,#003ecb);
+      --radius: 14px;
+      --glass-border: rgba(255,255,255,0.06);
+      --maxw: 1100px;
+      --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      min-height:100%;
+      background:
+        radial-gradient(1200px 600px at 10% 10%, rgba(0,120,255,0.05), transparent 8%),
+        linear-gradient(180deg,#071027 0%, #071824 50%, #071027 100%),
+        url('https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinicback.webp');
+      background-size: cover;
+      color:var(--muted);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:36px 20px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      margin:auto;
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:28px;
+      align-items:start;
+    }
+
+    /* Header / Brand */
+    header.brand{
+      grid-column: 1 / -1;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      margin-bottom:4px;
+    }
+    .brand-left{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:64px;height:64px;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border);
+      box-shadow: 0 6px 20px rgba(2,6,23,0.7);
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      display:flex;align-items:center;justify-content:center;
+    }
+    .logo img{width:100%;height:100%;object-fit:cover;display:block}
+    h1.app-title{font-size:20px;margin:0;color:#fff;letter-spacing:0.2px}
+    p.tag{margin:0;color:rgba(255,255,255,0.7);font-size:13px}
+
+    /* language selector */
+    .controls{display:flex;gap:8px;align-items:center}
+    .lang-select{
+      background:var(--glass);
+      border:1px solid var(--glass-border);
+      color:var(--muted);
+      padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer;
+      display:flex;gap:8px;align-items:center;
+    }
+    .lang-select select{
+      background:transparent;border:none;color:inherit;font-weight:700;font-size:14px;
+      outline:none;
+    }
+
+    /* Left column (features + hero) */
+    .hero{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:28px;
+      box-shadow: var(--shadow);
+      border:1px solid var(--glass-border);
+      min-height:320px;
+    }
+    .hero .headline{
+      display:flex;align-items:flex-start;gap:14px;
+    }
+    .hero h2{margin:0;font-size:22px;color:#fff}
+    .hero p.lead{margin:8px 0 16px;color:rgba(255,255,255,0.85)}
+
+    .features{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:12px;
+      margin-top:8px;
+    }
+    .feat{
+      background:var(--card);
+      border-radius:10px;padding:10px 12px;
+      display:flex;gap:10px;align-items:center;border:1px solid rgba(255,255,255,0.03);
+    }
+    .feat svg{width:28px;height:28px;flex-shrink:0;opacity:0.95}
+    .feat strong{display:block;color:#fff;font-size:14px}
+    .feat small{display:block;color:rgba(255,255,255,0.6);font-size:12px;margin-top:2px}
+
+    .note{
+      margin-top:14px;font-size:13px;color:rgba(255,255,255,0.7)
+    }
+
+    /* Right column (pricing) */
+    .aside{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius: var(--radius);
+      padding:20px;
+      border:1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+    }
+    .price-head{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .price-head h3{margin:0;color:#fff;font-size:18px}
+    .price-sub{font-size:13px;color:rgba(255,255,255,0.7)}
+
+    .cards{display:flex;flex-direction:column;gap:12px}
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);
+      display:flex;flex-direction:column;gap:8px;
+      transition:transform .18s,box-shadow .18s;
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(2,6,23,0.55)}
+    .price{display:flex;align-items:baseline;gap:8px}
+    .price .amount{font-size:26px;color:#fff;font-weight:700}
+    .price .dur{font-size:13px;color:rgba(255,255,255,0.75)}
+
+    .features-list{display:flex;flex-direction:column;gap:6px;margin:6px 0 12px}
+    .fitem{display:flex;gap:8px;align-items:center;color:rgba(255,255,255,0.8);font-size:13px}
+    .fitem svg{width:16px;height:16px;flex-shrink:0;opacity:0.95}
+
+    .cta-row{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;
+      font-weight:700;border:none;cursor:pointer;text-decoration:none;
+      box-shadow:0 6px 18px rgba(2,6,23,0.5);
+      color:#fff;min-width:140px;justify-content:center;
+    }
+    .btn-pay-month{background:var(--accent-2)}
+    .btn-pay-year{background:var(--accent)}
+    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted);min-width:auto;padding:8px 12px;border-radius:8px}
+
+    /* small footer */
+    footer.small{grid-column:1 / -1;margin-top:10px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,0.6)}
+    footer.small a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:700}
+
+    /* responsive */
+    @media (max-width:980px){
+      .wrap{grid-template-columns:1fr;align-items:stretch}
+      .aside{order:2}
+      .hero{order:1}
+    }
+    @media (max-width:520px){
+      .features{grid-template-columns:1fr}
+      .logo{width:54px;height:54px}
+      .cards{gap:10px}
+      .card{padding:14px}
+      .btn{min-width:120px;padding:10px 12px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" role="main" aria-label="ClinicERP subscription page">
+    <header class="brand" aria-hidden="false">
+      <div class="brand-left">
+        <div class="logo" aria-hidden="true">
+          <img src="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinic-preview.jpg" alt="ClinicERP logo" />
+        </div>
+        <div>
+          <h1 class="app-title" id="appName">ClinicERP</h1>
+          <p class="tag" id="shortTag">إدارة العيادات — Reception • Invoices • Scheduling</p>
+        </div>
+      </div>
+
+      <div class="controls" aria-hidden="false">
+        <div class="lang-select" title="Choose language / اختر اللغة / Choisir la langue" aria-label="language selector">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="rgba(255,255,255,0.08)"/></svg>
+          <select id="lang" aria-label="Select language">
+            <option value="ar">العربية</option>
+            <option value="en" selected>English</option>
+            <option value="fr">Français</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Left: Hero + Feature list -->
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="headline">
+        <div>
+          <h2 id="heroTitle">ClinicERP — <span id="heroSub">Smart clinic management</span></h2>
+          <p class="lead" id="heroLead">All core features for clinics and medical centers — reception, invoices, scheduling, payroll and more.</p>
+        </div>
+      </div>
+
+      <div class="features" id="featuresGrid" aria-hidden="false">
+        <!-- feature items will be filled by JS for translation -->
+      </div>
+
+      <p class="note" id="noteText">Includes 24/7 support and customization options — try with confidence.</p>
+    </section>
+
+    <!-- Right: Pricing -->
+    <aside class="aside" aria-labelledby="plansTitle">
+      <div class="price-head">
+        <div>
+          <h3 id="plansTitle">Subscription Packs</h3>
+          <div class="price-sub" id="plansSub">Two plans — monthly and yearly. Both include all features.</div>
+        </div>
+      </div>
+
+      <div class="cards" aria-hidden="false">
+        <!-- Monthly Card -->
+        <div class="card" role="region" aria-labelledby="monthlyTitle">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong id="monthlyTitle">Monthly</strong>
+            <span style="font-size:12px;color:rgba(255,255,255,0.6)">All features</span>
+          </div>
+          <div class="price" aria-hidden="false">
+            <div class="amount" id="monthlyAmount">$12</div>
+            <div class="dur" id="monthlyDur">/ month</div>
+          </div>
+
+          <div class="features-list" id="cardFeatures1">
+            <!-- JS will fill -->
+          </div>
+
+          <div class="cta-row">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=12.00&currency_code=USD&item_name=ClinicERP%20Monthly" class="btn btn-pay-month" id="payMonthly" rel="noopener" target="_blank" aria-label="Pay $12 per month">
+              <!-- PayPal text will be localized -->
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12h20" stroke="rgba(255,255,255,0.85)" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <span id="payMonthText">Pay $12 / month</span>
+            </a>
+            <a href="#" class="btn btn-outline" id="trialBtn" aria-label="Start free trial">
+              <span id="trialText">Start 7-day trial</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Yearly Card -->
+        <div class="card" role="region" aria-labelledby="yearlyTitle">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <strong id="yearlyTitle">Yearly (best value)</strong>
+            <span style="font-size:12px;color:rgba(255,255,255,0.6)">Save money</span>
+          </div>
+          <div class="price">
+            <div class="amount" id="yearlyAmount">$90</div>
+            <div class="dur" id="yearlyDur">/ year</div>
+          </div>
+
+          <div class="features-list" id="cardFeatures2">
+            <!-- JS will fill -->
+          </div>
+
+          <div class="cta-row">
+            <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=90.00&currency_code=USD&item_name=ClinicERP%20Yearly" class="btn btn-pay-year" id="payYearly" rel="noopener" target="_blank" aria-label="Pay $90 per year">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12h20" stroke="rgba(255,255,255,0.95)" stroke-width="1.2" stroke-linecap="round"/></svg>
+              <span id="payYearText">Pay $90 / year</span>
+            </a>
+            <a href="#" class="btn btn-outline" id="contactBtn" aria-label="Contact sales">
+              <span id="contactText">Contact Sales</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:12px;font-size:13px;color:rgba(255,255,255,0.6)">
+        <strong id="secureTitle">Secure payments</strong>
+        <div id="secureText">We accept PayPal. Receipts are emailed automatically.</div>
+      </div>
+    </aside>
+
+    <footer class="small" role="contentinfo">
+      <div id="copyright">© <span id="year"></span> ClinicERP — Fekra! Business Solutions</div>
+      <div><a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" id="moreLink" target="_blank" rel="noopener">Learn more</a></div>
+    </footer>
+  </div>
+
+  <script>
+    // ---------- Translations ----------
+    const LOCALES = {
+      en: {
+        appName: "ClinicERP",
+        shortTag: "Clinic management — Reception • Invoices • Scheduling",
+        heroSub: "Smart clinic management",
+        heroLead: "All core features for clinics and medical centers — reception, invoices, scheduling, payroll and more.",
+        note: "Includes 24/7 support and customization options — try with confidence.",
+        plansTitle: "Subscription Packs",
+        plansSub: "Two plans — monthly and yearly. Both include all features.",
+        monthly: "Monthly",
+        monthlyAmount: "$12",
+        monthlyDur: "/ month",
+        payMonthText: "Pay $12 / month",
+        trialText: "Start 7-day trial",
+        yearly: "Yearly (best value)",
+        yearlyAmount: "$90",
+        yearlyDur: "/ year",
+        payYearText: "Pay $90 / year",
+        contactText: "Contact Sales",
+        secureTitle: "Secure payments",
+        secureText: "We accept PayPal. Receipts are emailed automatically.",
+        features: [
+          "Reception",
+          "QR invoices",
+          "Invoice Records",
+          "Session Scheduling",
+          "WhatsApp invoices & Sessions",
+          "Patients Files",
+          "Manage Expenses & Payroll",
+          "Income Statement",
+          "24/7 Support",
+          "Customizations & Addons"
+        ],
+        learnMore: "Learn more",
+      },
+      ar: {
+        appName: "ClinicERP",
+        shortTag: "إدارة العيادات — الاستقبال • الفواتير • الجلسات",
+        heroSub: "نظام متكامل لإدارة العيادات",
+        heroLead: "جميع ميزات العيادات — استقبال المرضى، فواتير QR، جدولة الجلسات، المرتبات والمزيد.",
+        note: "يتضمن دعم 24/7 وخيارات التخصيص — جرّبه بثقة.",
+        plansTitle: "خطط الاشتراك",
+        plansSub: "حزمتان — شهري وسنوي. كلتاهما تحتويان على كل الميزات.",
+        monthly: "شهري",
+        monthlyAmount: "$12",
+        monthlyDur: "/ شهر",
+        payMonthText: "اشترك شهريًا — $12",
+        trialText: "ابدأ تجربة 7 أيام",
+        yearly: "سنوي (أفضل قيمة)",
+        yearlyAmount: "$90",
+        yearlyDur: "/ سنة",
+        payYearText: "اشترك سنويًا — $90",
+        contactText: "تواصل معنا",
+        secureTitle: "دفع آمن",
+        secureText: "نقبل باي بال. يستلمك إيصال تلقائيًا عبر البريد.",
+        features: [
+          "الاستقبال",
+          "فواتير QR",
+          "سجل الفواتير",
+          "جدولة الجلسات",
+          "فواتير وجلسات WhatsApp",
+          "ملفات المرضى",
+          "إدارة المصروفات والرواتب",
+          "قائمة الدخل",
+          "دعم 24/7",
+          "تخصيصات وإضافات"
+        ],
+        learnMore: "المزيد"
+      },
+      fr: {
+        appName: "ClinicERP",
+        shortTag: "Gestion de clinique — Accueil • Factures • Planning",
+        heroSub: "Gestion intelligente des cliniques",
+        heroLead: "Toutes les fonctionnalités clés pour cliniques — accueil, factures, planning, paie et plus.",
+        note: "Assistance 24/7 et options de personnalisation incluses.",
+        plansTitle: "Forfaits d'abonnement",
+        plansSub: "Deux forfaits — mensuel et annuel. Les deux incluent toutes les fonctionnalités.",
+        monthly: "Mensuel",
+        monthlyAmount: "$12",
+        monthlyDur: "/ mois",
+        payMonthText: "Payer $12 / mois",
+        trialText: "Essai de 7 jours",
+        yearly: "Annuel (meilleur rapport qualité/prix)",
+        yearlyAmount: "$90",
+        yearlyDur: "/ an",
+        payYearText: "Payer $90 / an",
+        contactText: "Contacter les ventes",
+        secureTitle: "Paiements sécurisés",
+        secureText: "Nous acceptons PayPal. Les reçus sont envoyés automatiquement par e-mail.",
+        features: [
+          "Accueil",
+          "Factures QR",
+          "Historique des factures",
+          "Planification des séances",
+          "Factures & sessions WhatsApp",
+          "Dossiers patients",
+          "Gérer dépenses & salaires",
+          "Compte de résultat",
+          "Assistance 24/7",
+          "Personnalisations & Addons"
+        ],
+        learnMore: "En savoir plus"
+      }
+    };
+
+    // ---------- Populate UI ----------
+    const elements = {
+      langSelect: document.getElementById('lang'),
+      appName: document.getElementById('appName'),
+      shortTag: document.getElementById('shortTag'),
+      heroSub: document.getElementById('heroSub'),
+      heroLead: document.getElementById('heroLead'),
+      noteText: document.getElementById('noteText'),
+      plansTitle: document.getElementById('plansTitle'),
+      plansSub: document.getElementById('plansSub'),
+      monthlyTitle: document.getElementById('monthlyTitle'),
+      monthlyAmount: document.getElementById('monthlyAmount'),
+      monthlyDur: document.getElementById('monthlyDur'),
+      payMonthText: document.getElementById('payMonthText'),
+      trialText: document.getElementById('trialText'),
+      yearlyTitle: document.getElementById('yearlyTitle'),
+      yearlyAmount: document.getElementById('yearlyAmount'),
+      yearlyDur: document.getElementById('yearlyDur'),
+      payYearText: document.getElementById('payYearText'),
+      contactText: document.getElementById('contactText'),
+      secureTitle: document.getElementById('secureTitle'),
+      secureText: document.getElementById('secureText'),
+      featuresGrid: document.getElementById('featuresGrid'),
+      cardFeatures1: document.getElementById('cardFeatures1'),
+      cardFeatures2: document.getElementById('cardFeatures2'),
+      moreLink: document.getElementById('moreLink'),
+      payMonthly: document.getElementById('payMonthly'),
+      payYearly: document.getElementById('payYearly'),
+      yearEl: document.getElementById('year')
+    };
+
+    // Populate features list markup (with small check icon)
+    function createFeatureItem(text){
+      const d = document.createElement('div');
+      d.className = 'feat';
+      d.innerHTML = `
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img">
+          <path d="M20 6L9 17l-5-5" stroke="rgba(255,255,255,0.95)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div>
+          <strong>${text}</strong>
+        </div>
+      `;
+      return d;
+    }
+
+    function createCardFeature(text){
+      const el = document.createElement('div');
+      el.className='fitem';
+      el.innerHTML = `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true" role="img"><path d="M5 12l4 4L19 6" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${text}</span>`;
+      return el;
+    }
+
+    // Set locale to given code
+    function setLocale(code, init=false){
+      const L = LOCALES[code] || LOCALES.en;
+
+      // text replacements
+      elements.appName.textContent = L.appName;
+      elements.shortTag.textContent = L.shortTag;
+      elements.heroSub.textContent = L.heroSub;
+      elements.heroLead.textContent = L.heroLead;
+      elements.noteText.textContent = L.note;
+      elements.plansTitle.textContent = L.plansTitle;
+      elements.plansSub.textContent = L.plansSub;
+      elements.monthlyTitle.textContent = L.monthly;
+      elements.monthlyAmount.textContent = L.monthlyAmount;
+      elements.monthlyDur.textContent = L.monthlyDur;
+      elements.payMonthText.textContent = L.payMonthText;
+      elements.trialText.textContent = L.trialText;
+      elements.yearlyTitle.textContent = L.yearly;
+      elements.yearlyAmount.textContent = L.yearlyAmount;
+      elements.yearlyDur.textContent = L.yearlyDur;
+      elements.payYearText.textContent = L.payYearText;
+      elements.contactText.textContent = L.contactText;
+      elements.secureTitle.textContent = L.secureTitle;
+      elements.secureText.textContent = L.secureText;
+      elements.moreLink.textContent = L.learnMore;
+
+      // build features
+      elements.featuresGrid.innerHTML = '';
+      L.features.slice(0,10).forEach(f => elements.featuresGrid.appendChild(createFeatureItem(f)));
+
+      // fill small lists in cards (first 6 in first card, rest in second)
+      elements.cardFeatures1.innerHTML = '';
+      elements.cardFeatures2.innerHTML = '';
+      L.features.slice(0,6).forEach(f => elements.cardFeatures1.appendChild(createCardFeature(f)));
+      L.features.slice(6).forEach(f => elements.cardFeatures2.appendChild(createCardFeature(f)));
+
+      // direction / alignment
+      if (code === 'ar'){
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        document.body.style.textAlign = 'right';
+      } else {
+        document.documentElement.lang = code;
+        document.documentElement.dir = 'ltr';
+        document.body.style.textAlign = 'left';
+      }
+
+      // Update PayPal links (item_name localized lightly)
+      const monthlyItem = encodeURIComponent(`${L.appName} ${L.monthly}`);
+      const yearlyItem = encodeURIComponent(`${L.appName} ${L.yearly}`);
+      payMonthly.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=12.00&currency_code=USD&item_name=${monthlyItem}`;
+      payYearly.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=90.00&currency_code=USD&item_name=${yearlyItem}`;
+
+      // small accessibility: update aria-labels on pay buttons
+      payMonthly.setAttribute('aria-label', L.payMonthText);
+      payYearly.setAttribute('aria-label', L.payYearText);
+
+      // title updates (meta not updated here, but visible text is)
+      // store preference in localStorage
+      try{ localStorage.setItem('clinicerp_locale', code); }catch(e){}
+    }
+
+    // initialize
+    (function(){
+      // set year
+      elements.yearEl.textContent = (new Date()).getFullYear();
+
+      // read stored locale or use default
+      const stored = (localStorage.getItem('clinicerp_locale') || 'en');
+      elements.langSelect.value = stored;
+      setLocale(stored, true);
+
+      // language change handler
+      elements.langSelect.addEventListener('change', e => setLocale(e.target.value));
+    })();
+
+    // Extra small handlers for CTA links (trial/contact)
+    document.getElementById('trialBtn').addEventListener('click', e=>{
+      e.preventDefault();
+      // open a lightweight modal or simply redirect to contact or message
+      const L = LOCALES[document.getElementById('lang').value||'en'];
+      alert(L.trialText + " — " + (L.secureText || ""));
+    });
+    document.getElementById('contactBtn').addEventListener('click', e=>{
+      e.preventDefault();
+      // open whatsapp link with prefilled message
+      const L = LOCALES[document.getElementById('lang').value||'en'];
+      const msg = encodeURIComponent(`${L.appName} - ${L.contactText} (I'd like to know more about subscription)`);
+      window.open(`https://wa.me/201060469453?text=${msg}`, '_blank', 'noopener');
+    });
+
+    // Accessibility: keyboard shortcut: Alt+L opens language selector
+    window.addEventListener('keydown', (ev)=>{
+      if ((ev.altKey || ev.metaKey) && ev.key.toLowerCase() === 'l'){
+        ev.preventDefault();
+        document.getElementById('lang').focus();
+      }
+    });
+  </script>
+</body>
+</html>
