@@ -171,6 +171,12 @@
       .card{padding:14px}
       .btn{min-width:120px;padding:10px 12px}
     }
+
+    #trialBtn,
+#contactBtn {
+    display: none !important;
+}
+
   </style>
 </head>
 <body>
@@ -245,6 +251,9 @@
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12h20" stroke="rgba(255,255,255,0.85)" stroke-width="1.2" stroke-linecap="round"/></svg>
               <span id="payMonthText">Pay $12 / month</span>
             </a>
+            <a href="#" class="btn btn-outline" id="trialBtn" aria-label="Start free trial">
+              <span id="trialText">Start 7-day trial</span>
+            </a>
           </div>
         </div>
 
@@ -267,6 +276,9 @@
             <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=90.00&currency_code=USD&item_name=ClinicERP%20Yearly" class="btn btn-pay-year" id="payYearly" rel="noopener" target="_blank" aria-label="Pay $90 per year">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M2 12h20" stroke="rgba(255,255,255,0.95)" stroke-width="1.2" stroke-linecap="round"/></svg>
               <span id="payYearText">Pay $90 / year</span>
+            </a>
+            <a href="#" class="btn btn-outline" id="contactBtn" aria-label="Contact sales">
+              <span id="contactText">Contact Sales</span>
             </a>
           </div>
         </div>
