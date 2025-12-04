@@ -499,11 +499,20 @@
       elements.featuresGrid.innerHTML = '';
       L.features.slice(0,10).forEach(f => elements.featuresGrid.appendChild(createFeatureItem(f)));
 
-      // fill small lists in cards (first 6 in first card, rest in second)
-      elements.cardFeatures1.innerHTML = '';
-      elements.cardFeatures2.innerHTML = '';
-      L.features.slice(0,6).forEach(f => elements.cardFeatures1.appendChild(createCardFeature(f)));
-      L.features.slice(6).forEach(f => elements.cardFeatures2.appendChild(createCardFeature(f)));
+// Both cards show the exact same three features
+const cardFeatures = [
+  L.features.includes("All features included") ? "All features included" : "All features included",
+  "Customizations & Add-ons Available",
+  "24/7 Support"
+];
+
+elements.cardFeatures1.innerHTML = '';
+elements.cardFeatures2.innerHTML = '';
+cardFeatures.forEach(f => {
+  elements.cardFeatures1.appendChild(createCardFeature(f));
+  elements.cardFeatures2.appendChild(createCardFeature(f));
+});
+
 
       // direction / alignment
       if (code === 'ar'){
