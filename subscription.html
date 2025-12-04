@@ -314,6 +314,9 @@
     const LOCALES = {
       en: {
         appName: "ClinicERP",
+          featuresCard1: "All features included",
+  featuresCard2: "Customizations & Add-ons Available",
+  featuresCard3: "24/7 Support",
         shortTag: "Clinic management — Reception • Invoices • Scheduling",
         heroSub: "Smart clinic management",
         heroLead: "All core features for clinics and medical centers — reception, invoices, scheduling, payroll and more.",
@@ -348,6 +351,9 @@
       },
       ar: {
         appName: "ClinicERP",
+          featuresCard1: "جميع الميزات متاحة",
+  featuresCard2: "خيارات التخصيص والإضافات متوفرة",
+  featuresCard3: "دعم 24/7",
         shortTag: "إدارة العيادات — الاستقبال • الفواتير • الجلسات",
         heroSub: "نظام متكامل لإدارة العيادات",
         heroLead: "جميع ميزات العيادات — استقبال المرضى، فواتير QR، جدولة الجلسات، المرتبات والمزيد.",
@@ -382,6 +388,9 @@
       },
       fr: {
         appName: "ClinicERP",
+          featuresCard1: "Toutes les fonctionnalités incluses",
+  featuresCard2: "Personnalisations et Add-ons disponibles",
+  featuresCard3: "Assistance 24/7",
         shortTag: "Gestion de clinique — Accueil • Factures • Planning",
         heroSub: "Gestion intelligente des cliniques",
         heroLead: "Toutes les fonctionnalités clés pour cliniques — accueil, factures, planning, paie et plus.",
@@ -499,11 +508,12 @@
       elements.featuresGrid.innerHTML = '';
       L.features.slice(0,10).forEach(f => elements.featuresGrid.appendChild(createFeatureItem(f)));
 
-// Both cards show the exact same three features
+
+// Both cards show same three features, localized
 const cardFeatures = [
-  L.features.includes("All features included") ? "All features included" : "All features included",
-  "Customizations & Add-ons Available",
-  "24/7 Support"
+  L.featuresCard1 || "All features included",
+  L.featuresCard2 || "Customizations & Add-ons Available",
+  L.featuresCard3 || "24/7 Support"
 ];
 
 elements.cardFeatures1.innerHTML = '';
@@ -512,6 +522,7 @@ cardFeatures.forEach(f => {
   elements.cardFeatures1.appendChild(createCardFeature(f));
   elements.cardFeatures2.appendChild(createCardFeature(f));
 });
+
 
 
       // direction / alignment
