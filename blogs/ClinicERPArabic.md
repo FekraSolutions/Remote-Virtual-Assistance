@@ -1,5 +1,4 @@
 أهلاً بكم مرة أخرى في ClinicERP! في هذه المقالة، يمكنكم الاطلاع على جميع ميزات التطبيق. **ClinicERP** هو [نظام ادارة عيادات متكامل](https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html) وسهل الاستخدام.
-
 ## أولًا: آخر تحديثات ClinicERP: برنامج إدارة العيادات
 #### بتاريخ: 1 ديسمبر 2025
 
@@ -7,17 +6,13 @@
 - **فواتير ضريبية QR:** تم إضافة رمز QR صالح إلى الفاتورة، بالإضافة إلى التنسيق وإضافة المعلومات المطلوبة من قِبل السلطات الضريبية لإنشاء فواتير مقبولة لعملائك.  
 - **لوحة تحكم جديدة:** ClinicERP هو نظام (ERP) للعيادات، سهل الاستخدام لجميع المستخدمين. نقوم بتحديث الصفحة الرئيسية بانتظام لتوفير تجربة مستخدم أفضل.
 ---
-
 ## ثانيًا: شرح كل مزايا تطبيق ادارة العيادة ClinicERP
-
 ### [تجربة التطبيق وتسجيل الدخول](https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html)
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/loginpagepreview.jpg)
 يمكنك تجربة **ClinicERP** بالضغط على "تجربة التطبيق" أعلى الصفحة الرئيسية. يمكنك تجربة كل خصائص التطبيق والتواصل معنا بخصوص أي طلبات تخصيص أو تحديث. كل شيء قابل للتنفيذ. بعد تفعيل اشتراكك، يمكنك استخدام نفس الصفحة الرئيسية للدخول على حسابك واستخدام تطبيق إدارة العيادات ClinicERP.
----
 ### الصفحة الرئيسية
 يمكنك اختيار لغة التطبيق، والدخول على كل مزايا التطبيق من الصفحة الرئيسية. تجد أيضًا تعليمات بسيطة تساعدك في بعض الحالات مثل السماح للتطبيق بالتشغيل أول مرة، والرجوع في أي خطأ أو تعديل لا تريده.
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/clinicERPhomepage.png)
----
 ### استقبال المريض
 بكل سهولة تقوم بتسجيل استقبال المريض/تحرير فاتورة للمريض. نافذة واحدة سهلة وبسيطة تستعرض/تستقبل كل بيانات المريض وتحفظها بسهولة في سجل استقبال المرضى. وبعد تحرير الفاتورة يمكنك مباشرة حجز جلسات/مواعيد المريض.
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/receptionpreview.jpg)
