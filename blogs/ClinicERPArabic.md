@@ -11,7 +11,7 @@
 
 ### [تجربة التطبيق وتسجيل الدخول](https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html)
 يمكنك تجربة **ClinicERP** بالضغط على "تجربة التطبيق" أعلى الصفحة الرئيسية. يمكنك تجربة كل خصائص التطبيق والتواصل معنا بخصوص أي طلبات تخصيص أو تحديث. كل شيء قابل للتنفيذ.
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/clinicback.webp)
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/loginpagepreview.jpg)
 بعد تفعيل اشتراكك، يمكنك استخدام نفس الصفحة الرئيسية للدخول على حسابك واستخدام تطبيق إدارة العيادات ClinicERP.
 
 ### الصفحة الرئيسية
