@@ -8,7 +8,7 @@
 
 ## ثانيًا: شرح كل مزايا تطبيق ادارة العيادة ClinicERP
 
-### [تجربة التطبيق وتسجيل الدخول](https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html)
+<h3><a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html" target="_blank">تجربة التطبيق وتسجيل الدخول</a></h3>
 يمكنك تجربة **ClinicERP** بالضغط على "تجربة التطبيق" أعلى الصفحة الرئيسية. يمكنك تجربة كل خصائص التطبيق والتواصل معنا بخصوص أي طلبات تخصيص أو تحديث. كل شيء قابل للتنفيذ.  
 بعد تفعيل اشتراكك، يمكنك استخدام نفس الصفحة الرئيسية للدخول على حسابك واستخدام تطبيق إدارة العيادات ClinicERP.
 
