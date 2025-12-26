@@ -47,6 +47,60 @@
             font-size: 20px;
             text-shadow: 0 0 6px rgba(255,255,255,0.7);
         }
+
+        /* ===============================
+   COURSE GALAXY
+=============================== */
+.course-galaxy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    width: 90%;
+    max-width: 1100px;
+    margin-top: 40px;
+}
+
+.course-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    border-radius: 18px;
+    padding: 24px;
+    color: white;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.15);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.course-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+}
+
+.course-icon {
+    font-size: 38px;
+    margin-bottom: 12px;
+}
+
+.course-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.course-desc {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Mobile polish */
+@media (max-width: 600px) {
+    .course-galaxy {
+        grid-template-columns: 1fr;
+    }
+}
+
     </style>
 </head>
 
@@ -64,8 +118,41 @@
         </select>
     </div>
 
-    <!-- Example Label -->
-    <div class="label" data-i18n="welcome"></div>
+<!-- COURSE GALAXY -->
+<div class="course-galaxy">
+
+    <div class="course-card" data-course="accounting">
+        <div class="course-icon">🪐</div>
+        <div class="course-title" data-i18n="course_accounting"></div>
+        <div class="course-desc" data-i18n="desc_accounting"></div>
+    </div>
+
+    <div class="course-card" data-course="office">
+        <div class="course-icon">🛠</div>
+        <div class="course-title" data-i18n="course_office"></div>
+        <div class="course-desc" data-i18n="desc_office"></div>
+    </div>
+
+    <div class="course-card" data-course="google">
+        <div class="course-icon">☁️</div>
+        <div class="course-title" data-i18n="course_google"></div>
+        <div class="course-desc" data-i18n="desc_google"></div>
+    </div>
+
+    <div class="course-card" data-course="seo">
+        <div class="course-icon">✍️</div>
+        <div class="course-title" data-i18n="course_seo"></div>
+        <div class="course-desc" data-i18n="desc_seo"></div>
+    </div>
+
+    <div class="course-card" data-course="web">
+        <div class="course-icon">🌐</div>
+        <div class="course-title" data-i18n="course_web"></div>
+        <div class="course-desc" data-i18n="desc_web"></div>
+    </div>
+
+</div>
+
 
     <!-- Robot -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
@@ -81,18 +168,65 @@
            TRANSLATIONS
         =============================== */
         const translations = {
-            en: {
-                welcome: "Welcome to Fekra! Learn",
-                robotHello: "Hello from Fekra! 🤖"
-            },
-            ar: {
-                welcome: "تعلم مع فكرة",
-                robotHello: "أهلًا من فِكرة! 🤖"
-            },
-            fr: {
-                welcome: "Bienvenue sur Fekra! Learn",
-                robotHello: "Bonjour de Fekra! 🤖"
-            }
+en: {
+    welcome: "Welcome to Fekra! Learn",
+    robotHello: "Hello from Fekra! 🤖",
+
+    course_accounting: "Accounting & Finance",
+    desc_accounting: "Understand money. Control decisions.",
+
+    course_office: "MS Office & VBA",
+    desc_office: "Automate work. Eliminate repetition.",
+
+    course_google: "Google Apps & Scripts",
+    desc_google: "Build cloud tools without limits.",
+
+    course_seo: "SEO Writing",
+    desc_seo: "Write for humans. Rank for algorithms.",
+
+    course_web: "Website Development",
+    desc_web: "Design. Build. Launch digital worlds."
+},
+
+ar: {
+    welcome: "تعلم مع فكرة",
+    robotHello: "أهلًا من فِكرة! 🤖",
+
+    course_accounting: "المحاسبة والتمويل",
+    desc_accounting: "افهم المال وتحكم في القرار.",
+
+    course_office: "مايكروسوفت أوفيس و VBA",
+    desc_office: "أتمتة العمل والقضاء على التكرار.",
+
+    course_google: "تطبيقات جوجل والسكربت",
+    desc_google: "بناء أدوات سحابية بلا حدود.",
+
+    course_seo: "الكتابة لمحركات البحث",
+    desc_seo: "اكتب للإنسان وتصدر النتائج.",
+
+    course_web: "تطوير المواقع",
+    desc_web: "صمم وابنِ وأطلق عوالم رقمية."
+},
+
+fr: {
+    welcome: "Bienvenue sur Fekra! Learn",
+    robotHello: "Bonjour de Fekra! 🤖",
+
+    course_accounting: "Comptabilité & Finance",
+    desc_accounting: "Comprendre l'argent et décider.",
+
+    course_office: "MS Office & VBA",
+    desc_office: "Automatiser et gagner du temps.",
+
+    course_google: "Google Apps & Scripts",
+    desc_google: "Créer des outils cloud puissants.",
+
+    course_seo: "Rédaction SEO",
+    desc_seo: "Écrire pour l'humain et l’algorithme.",
+
+    course_web: "Développement Web",
+    desc_web: "Concevoir et lancer le web."
+}
         };
 
         /* ===============================
