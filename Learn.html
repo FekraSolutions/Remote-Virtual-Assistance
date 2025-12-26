@@ -37,16 +37,7 @@
             cursor: pointer;
         }
 
-        #languageSelect option {
-            color: black;
-        }
-
-        .label {
-            color: white;
-            margin-top: 20px;
-            font-size: 20px;
-            text-shadow: 0 0 6px rgba(255,255,255,0.7);
-        }
+        #languageSelect option { color: black; }
 
         /* ===============================
            COURSE GALAXY
@@ -54,50 +45,53 @@
         .course-galaxy {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 20px;
+            gap: 24px;
             width: 90%;
-            max-width: 1100px;
-            margin-top: 40px;
+            max-width: 1200px;
+            margin-top: 60px;
         }
 
         .course-card {
-            position: relative;
+            display: flex;
+            flex-direction: column;
             border-radius: 18px;
-            padding: 24px;
-            text-align: center;
-            color: white;
+            overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
             border: 1px solid rgba(255,255,255,0.15);
-            background: none; /* allow background image */
-            min-height: 200px;
+            background-color: #111;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Top image row */
+        .course-image {
+            flex: 2;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 150px;
+        }
+
+        /* Bottom text row */
+        .course-text {
+            flex: 1;
+            background-color: rgba(0,0,0,0.75);
+            color: white;
+            padding: 16px;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end;
-        }
-
-        /* Overlay */
-        .course-card::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 18px;
-            background: rgba(0,0,0,0.4);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .course-title,
-        .course-desc {
-            position: relative;
-            z-index: 2;
+            justify-content: center;
         }
 
         .course-title {
             font-size: 20px;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .course-desc {
@@ -105,58 +99,13 @@
             opacity: 0.9;
         }
 
-        .course-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
-        }
-
-        /* Background images for cards */
-        .course-card.accounting {
-            background-image: url('media/learnaccounting.jpg');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .course-card.office {
-            background-image: url('media/learnoffice.jpg');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .course-card.google {
-            background-image: url('media/learngoogle.jpg');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .course-card.seo {
-            background-image: url('media/leranwriting.jpg');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-        .course-card.web {
-            background-image: url('media/learnwebsite.jpg');
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-        }
-
         /* Mobile polish */
         @media (max-width: 600px) {
             .course-galaxy {
                 grid-template-columns: 1fr;
             }
+            .course-image { min-height: 180px; }
         }
-
-    .course-text {
-    position: relative; /* above overlay */
-    z-index: 2;
-    background-color: rgba(0,0,0,0.7); /* semi-transparent black */
-    border-radius: 12px;
-    padding: 12px;
-    margin-top: auto; /* pushes text to bottom of card */
-}
 
     </style>
 </head>
@@ -164,9 +113,9 @@
 <body>
 
     <!-- Top Bar -->
-    <div style="position: absolute; top: 10px; left: 10px; display:flex; align-items:center;">
+    <div style="position: absolute; top: 10px; left: 10px; display:flex; align-items:center; z-index: 100;">
         <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-            <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+            <img src="media/Tlogo.png" alt="Logo" style="height: 40px; margin-left: 2px;">
         </a>
         <select id="languageSelect" style="margin-left: 10px;">
             <option value="en">English</option>
@@ -178,38 +127,43 @@
     <!-- COURSE GALAXY -->
     <div class="course-galaxy">
         <div class="course-card accounting">
+            <div class="course-image" style="background-image: url('media/learnaccounting.jpg');"></div>
             <div class="course-text">
-            <div class="course-title" data-i18n="course_accounting"></div>
-            <div class="course-desc" data-i18n="desc_accounting"></div>
-                </div>    
+                <div class="course-title" data-i18n="course_accounting"></div>
+                <div class="course-desc" data-i18n="desc_accounting"></div>
+            </div>
         </div>
 
         <div class="course-card office">
+            <div class="course-image" style="background-image: url('media/learnoffice.jpg');"></div>
             <div class="course-text">
-            <div class="course-title" data-i18n="course_office"></div>
-            <div class="course-desc" data-i18n="desc_office"></div>
-                    </div>
+                <div class="course-title" data-i18n="course_office"></div>
+                <div class="course-desc" data-i18n="desc_office"></div>
+            </div>
         </div>
 
         <div class="course-card google">
+            <div class="course-image" style="background-image: url('media/learngoogle.jpg');"></div>
             <div class="course-text">
-            <div class="course-title" data-i18n="course_google"></div>
-            <div class="course-desc" data-i18n="desc_google"></div>
-                    </div>
+                <div class="course-title" data-i18n="course_google"></div>
+                <div class="course-desc" data-i18n="desc_google"></div>
+            </div>
         </div>
 
         <div class="course-card seo">
+            <div class="course-image" style="background-image: url('media/leranwriting.jpg');"></div>
             <div class="course-text">
-            <div class="course-title" data-i18n="course_seo"></div>
-            <div class="course-desc" data-i18n="desc_seo"></div>
-                    </div>
+                <div class="course-title" data-i18n="course_seo"></div>
+                <div class="course-desc" data-i18n="desc_seo"></div>
+            </div>
         </div>
 
         <div class="course-card web">
+            <div class="course-image" style="background-image: url('media/learnwebsite.jpg');"></div>
             <div class="course-text">
-            <div class="course-title" data-i18n="course_web"></div>
-            <div class="course-desc" data-i18n="desc_web"></div>
-                    </div>
+                <div class="course-title" data-i18n="course_web"></div>
+                <div class="course-desc" data-i18n="desc_web"></div>
+            </div>
         </div>
     </div>
 
@@ -222,9 +176,6 @@
     </dotlottie-wc>
 
     <script>
-        /* ===============================
-           TRANSLATIONS
-        =============================== */
         const translations = {
             en: {
                 welcome: "Welcome to Fekra! Learn",
@@ -270,9 +221,6 @@
             }
         };
 
-        /* ===============================
-           LANGUAGE SWITCHER
-        =============================== */
         const languageSelect = document.getElementById("languageSelect");
 
         function setLanguage(lang) {
@@ -290,9 +238,6 @@
 
         setLanguage("en");
 
-        /* ===============================
-           ROBOT INTERACTION
-        =============================== */
         document.getElementById("robot").addEventListener("click", () => {
             const lang = languageSelect.value;
             alert(translations[lang].robotHello);
