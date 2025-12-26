@@ -49,103 +49,105 @@
         }
 
         /* ===============================
-   COURSE GALAXY
-=============================== */
-.course-galaxy {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    width: 90%;
-    max-width: 1100px;
-    margin-top: 40px;
-}
-.course-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.4);
-    border-radius: 18px;
-    pointer-events: none; /* allows clicks on card */
-}
+           COURSE GALAXY
+        =============================== */
+        .course-galaxy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 1100px;
+            margin-top: 40px;
+        }
 
-.course-card {
-    background: rgba(255, 255, 255, 0.08);
-    position: relative;
-    backdrop-filter: blur(10px);
-    border-radius: 18px;
-    padding: 24px;
-    color: white;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-}
+        .course-card {
+            position: relative;
+            border-radius: 18px;
+            padding: 24px;
+            text-align: center;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255,255,255,0.15);
+            background: none; /* allow background image */
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
 
-.course-card:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
-}
+        /* Overlay */
+        .course-card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 18px;
+            background: rgba(0,0,0,0.4);
+            pointer-events: none;
+            z-index: 1;
+        }
 
-.course-icon {
-    font-size: 38px;
-    margin-bottom: 12px;
-}
+        .course-title,
+        .course-desc {
+            position: relative;
+            z-index: 2;
+        }
 
-.course-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 8px;
-}
+        .course-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
 
-.course-desc {
-    font-size: 14px;
-    opacity: 0.9;
-}
+        .course-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
 
-/* Mobile polish */
-@media (max-width: 600px) {
-    .course-galaxy {
-        grid-template-columns: 1fr;
-    }
-}
+        .course-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+        }
 
-.course-card.accounting {
-    background-image: url('media/learnaccounting.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+        /* Background images for cards */
+        .course-card.accounting {
+            background-image: url('media/learnaccounting.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .course-card.office {
+            background-image: url('media/learnoffice.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .course-card.google {
+            background-image: url('media/learngoogle.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .course-card.seo {
+            background-image: url('media/leranwriting.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .course-card.web {
+            background-image: url('media/learnwebsite.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 
-.course-card.office {
-    background-image: url('media/learnoffice.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.course-card.google {
-    background-image: url('media/learngoogle.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.course-card.seo {
-    background-image: url('media/leranwriting.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-.course-card.web {
-    background-image: url('media/learnwebsite.jpg');
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-
+        /* Mobile polish */
+        @media (max-width: 600px) {
+            .course-galaxy {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 
@@ -163,40 +165,36 @@
         </select>
     </div>
 
-<!-- COURSE GALAXY -->
-<div class="course-galaxy">
+    <!-- COURSE GALAXY -->
+    <div class="course-galaxy">
+        <div class="course-card accounting">
+            <div class="course-title" data-i18n="course_accounting"></div>
+            <div class="course-desc" data-i18n="desc_accounting"></div>
+        </div>
 
-    <div class="course-card" data-course="accounting">
-        <div class="course-title" data-i18n="course_accounting"></div>
-        <div class="course-desc" data-i18n="desc_accounting"></div>
+        <div class="course-card office">
+            <div class="course-title" data-i18n="course_office"></div>
+            <div class="course-desc" data-i18n="desc_office"></div>
+        </div>
+
+        <div class="course-card google">
+            <div class="course-title" data-i18n="course_google"></div>
+            <div class="course-desc" data-i18n="desc_google"></div>
+        </div>
+
+        <div class="course-card seo">
+            <div class="course-title" data-i18n="course_seo"></div>
+            <div class="course-desc" data-i18n="desc_seo"></div>
+        </div>
+
+        <div class="course-card web">
+            <div class="course-title" data-i18n="course_web"></div>
+            <div class="course-desc" data-i18n="desc_web"></div>
+        </div>
     </div>
-
-    <div class="course-card" data-course="office">
-        <div class="course-title" data-i18n="course_office"></div>
-        <div class="course-desc" data-i18n="desc_office"></div>
-    </div>
-
-    <div class="course-card" data-course="google">
-        <div class="course-title" data-i18n="course_google"></div>
-        <div class="course-desc" data-i18n="desc_google"></div>
-    </div>
-
-    <div class="course-card" data-course="seo">
-        <div class="course-title" data-i18n="course_seo"></div>
-        <div class="course-desc" data-i18n="desc_seo"></div>
-    </div>
-
-    <div class="course-card" data-course="web">
-        <div class="course-title" data-i18n="course_web"></div>
-        <div class="course-desc" data-i18n="desc_web"></div>
-    </div>
-
-</div>
-
 
     <!-- Robot -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-
     <dotlottie-wc id="robot"
         src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
         style="width:72px;height:72px;position:fixed;bottom:20px;right:20px;z-index:9999;cursor:pointer;"
@@ -208,65 +206,48 @@
            TRANSLATIONS
         =============================== */
         const translations = {
-en: {
-    welcome: "Welcome to Fekra! Learn",
-    robotHello: "Hello from Fekra! 🤖",
-
-    course_accounting: "Accounting & Finance",
-    desc_accounting: "Understand money. Control decisions.",
-
-    course_office: "MS Office & VBA",
-    desc_office: "Automate work. Eliminate repetition.",
-
-    course_google: "Google Apps & Scripts",
-    desc_google: "Build cloud tools without limits.",
-
-    course_seo: "SEO Writing",
-    desc_seo: "Write for humans. Rank for algorithms.",
-
-    course_web: "Website Development",
-    desc_web: "Design. Build. Launch digital worlds."
-},
-
-ar: {
-    welcome: "تعلم مع فكرة",
-    robotHello: "أهلًا من فِكرة! 🤖",
-
-    course_accounting: "المحاسبة والتمويل",
-    desc_accounting: "افهم المال وتحكم في القرار.",
-
-    course_office: "مايكروسوفت أوفيس و VBA",
-    desc_office: "أتمتة العمل والقضاء على التكرار.",
-
-    course_google: "تطبيقات جوجل والسكربت",
-    desc_google: "بناء أدوات سحابية بلا حدود.",
-
-    course_seo: "الكتابة لمحركات البحث",
-    desc_seo: "اكتب للإنسان وتصدر النتائج.",
-
-    course_web: "تطوير المواقع",
-    desc_web: "صمم وابنِ وأطلق عوالم رقمية."
-},
-
-fr: {
-    welcome: "Bienvenue sur Fekra! Learn",
-    robotHello: "Bonjour de Fekra! 🤖",
-
-    course_accounting: "Comptabilité & Finance",
-    desc_accounting: "Comprendre l'argent et décider.",
-
-    course_office: "MS Office & VBA",
-    desc_office: "Automatiser et gagner du temps.",
-
-    course_google: "Google Apps & Scripts",
-    desc_google: "Créer des outils cloud puissants.",
-
-    course_seo: "Rédaction SEO",
-    desc_seo: "Écrire pour l'humain et l’algorithme.",
-
-    course_web: "Développement Web",
-    desc_web: "Concevoir et lancer le web."
-}
+            en: {
+                welcome: "Welcome to Fekra! Learn",
+                robotHello: "Hello from Fekra! 🤖",
+                course_accounting: "Accounting & Finance",
+                desc_accounting: "Understand money. Control decisions.",
+                course_office: "MS Office & VBA",
+                desc_office: "Automate work. Eliminate repetition.",
+                course_google: "Google Apps & Scripts",
+                desc_google: "Build cloud tools without limits.",
+                course_seo: "SEO Writing",
+                desc_seo: "Write for humans. Rank for algorithms.",
+                course_web: "Website Development",
+                desc_web: "Design. Build. Launch digital worlds."
+            },
+            ar: {
+                welcome: "تعلم مع فكرة",
+                robotHello: "أهلًا من فِكرة! 🤖",
+                course_accounting: "المحاسبة والتمويل",
+                desc_accounting: "افهم المال وتحكم في القرار.",
+                course_office: "مايكروسوفت أوفيس و VBA",
+                desc_office: "أتمتة العمل والقضاء على التكرار.",
+                course_google: "تطبيقات جوجل والسكربت",
+                desc_google: "بناء أدوات سحابية بلا حدود.",
+                course_seo: "الكتابة لمحركات البحث",
+                desc_seo: "اكتب للإنسان وتصدر النتائج.",
+                course_web: "تطوير المواقع",
+                desc_web: "صمم وابنِ وأطلق عوالم رقمية."
+            },
+            fr: {
+                welcome: "Bienvenue sur Fekra! Learn",
+                robotHello: "Bonjour de Fekra! 🤖",
+                course_accounting: "Comptabilité & Finance",
+                desc_accounting: "Comprendre l'argent et décider.",
+                course_office: "MS Office & VBA",
+                desc_office: "Automatiser et gagner du temps.",
+                course_google: "Google Apps & Scripts",
+                desc_google: "Créer des outils cloud puissants.",
+                course_seo: "Rédaction SEO",
+                desc_seo: "Écrire pour l'humain et l’algorithme.",
+                course_web: "Développement Web",
+                desc_web: "Concevoir et lancer le web."
+            }
         };
 
         /* ===============================
@@ -277,7 +258,6 @@ fr: {
         function setLanguage(lang) {
             document.documentElement.lang = lang;
             document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
-
             document.querySelectorAll("[data-i18n]").forEach(el => {
                 const key = el.getAttribute("data-i18n");
                 el.textContent = translations[lang][key] || key;
@@ -288,7 +268,6 @@ fr: {
             setLanguage(languageSelect.value);
         });
 
-        // Default language
         setLanguage("en");
 
         /* ===============================
