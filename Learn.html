@@ -148,6 +148,16 @@
                 grid-template-columns: 1fr;
             }
         }
+
+    .course-text {
+    position: relative; /* above overlay */
+    z-index: 2;
+    background-color: rgba(0,0,0,0.7); /* semi-transparent black */
+    border-radius: 12px;
+    padding: 12px;
+    margin-top: auto; /* pushes text to bottom of card */
+}
+
     </style>
 </head>
 
@@ -168,26 +178,31 @@
     <!-- COURSE GALAXY -->
     <div class="course-galaxy">
         <div class="course-card accounting">
+            <div class="course-text">
             <div class="course-title" data-i18n="course_accounting"></div>
             <div class="course-desc" data-i18n="desc_accounting"></div>
         </div>
 
         <div class="course-card office">
+            <div class="course-text">
             <div class="course-title" data-i18n="course_office"></div>
             <div class="course-desc" data-i18n="desc_office"></div>
         </div>
 
         <div class="course-card google">
+            <div class="course-text">
             <div class="course-title" data-i18n="course_google"></div>
             <div class="course-desc" data-i18n="desc_google"></div>
         </div>
 
         <div class="course-card seo">
+            <div class="course-text">
             <div class="course-title" data-i18n="course_seo"></div>
             <div class="course-desc" data-i18n="desc_seo"></div>
         </div>
 
         <div class="course-card web">
+            <div class="course-text">
             <div class="course-title" data-i18n="course_web"></div>
             <div class="course-desc" data-i18n="desc_web"></div>
         </div>
