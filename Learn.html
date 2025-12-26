@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BLOG - Fekra! Learn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="media/Tlogo.png">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            min-height: 100vh;
+            width: 100%;
+            overflow: auto;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+    <!-- Logo -->
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
+            <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+        </a>
+    </div>
+
+   
+    <!-- Robot character -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc id="robot"
+        src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
+        style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
+        speed="1"
+        autoplay
+        loop>
+    </dotlottie-wc>
+
+    <script>
+        // Example: Robot reacts when clicked
+        document.getElementById('robot').addEventListener('click', () => {
+            alert('Hello from Fekra! 🤖');
+        });
+    </script>
+</body>
+</html>
