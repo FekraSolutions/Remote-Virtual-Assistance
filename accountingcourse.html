@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accounting Course - Fekra! Learn</title>
+
+  <style>
+    :root {
+      --primary: #0f172a;   /* dark blue */
+      --accent: #22c55e;    /* green */
+      --bg: #f8fafc;        /* light background */
+      --card: #ffffff;
+      --text: #0f172a;
+      --muted: #64748b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      padding-bottom: 120px; /* space for floating widget */
+    }
+
+    /* ============================
+       1) TITLE SECTION
+       ============================ */
+    .title-section {
+      background: linear-gradient(135deg, var(--primary), #020617);
+      color: #fff;
+      padding: 24px 16px;
+      border-radius: 0 0 24px 24px;
+    }
+
+    .course-title {
+      font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .slide-info {
+      font-size: 0.95rem;
+      color: #cbd5f5;
+    }
+
+    /* ============================
+       2) MEDIA CONTAINER
+       ============================ */
+    .media-section {
+      margin: 20px 16px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }
+
+    .media-placeholder {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #e5e7eb;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    /* ============================
+       3) QUESTIONS & ANSWERS
+       ============================ */
+    .qa-section {
+      margin: 20px 16px;
+      background: var(--card);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+    }
+
+    .qa-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    .question {
+      margin-bottom: 14px;
+      font-size: 1rem;
+    }
+
+    .answers {
+      display: grid;
+      gap: 10px;
+    }
+
+    .answer {
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .answer:hover {
+      background: #e2e8f0;
+    }
+
+    /* ============================
+       4) FLOATING BUTTONS WIDGET
+       ============================ */
+    .floating-widget {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      z-index: 999;
+    }
+
+    .float-btn {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      border: none;
+      background: var(--accent);
+      color: #022c22;
+      font-size: 1.3rem;
+      font-weight: 600;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .float-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(0,0,0,0.25);
+    }
+
+    /* ============================
+       RESPONSIVE TWEAKS
+       ============================ */
+    @media (min-width: 900px) {
+      .media-section,
+      .qa-section {
+        margin: 24px auto;
+        max-width: 900px;
+      }
+
+      .title-section {
+        padding: 32px 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1) TITLE -->
+  <section class="title-section">
+    <div class="course-title">Fekra! Learn – Course Title</div>
+    <div class="slide-info">Slide Title · 1 / 20</div>
+  </section>
+
+  <!-- 2) MEDIA -->
+  <section class="media-section">
+    <div class="media-placeholder">
+      Picture / Video will appear here
+    </div>
+  </section>
+
+  <!-- 3) QUESTIONS & ANSWERS -->
+  <section class="qa-section">
+    <div class="qa-title">Quick Check</div>
+    <div class="question">What is the core concept of Fekra! Learn?</div>
+    <div class="answers">
+      <div class="answer">High quality with simplicity</div>
+      <div class="answer">Complex academic theory</div>
+      <div class="answer">Entertainment only</div>
+    </div>
+  </section>
+
+  <!-- 4) FLOATING BUTTONS -->
+  <div class="floating-widget">
+    <button class="float-btn">◀</button>
+    <button class="float-btn">▶</button>
+  </div>
+
+</body>
+</html>
