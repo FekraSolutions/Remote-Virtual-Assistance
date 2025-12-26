@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BLOG - Fekra! Learn</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="media/Tlogo.png">
 
@@ -18,40 +19,110 @@
             background: url('media/back.webp') center center no-repeat;
             background-size: cover;
             background-attachment: fixed;
-            background-position: center;
             min-height: 100vh;
             width: 100%;
-            overflow: auto;
         }
 
-       
+        #languageSelect {
+            font-size: 16px;
+            padding: 5px;
+            background-color: transparent;
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
+            border-radius: 5px;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        #languageSelect option {
+            color: black;
+        }
+
+        .label {
+            color: white;
+            margin-top: 20px;
+            font-size: 20px;
+            text-shadow: 0 0 6px rgba(255,255,255,0.7);
+        }
     </style>
 </head>
 
 <body>
-    <!-- Logo -->
-    <div style="position: absolute; top: 10px; left: 10px;">
-        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-            <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-        </a>
+
+    <!-- Top Bar -->
+    <div style="position: absolute; top: 10px; left: 10px; display:flex; align-items:center;">
+        <img src="media/Tlogo.png" alt="Logo" style="height: 40px;">
+        <select id="languageSelect" style="margin-left: 10px;">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+        </select>
     </div>
 
-   
-    <!-- Robot character -->
+    <!-- Example Label -->
+    <div class="label" data-i18n="welcome"></div>
+
+    <!-- Robot -->
     <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+
     <dotlottie-wc id="robot"
         src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
-        style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
-        speed="1"
-        autoplay
-        loop>
+        style="width:72px;height:72px;position:fixed;bottom:20px;right:20px;z-index:9999;cursor:pointer;"
+        autoplay loop>
     </dotlottie-wc>
 
     <script>
-        // Example: Robot reacts when clicked
-        document.getElementById('robot').addEventListener('click', () => {
-            alert('Hello from Fekra! 🤖');
+        /* ===============================
+           TRANSLATIONS
+        =============================== */
+        const translations = {
+            en: {
+                welcome: "Welcome to Fekra! Learn",
+                robotHello: "Hello from Fekra! 🤖"
+            },
+            ar: {
+                welcome: "مرحبًا بك في فِكرة! ليرن",
+                robotHello: "أهلًا من فِكرة! 🤖"
+            },
+            fr: {
+                welcome: "Bienvenue sur Fekra! Learn",
+                robotHello: "Bonjour de Fekra! 🤖"
+            }
+        };
+
+        /* ===============================
+           LANGUAGE SWITCHER
+        =============================== */
+        const languageSelect = document.getElementById("languageSelect");
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                el.textContent = translations[lang][key] || key;
+            });
+        }
+
+        languageSelect.addEventListener("change", () => {
+            setLanguage(languageSelect.value);
+        });
+
+        // Default language
+        setLanguage("en");
+
+        /* ===============================
+           ROBOT INTERACTION
+        =============================== */
+        document.getElementById("robot").addEventListener("click", () => {
+            const lang = languageSelect.value;
+            alert(translations[lang].robotHello);
         });
     </script>
+
 </body>
 </html>
