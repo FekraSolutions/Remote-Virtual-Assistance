@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Accounting & Finance</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="media/Tlogo.png">
+
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            font-family: 'Cairo', sans-serif;
+            flex-direction: column;
+            background: url('media/back.webp') center center no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        #languageSelect {
+            font-size: 16px;
+            padding: 5px;
+            background-color: transparent;
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
+            border-radius: 5px;
+            outline: none;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        #languageSelect option { color: black; }
+
+        /* ===============================
+           COURSE GALAXY
+        =============================== */
+        .course-galaxy {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 60px;
+        }
+
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            border-radius: 18px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(255,255,255,0.15);
+            background-color: #111;
+        }
+
+        .course-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Top image row */
+        .course-image {
+            flex: 2;
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            min-height: 150px;
+        }
+
+        /* Bottom text row */
+        .course-text {
+            flex: 1;
+            background-color: rgba(0,0,0,0.75);
+            color: white;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .course-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .course-desc {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Mobile polish */
+        @media (max-width: 600px) {
+            .course-galaxy {
+                grid-template-columns: 1fr;
+            }
+            .course-image { min-height: 180px; }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div style="position: absolute; top: 10px; left: 10px; display:flex; align-items:center; z-index: 100;">
+        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
+            <img src="media/Tlogo.png" alt="Logo" style="height: 40px; margin-left: 2px;">
+        </a>
+        <select id="languageSelect" style="margin-left: 10px;">
+            <option value="en">English</option>
+            <option value="ar">العربية</option>
+            <option value="fr">Français</option>
+        </select>
+    </div>
+
+    <!-- COURSE GALAXY -->
+    <div class="course-galaxy">
+        <div class="course-card accounting">
+            <div class="course-image" style="background-image: url('media/learnaccounting.jpg');"></div>
+            <div class="course-text">
+                <div class="course-title" data-i18n="course_accounting"></div>
+                <div class="course-desc" data-i18n="desc_accounting"></div>
+            </div>
+        </div>
+   </div>
+
+    <!-- Robot -->
+    <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
+    <dotlottie-wc id="robot"
+        src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
+        style="width:72px;height:72px;position:fixed;bottom:20px;right:20px;z-index:9999;cursor:pointer;"
+        autoplay loop>
+    </dotlottie-wc>
+
+    <script>
+        const translations = {
+            en: {
+                welcome: "Welcome to Fekra! Learn",
+                robotHello: "Hello from Fekra! 🤖",
+                course_accounting: "Definition: Financial Accounting",
+                desc_accounting: "An overview for accountants and non-accountants",
+            },
+            ar: {
+                welcome: "تعلم مع فكرة",
+                robotHello: "أهلًا من فِكرة! 🤖",
+                course_accounting: "تعريف: المحاسبة المالية",
+                desc_accounting: "مفهوم المحاسبة المالية بكل بساطة.",
+            },
+            fr: {
+                welcome: "Bienvenue sur Fekra! Learn",
+                robotHello: "Bonjour de Fekra! 🤖",
+                course_accounting: "Définition : Comptabilité financière",
+                desc_accounting: "Le concept de comptabilité financière en termes simples.",
+            }
+        };
+
+        const languageSelect = document.getElementById("languageSelect");
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+            document.querySelectorAll("[data-i18n]").forEach(el => {
+                const key = el.getAttribute("data-i18n");
+                el.textContent = translations[lang][key] || key;
+            });
+        }
+
+        languageSelect.addEventListener("change", () => {
+            setLanguage(languageSelect.value);
+        });
+
+        setLanguage("en");
+
+        document.getElementById("robot").addEventListener("click", () => {
+            const lang = languageSelect.value;
+            alert(translations[lang].robotHello);
+        });
+    </script>
+
+</body>
+</html>
