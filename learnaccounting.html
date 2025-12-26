@@ -73,11 +73,12 @@
 
         /* Top image row */
         .course-image {
+            aspect-ratio: 16/9; /* keeps image proportion */
             flex: 2;
             background-position: center;
-            background-size: contain; /* changed from cover */
+            background-size: cover;
             background-repeat: no-repeat;
-            min-height: 150px;
+            width: 100%;
         }
 
         /* Bottom text row */
