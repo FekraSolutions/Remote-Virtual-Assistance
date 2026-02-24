@@ -4,7 +4,6 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Excel Beginner to Advanced Course</title>
-  <meta name="description" content="Excel for beginners Course - Excel for Accounting Course - Excel for programmers Course" />
   <link rel="icon" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png" />
   <style>
     :root{
@@ -16,365 +15,327 @@
       --accent-2: linear-gradient(135deg,#0066ff,#003ecb);
       --radius: 14px;
       --glass-border: rgba(255,255,255,0.06);
-      --maxw: 1100px;
+      --maxw: 1200px;
       --shadow: 0 8px 30px rgba(2,6,23,0.6);
-      font-family: "Cairo", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      font-family: "Cairo", system-ui, -apple-system, sans-serif;
     }
     *{box-sizing:border-box}
-    html,body{height:100%}
+    html,body{height:100%; margin:0; padding:0;}
     body{
-      margin:0;
-      min-height:100%;
-      background:
-        radial-gradient(1200px 600px at 10% 10%, rgba(0,120,255,0.05), transparent 8%),
-        linear-gradient(180deg,#071027 0%, #071824 50%, #071027 100%),
-        url('https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinicback.webp');
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,120,255,0.05), transparent 8%),
+                  linear-gradient(180deg,#071027 0%, #071824 50%, #071027 100%),
+                  url('https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinicback.webp');
       background-size: cover;
       color:var(--muted);
       display:flex;
-      align-items:center;
       justify-content:center;
-      padding:36px 20px;
+      align-items:center;
+      min-height: 100vh;
+      padding: 20px;
     }
 
     .wrap{
       width:100%;
       max-width:var(--maxw);
-      margin:auto;
       display:flex;
       flex-direction:column;
-      gap:28px;
+      gap:20px;
     }
 
+    /* Header */
     header.brand{
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:12px;
-      margin-bottom:4px;
+      width: 100%;
     }
     .brand-left{display:flex;align-items:center;gap:12px}
     .logo{
-      width:64px;height:64px;border-radius:12px;overflow:hidden;border:1px solid var(--glass-border);
-      box-shadow: 0 6px 20px rgba(2,6,23,0.7);
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      display:flex;align-items:center;justify-content:center;
-    }
-    .logo img{width:100%;height:100%;object-fit:cover;display:block}
-    h1.app-title{font-size:20px;margin:0;color:#fff;letter-spacing:0.2px}
-    p.tag{margin:0;color:rgba(255,255,255,0.7);font-size:13px}
-
-    .controls{display:flex;gap:8px;align-items:center}
-    .lang-select{
-      background:var(--glass);
+      width:54px;height:54px;border-radius:12px;overflow:hidden;
       border:1px solid var(--glass-border);
-      color:var(--muted);
-      padding:8px 12px;border-radius:10px;font-weight:600;cursor:pointer;
-      display:flex;gap:8px;align-items:center;
+      background:rgba(255,255,255,0.02);
     }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    h1.app-title{font-size:22px;margin:0;color:#fff;}
+
     .lang-select select{
-      background-color: #0b1220 !important;
-      border:none;color:#fff !important;font-weight:700;font-size:14px;
-      outline:none;
+      background-color: #0b1220;
+      border:1px solid var(--glass-border);
+      color:#fff;
+      padding:8px;
+      border-radius:8px;
+      cursor:pointer;
     }
 
+    /* Main Pricing Area */
     .aside{
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      background: rgba(255,255,255,0.02);
       border-radius: var(--radius);
-      padding:24px;
+      padding:30px;
       border:1px solid var(--glass-border);
       box-shadow: var(--shadow);
     }
-    .price-head{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-    .price-head h3{margin:0;color:#fff;font-size:22px}
-    .price-sub{font-size:14px;color:rgba(255,255,255,0.7)}
 
+    .price-head { margin-bottom: 25px; text-align: center; }
+    .price-head h3 { font-size: 28px; color: #fff; margin: 0 0 10px 0; }
+
+    /* THE FIX: SIDE BY SIDE CARDS */
     .cards{
-      display:flex;
-      flex-direction:row; /* Changed to row */
-      gap:16px;
+      display: flex;
+      flex-direction: row; /* Horizontal */
+      gap: 20px;
       justify-content: center;
+      align-items: stretch;
+      width: 100%;
     }
+
     .card{
-      flex: 1; /* Makes all cards equal width */
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
-      border-radius:12px;padding:20px;border:1px solid rgba(255,255,255,0.03);
-      display:flex;flex-direction:column;gap:12px;
-      transition:transform .18s,box-shadow .18s;
-      min-width: 280px;
+      flex: 1; /* Equal widths */
+      background: rgba(255,255,255,0.03);
+      border-radius:12px;
+      padding:24px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display:flex;
+      flex-direction:column;
+      transition: transform 0.2s;
     }
-    .card:hover{transform:translateY(-6px);box-shadow:0 16px 40px rgba(2,6,23,0.55)}
-    .price{display:flex;align-items:baseline;gap:8px}
-    .price .amount{font-size:28px;color:#fff;font-weight:700}
-    .price .dur{font-size:14px;color:rgba(255,255,255,0.75)}
+    .card:hover{ transform: translateY(-5px); background: rgba(255,255,255,0.05); }
 
-    .features-list{display:flex;flex-direction:column;gap:8px;margin:10px 0 16px; flex-grow: 1;}
-    .fitem{display:flex;gap:8px;align-items:center;color:rgba(255,255,255,0.8);font-size:13px}
-    .fitem svg{width:16px;height:16px;flex-shrink:0;opacity:0.95}
+    .price{ margin: 15px 0; }
+    .amount{ font-size: 32px; color: #fff; font-weight: 800; }
+    .dur{ font-size: 14px; opacity: 0.8; }
 
-    .cta-row{margin-top:auto}
+    .features-list{
+      margin: 20px 0;
+      flex-grow: 1; /* Pushes button to bottom */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fitem{ display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .fitem svg{ width: 16px; height: 16px; flex-shrink: 0; }
+
     .btn{
-      display:inline-flex;align-items:center;gap:10px;padding:12px 14px;border-radius:10px;
-      font-weight:700;border:none;cursor:pointer;text-decoration:none;
-      box-shadow:0 6px 18px rgba(2,6,23,0.5);
-      color:#fff;width:100%;justify-content:center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      transition: opacity 0.2s;
     }
-    .btn-pay-month, .btn-pay-quarter{background:var(--accent-2)}
-    .btn-pay-year{background:var(--accent)}
+    .btn:hover{ opacity: 0.9; }
+    .btn-pay-month, .btn-pay-quarter{ background: var(--accent-2); }
+    .btn-pay-year{ background: var(--accent); }
 
-    footer.small{margin-top:10px;display:flex;justify-content:space-between;align-items:center;font-size:13px;color:rgba(255,255,255,0.6)}
-    footer.small a{color:rgba(255,255,255,0.85);text-decoration:none;font-weight:700}
-
-    /* Responsive: Stack vertically on smaller screens */
-    @media (max-width:900px){
-      .cards { flex-direction: column; align-items: stretch; }
-      .card { min-width: 100%; }
+    footer.small{
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      opacity: 0.6;
     }
+    footer.small a{ color: #fff; text-decoration: none; }
 
-    #trialBtn, #contactBtn { display: none !important; }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cards { flex-direction: column; }
+      body { height: auto; padding: 40px 20px; }
+    }
   </style>
 </head>
 <body>
-  <div class="wrap" role="main">
-    <header class="brand">
-      <div class="brand-left">
-        <div class="logo">
-          <img src="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinic-preview.jpg" alt="ClinicERP logo" />
+
+<div class="wrap">
+  <header class="brand">
+    <div class="brand-left">
+      <div class="logo"><img src="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/clinic-preview.jpg" alt="Logo"></div>
+      <div>
+        <h1 class="app-title" id="appName">ClinicERP</h1>
+        <p id="shortTag" style="margin:0; font-size:12px; opacity:0.7;"></p>
+      </div>
+    </div>
+    <div class="lang-select">
+      <select id="lang">
+        <option value="ar">العربية</option>
+        <option value="en" selected>English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="aside">
+    <div class="price-head">
+      <h3 id="plansTitle">Subscription Packs</h3>
+      <div id="plansSub" class="price-sub"></div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <strong id="monthlyTitle">Monthly</strong>
+        <div class="price">
+          <span class="amount" id="monthlyAmount">$12</span>
+          <span class="dur" id="monthlyDur"></span>
         </div>
-        <div>
-          <h1 class="app-title" id="appName">ClinicERP</h1>
-          <p class="tag" id="shortTag">إدارة العيادات</p>
-        </div>
+        <div class="features-list" id="cardFeatures1"></div>
+        <a href="#" class="btn btn-pay-month" id="payMonthly"><span id="payMonthText"></span></a>
       </div>
 
-      <div class="controls">
-        <div class="lang-select">
-          <select id="lang">
-            <option value="ar">العربية</option>
-            <option value="en" selected>English</option>
-            <option value="fr">Français</option>
-          </select>
+      <div class="card">
+        <strong id="quarterlyTitle">Quarterly</strong>
+        <div class="price">
+          <span class="amount" id="quarterlyAmount">$30</span>
+          <span class="dur" id="quarterlyDur"></span>
         </div>
-      </div>
-    </header>
-
-    <aside class="aside">
-      <div class="price-head">
-        <div>
-          <h3 id="plansTitle">Subscription Packs</h3>
-          <div class="price-sub" id="plansSub">Three plans available. All include all features.</div>
-        </div>
+        <div class="features-list" id="cardFeatures3"></div>
+        <a href="#" class="btn btn-pay-quarter" id="payQuarterly"><span id="payQuarterText"></span></a>
       </div>
 
-      <div class="cards">
-        <div class="card">
-          <strong id="monthlyTitle">Monthly</strong>
-          <div class="price">
-            <div class="amount" id="monthlyAmount">$12</div>
-            <div class="dur" id="monthlyDur">/ month</div>
-          </div>
-          <div class="features-list" id="cardFeatures1"></div>
-          <div class="cta-row">
-            <a href="#" class="btn btn-pay-month" id="payMonthly">
-              <span id="payMonthText">Pay $12 / month</span>
-            </a>
-          </div>
+      <div class="card">
+        <strong id="yearlyTitle">Yearly</strong>
+        <div class="price">
+          <span class="amount" id="yearlyAmount">$90</span>
+          <span class="dur" id="yearlyDur"></span>
         </div>
-
-        <div class="card">
-          <strong id="quarterlyTitle">Quarterly</strong>
-          <div class="price">
-            <div class="amount" id="quarterlyAmount">$30</div>
-            <div class="dur" id="quarterlyDur">/ 3 months</div>
-          </div>
-          <div class="features-list" id="cardFeatures3"></div>
-          <div class="cta-row">
-            <a href="#" class="btn btn-pay-quarter" id="payQuarterly">
-              <span id="payQuarterText">Pay $30 / quarter</span>
-            </a>
-          </div>
-        </div>
-
-        <div class="card">
-          <strong id="yearlyTitle">Yearly</strong>
-          <div class="price">
-            <div class="amount" id="yearlyAmount">$90</div>
-            <div class="dur" id="yearlyDur">/ year</div>
-          </div>
-          <div class="features-list" id="cardFeatures2"></div>
-          <div class="cta-row">
-            <a href="#" class="btn btn-pay-year" id="payYearly">
-              <span id="payYearText">Pay $90 / year</span>
-            </a>
-          </div>
-        </div>
+        <div class="features-list" id="cardFeatures2"></div>
+        <a href="#" class="btn btn-pay-year" id="payYearly"><span id="payYearText"></span></a>
       </div>
+    </div>
 
-      <div style="margin-top:20px;font-size:13px;color:rgba(255,255,255,0.6);text-align:center">
-        <strong id="secureTitle">Secure payments</strong>
-        <div id="secureText">We accept PayPal.</div>
-      </div>
-    </aside>
+    <div style="margin-top:25px; text-align:center; font-size:13px; opacity:0.6;">
+      <strong id="secureTitle"></strong><br>
+      <span id="secureText"></span>
+    </div>
+  </main>
 
-    <footer class="small">
-      <div id="copyright">© <span id="year"></span> ClinicERP</div>
-      <div><a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" id="moreLink" target="_blank">Learn more</a></div>
-    </footer>
-  </div>
+  <footer class="small">
+    <div>© <span id="year"></span> ClinicERP</div>
+    <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" id="moreLink" target="_blank">Learn more</a>
+  </footer>
+</div>
 
-  <script>
-    const LOCALES = {
-      en: {
-        appName: "ClinicERP",
-        shortTag: "Clinic management — Reception • Invoices • Scheduling",
-        plansTitle: "Subscription Packs",
-        plansSub: "Three plans — monthly, quarterly and yearly. All include all features.",
-        monthly: "Monthly",
-        monthlyAmount: "$12",
-        monthlyDur: "/ month",
-        payMonthText: "Pay $12 / month",
-        quarterly: "Quarterly",
-        quarterlyAmount: "$30",
-        quarterlyDur: "/ 3 months",
-        payQuarterText: "Pay $30 / 3 months",
-        yearly: "Yearly (best value)",
-        yearlyAmount: "$90",
-        yearlyDur: "/ year",
-        payYearText: "Pay $90 / year",
-        secureTitle: "Secure payments",
-        secureText: "We accept PayPal. Receipts are emailed automatically.",
-        featuresCard: ["All features included", "Customizations Available", "24/7 Support"],
-        learnMore: "Learn more",
-      },
-      ar: {
-        appName: "ClinicERP",
-        shortTag: "إدارة العيادات — الاستقبال • الفواتير • الجلسات",
-        plansTitle: "خطط الاشتراك",
-        plansSub: "ثلاث حزم — شهري، ربع سنوي، وسنوي. جميعها تحتوي على كل الميزات.",
-        monthly: "شهري",
-        monthlyAmount: "$12",
-        monthlyDur: "/ شهر",
-        payMonthText: "اشترك شهريًا — $12",
-        quarterly: "ربع سنوي",
-        quarterlyAmount: "$30",
-        quarterlyDur: "/ 3 أشهر",
-        payQuarterText: "اشترك ربع سنوي — $30",
-        yearly: "سنوي (أفضل قيمة)",
-        yearlyAmount: "$90",
-        yearlyDur: "/ سنة",
-        payYearText: "اشترك سنويًا — $90",
-        secureTitle: "دفع آمن",
-        secureText: "نقبل باي بال. يستلمك إيصال تلقائيًا عبر البريد.",
-        featuresCard: ["جميع الميزات متاحة", "خيارات التخصيص متوفرة", "دعم 24/7"],
-        learnMore: "المزيد"
-      },
-      fr: {
-        appName: "ClinicERP",
-        shortTag: "Gestion de clinique — Accueil • Factures • Planning",
-        plansTitle: "Forfaits d'abonnement",
-        plansSub: "Trois forfaits — mensuel, trimestriel et annuel. Tous incluent toutes les fonctionnalités.",
-        monthly: "Mensuel",
-        monthlyAmount: "$12",
-        monthlyDur: "/ mois",
-        payMonthText: "Payer $12 / mois",
-        quarterly: "Trimestriel",
-        quarterlyAmount: "$30",
-        quarterlyDur: "/ 3 mois",
-        payQuarterText: "Payer $30 / 3 mois",
-        yearly: "Annuel (meilleur prix)",
-        yearlyAmount: "$90",
-        yearlyDur: "/ an",
-        payYearText: "Payer $90 / an",
-        secureTitle: "Paiements sécurisés",
-        secureText: "Nous acceptons PayPal. Reçus envoyés par e-mail.",
-        featuresCard: ["Toutes les fonctionnalités", "Personnalisations disponibles", "Assistance 24/7"],
-        learnMore: "En savoir plus"
-      }
-    };
+<script>
+const LOCALES = {
+  en: {
+    appName: "ClinicERP",
+    shortTag: "Reception • Invoices • Scheduling",
+    plansTitle: "Subscription Packs",
+    plansSub: "Choose the plan that fits your clinic needs.",
+    monthly: "Monthly",
+    monthlyDur: "/ month",
+    payMonthText: "Pay $12 / Month",
+    quarterly: "Quarterly",
+    quarterlyDur: "/ 3 months",
+    payQuarterText: "Pay $30 / 3 Months",
+    yearly: "Yearly",
+    yearlyDur: "/ year",
+    payYearText: "Pay $90 / Year",
+    secureTitle: "Secure Payments",
+    secureText: "We accept PayPal. Receipts sent via email.",
+    features: ["All features included", "24/7 Support", "Customizations available"],
+    learnMore: "Learn more"
+  },
+  ar: {
+    appName: "ClinicERP",
+    shortTag: "الاستقبال • الفواتير • الجلسات",
+    plansTitle: "خطط الاشتراك",
+    plansSub: "اختر الخطة المناسبة لاحتياجات عيادتك.",
+    monthly: "شهري",
+    monthlyDur: "/ شهر",
+    payMonthText: "دفع $12 / شهرياً",
+    quarterly: "ربع سنوي",
+    quarterlyDur: "/ 3 أشهر",
+    payQuarterText: "دفع $30 / كل 3 أشهر",
+    yearly: "سنوي",
+    yearlyDur: "/ سنة",
+    payYearText: "دفع $90 / سنوياً",
+    secureTitle: "دفع آمن",
+    secureText: "نقبل PayPal. يتم إرسال الإيصالات بريدياً.",
+    features: ["جميع الميزات متضمنة", "دعم 24/7", "تخصيصات متاحة"],
+    learnMore: "المزيد"
+  },
+  fr: {
+    appName: "ClinicERP",
+    shortTag: "Accueil • Factures • Planning",
+    plansTitle: "Forfaits",
+    plansSub: "Choisissez le forfait qui vous convient.",
+    monthly: "Mensuel",
+    monthlyDur: "/ mois",
+    payMonthText: "Payer $12 / Mois",
+    quarterly: "Trimestriel",
+    quarterlyDur: "/ 3 mois",
+    payQuarterText: "Payer $30 / 3 Mois",
+    yearly: "Annuel",
+    yearlyDur: "/ an",
+    payYearText: "Payer $90 / An",
+    secureTitle: "Paiement Sécurisé",
+    secureText: "Nous acceptons PayPal.",
+    features: ["Toutes fonctions", "Support 24/7", "Personnalisation"],
+    learnMore: "En savoir plus"
+  }
+};
 
-    const elements = {
-      langSelect: document.getElementById('lang'),
-      appName: document.getElementById('appName'),
-      shortTag: document.getElementById('shortTag'),
-      plansTitle: document.getElementById('plansTitle'),
-      plansSub: document.getElementById('plansSub'),
-      monthlyTitle: document.getElementById('monthlyTitle'),
-      monthlyAmount: document.getElementById('monthlyAmount'),
-      monthlyDur: document.getElementById('monthlyDur'),
-      payMonthText: document.getElementById('payMonthText'),
-      quarterlyTitle: document.getElementById('quarterlyTitle'),
-      quarterlyAmount: document.getElementById('quarterlyAmount'),
-      quarterlyDur: document.getElementById('quarterlyDur'),
-      payQuarterText: document.getElementById('payQuarterText'),
-      yearlyTitle: document.getElementById('yearlyTitle'),
-      yearlyAmount: document.getElementById('yearlyAmount'),
-      yearlyDur: document.getElementById('yearlyDur'),
-      payYearText: document.getElementById('payYearText'),
-      secureTitle: document.getElementById('secureTitle'),
-      secureText: document.getElementById('secureText'),
-      cardFeatures1: document.getElementById('cardFeatures1'),
-      cardFeatures2: document.getElementById('cardFeatures2'),
-      cardFeatures3: document.getElementById('cardFeatures3'),
-      moreLink: document.getElementById('moreLink'),
-      payMonthly: document.getElementById('payMonthly'),
-      payQuarterly: document.getElementById('payQuarterly'),
-      payYearly: document.getElementById('payYearly'),
-      yearEl: document.getElementById('year')
-    };
+const els = {
+  lang: document.getElementById('lang'),
+  appName: document.getElementById('appName'),
+  shortTag: document.getElementById('shortTag'),
+  plansTitle: document.getElementById('plansTitle'),
+  plansSub: document.getElementById('plansSub'),
+  mTitle: document.getElementById('monthlyTitle'),
+  mDur: document.getElementById('monthlyDur'),
+  mPay: document.getElementById('payMonthText'),
+  qTitle: document.getElementById('quarterlyTitle'),
+  qDur: document.getElementById('quarterlyDur'),
+  qPay: document.getElementById('payQuarterText'),
+  yTitle: document.getElementById('yearlyTitle'),
+  yDur: document.getElementById('yearlyDur'),
+  yPay: document.getElementById('payYearText'),
+  secT: document.getElementById('secureTitle'),
+  secX: document.getElementById('secureText'),
+  more: document.getElementById('moreLink'),
+  feat1: document.getElementById('cardFeatures1'),
+  feat2: document.getElementById('cardFeatures2'),
+  feat3: document.getElementById('cardFeatures3'),
+  payM: document.getElementById('payMonthly'),
+  payQ: document.getElementById('payQuarterly'),
+  payY: document.getElementById('payYearly')
+};
 
-    function createCardFeature(text){
-      const el = document.createElement('div');
-      el.className='fitem';
-      el.innerHTML = `<svg viewBox="0 0 24 24" fill="none"><path d="M5 12l4 4L19 6" stroke="rgba(255,255,255,0.9)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>${text}</span>`;
-      return el;
-    }
+function update(code){
+  const L = LOCALES[code];
+  document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
+  els.appName.textContent = L.appName;
+  els.shortTag.textContent = L.shortTag;
+  els.plansTitle.textContent = L.plansTitle;
+  els.plansSub.textContent = L.plansSub;
+  els.mTitle.textContent = L.monthly;
+  els.mDur.textContent = L.monthlyDur;
+  els.mPay.textContent = L.payMonthText;
+  els.qTitle.textContent = L.quarterly;
+  els.qDur.textContent = L.quarterlyDur;
+  els.qPay.textContent = L.payQuarterText;
+  els.yTitle.textContent = L.yearly;
+  els.yDur.textContent = L.yearlyDur;
+  els.yPay.textContent = L.payYearText;
+  els.secT.textContent = L.secureTitle;
+  els.secX.textContent = L.secureText;
+  els.more.textContent = L.learnMore;
 
-    function setLocale(code){
-      const L = LOCALES[code] || LOCALES.en;
+  const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  [els.feat1, els.feat2, els.feat3].forEach(container => {
+    container.innerHTML = L.features.map(f => `<div class="fitem">${check}<span>${f}</span></div>`).join('');
+  });
 
-      elements.appName.textContent = L.appName;
-      elements.shortTag.textContent = L.shortTag;
-      elements.plansTitle.textContent = L.plansTitle;
-      elements.plansSub.textContent = L.plansSub;
-      elements.monthlyTitle.textContent = L.monthly;
-      elements.monthlyAmount.textContent = L.monthlyAmount;
-      elements.monthlyDur.textContent = L.monthlyDur;
-      elements.payMonthText.textContent = L.payMonthText;
-      elements.quarterlyTitle.textContent = L.quarterly;
-      elements.quarterlyAmount.textContent = L.quarterlyAmount;
-      elements.quarterlyDur.textContent = L.quarterlyDur;
-      elements.payQuarterText.textContent = L.payQuarterText;
-      elements.yearlyTitle.textContent = L.yearly;
-      elements.yearlyAmount.textContent = L.yearlyAmount;
-      elements.yearlyDur.textContent = L.yearlyDur;
-      elements.payYearText.textContent = L.payYearText;
-      elements.secureTitle.textContent = L.secureTitle;
-      elements.secureText.textContent = L.secureText;
-      elements.moreLink.textContent = L.learnMore;
+  els.payM.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=12.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' Monthly')}`;
+  els.payQ.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=30.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' Quarterly')}`;
+  els.payY.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=90.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' Yearly')}`;
+}
 
-      [elements.cardFeatures1, elements.cardFeatures2, elements.cardFeatures3].forEach(container => {
-        container.innerHTML = '';
-        L.featuresCard.forEach(f => container.appendChild(createCardFeature(f)));
-      });
+els.lang.addEventListener('change', (e) => update(e.target.value));
+document.getElementById('year').textContent = new Date().getFullYear();
+update('en');
+</script>
 
-      document.documentElement.lang = code;
-      document.documentElement.dir = (code === 'ar') ? 'rtl' : 'ltr';
-      document.body.style.textAlign = (code === 'ar') ? 'right' : 'left';
-
-      elements.payMonthly.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=12.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' ' + L.monthly)}`;
-      elements.payQuarterly.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=30.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' ' + L.quarterly)}`;
-      elements.payYearly.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=90.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' ' + L.yearly)}`;
-      
-      try{ localStorage.setItem('clinicerp_locale', code); }catch(e){}
-    }
-
-    (function(){
-      elements.yearEl.textContent = (new Date()).getFullYear();
-      const stored = (localStorage.getItem('clinicerp_locale') || 'en');
-      elements.langSelect.value = stored;
-      setLocale(stored);
-      elements.langSelect.addEventListener('change', e => setLocale(e.target.value));
-    })();
-  </script>
 </body>
 </html>
