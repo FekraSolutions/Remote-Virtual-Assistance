@@ -127,8 +127,10 @@
       transition: opacity 0.2s;
     }
     .btn:hover{ opacity: 0.9; }
-    .btn-pay-month, .btn-pay-quarter{ background: var(--accent-2); }
-    .btn-pay-year{ background: var(--accent); }
+/* TO THIS: */
+.btn-pay-month, .btn-pay-quarter, .btn-pay-year { 
+  background: var(--accent); 
+}
 
     footer.small{
       display: flex;
@@ -233,7 +235,7 @@ const LOCALES = {
     payYearText: "Pay $10 / Course",
     secureTitle: "Secure Payments",
     secureText: "We accept PayPal. Receipts sent via email.",
-    features: ["All features included", "24/7 Support", "Customizations available"],
+    features: ["7 Zoom Video Chat Lessons", "Material & Assignments", "24/7 Support"],
     learnMore: "Learn more"
   },
   ar: {
@@ -252,7 +254,7 @@ const LOCALES = {
     payYearText: "دفع $10 / للدورة",
     secureTitle: "دفع آمن",
     secureText: "نقبل PayPal. يتم إرسال الإيصالات عبر البريد الإلكتروني.",
-    features: ["جميع الميزات متضمنة", "دعم 24/7", "تخصيصات متاحة"],
+    features: ["7 اجتماعات زووم", "المراجع والامتحانات", "دعم 24/7"],
     learnMore: "المزيد"
   },
   fr: {
@@ -271,7 +273,7 @@ const LOCALES = {
     payYearText: "Payer $10 / Cours",
     secureTitle: "Paiements Sécurisés",
     secureText: "Nous acceptons PayPal. Reçus envoyés par e-mail.",
-    features: ["Toutes les fonctions incluses", "Support 24/7", "Personnalisations disponibles"],
+    features: ["7 leçons par visioconférence Zoom", "Supports et exercices", "Assistance 24h/24 et 7j/7"],
     learnMore: "En savoir plus"
   }
 };
