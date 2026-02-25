@@ -173,7 +173,10 @@ layout: null
   </section>
 
 <section class="article-section">
-  {% include ArabicAccounting1.md %}
+  {% capture md_content %}
+    {% include ArabicAccounting1.md %}
+  {% endcapture %}
+  {{ md_content | markdownify }}
 </section>
   
   <!-- 2) MEDIA -->
