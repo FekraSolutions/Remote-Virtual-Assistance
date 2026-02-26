@@ -291,6 +291,13 @@ els.lang.addEventListener('change', (e)=>updateLocale(e.target.value));
 document.getElementById('year').textContent = new Date().getFullYear();
 
 updateLocale('en');
+
+// Auto-expand textarea
+els.requirements.addEventListener('input', function() {
+  this.style.height = 'auto';          // Reset height
+  this.style.height = this.scrollHeight + 'px'; // Set to scroll height
+});
+  
 </script>
 
 </body>
