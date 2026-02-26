@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Blog Article Service</title>
+  <link rel="icon" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted: rgba(255,255,255,0.75);
+      --glass: rgba(255,255,255,0.04);
+      --accent: linear-gradient(135deg,#00c853,#009624);
+      --radius: 14px;
+      --glass-border: rgba(255,255,255,0.06);
+      --maxw: 1200px;
+      --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      font-family: "Cairo", system-ui, -apple-system, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; padding:0;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,120,255,0.05), transparent 8%),
+                  linear-gradient(180deg,#071027 0%, #071824 50%, #071027 100%),
+                  url('https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png');
+      background-size: cover;
+      color:var(--muted);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    header.brand{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width: 100%;
+    }
+    .brand-left{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:54px;height:54px;border-radius:12px;overflow:hidden;
+      border:1px solid var(--glass-border);
+      background:rgba(255,255,255,0.02);
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    h1.app-title{font-size:22px;margin:0;color:#fff;}
+
+    .lang-select select{
+      background-color: #0b1220;
+      border:1px solid var(--glass-border);
+      color:#fff;
+      padding:8px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    .aside{
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius);
+      padding:30px;
+      border:1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+    }
+
+    .price-head { margin-bottom: 25px; text-align: center; }
+    .price-head h3 { font-size: 28px; color: #fff; margin: 0 0 10px 0; }
+
+    .cards{
+      display: flex;
+      flex-direction: column; 
+      gap: 20px;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .card{
+      background: rgba(255,255,255,0.03);
+      border-radius:12px;
+      padding:24px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display:flex;
+      flex-direction:column;
+      transition: transform 0.2s;
+    }
+    .card:hover{ transform: translateY(-5px); background: rgba(255,255,255,0.05); }
+
+    .price{ margin: 15px 0; }
+    .amount{ font-size: 32px; color: #fff; font-weight: 800; }
+    .dur{ font-size: 14px; opacity: 0.8; }
+
+    .features-list{
+      margin: 20px 0;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fitem{ display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .fitem svg{ width: 16px; height: 16px; flex-shrink: 0; }
+
+    .btn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      transition: opacity 0.2s;
+      margin-top: 10px;
+    }
+    .btn:hover{ opacity: 0.9; }
+    .btn-pay { background: var(--accent); }
+
+    .input-group{ display:flex; flex-direction:column; gap:8px; margin-top:15px;}
+    .input-group input, .input-group textarea{
+      padding:10px; border-radius:8px; border:1px solid var(--glass-border); background:rgba(255,255,255,0.02); color:#fff;
+      font-size:14px; resize:none;
+    }
+
+    footer.small{
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+    footer.small a{ color: #fff; text-decoration: none; }
+
+    @media (max-width: 900px) {
+      body { height: auto; padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="brand-left">
+      <div class="logo"><img src="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png" alt="Logo"></div>
+      <div>
+        <h1 class="app-title" id="appName">Fekra! Blog Articles</h1>
+        <p id="shortTag" style="margin:0; font-size:12px; opacity:0.7;">Quality content made easy.</p>
+      </div>
+    </div>
+    <div class="lang-select">
+      <select id="lang">
+        <option value="ar">العربية</option>
+        <option value="en" selected>English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="aside">
+    <div class="price-head">
+      <h3 id="plansTitle">Blog Article Service</h3>
+      <div id="plansSub" class="price-sub">Each article costs $5. Choose quantity and add requirements.</div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <strong id="articleTitle">Custom Blog Articles</strong>
+        <div class="price">
+          <span class="amount" id="totalAmount">$5</span>
+          <span class="dur" id="articleDur">/ article</span>
+        </div>
+
+        <div class="input-group">
+          <label for="quantity">Number of articles:</label>
+          <input type="number" id="quantity" min="1" value="1">
+        </div>
+
+        <div class="input-group">
+          <label for="requirements">Text requirements:</label>
+          <textarea id="requirements" rows="4" placeholder="Enter details or instructions..."></textarea>
+        </div>
+
+        <a href="#" class="btn btn-pay" id="payBtn">Pay $5</a>
+      </div>
+    </div>
+
+    <div style="margin-top:25px; text-align:center; font-size:13px; opacity:0.6;">
+      <strong id="secureTitle">Secure Payments</strong><br>
+      <span id="secureText">We accept PayPal. Receipts sent via email.</span>
+    </div>
+  </main>
+
+  <footer class="small">
+    <div>© <span id="year"></span> Fekra! Business Solutions</div>
+    <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" id="moreLink" target="_blank">Learn more</a>
+  </footer>
+</div>
+
+<script>
+const LOCALES = {
+  en: {
+    appName: "Fekra! Blog Articles",
+    shortTag: "Quality content made easy.",
+    plansTitle: "Blog Article Service",
+    plansSub: "Each article costs $5. Choose quantity and add requirements.",
+    articleTitle: "Custom Blog Articles",
+    articleDur: "/ article",
+    payText: "Pay $5",
+    secureTitle: "Secure Payments",
+    secureText: "We accept PayPal. Receipts sent via email.",
+    learnMore: "Learn more"
+  },
+  ar: {
+    appName: "فكرة! مقالات بلوج",
+    shortTag: "محتوى عالي الجودة بسهولة.",
+    plansTitle: "خدمة المقالات",
+    plansSub: "سعر المقال الواحد $5. اختر العدد وأدخل التفاصيل.",
+    articleTitle: "مقالات بلوج حسب الطلب",
+    articleDur: "/ المقال",
+    payText: "دفع $5",
+    secureTitle: "دفع آمن",
+    secureText: "نقبل PayPal. يتم إرسال الإيصالات عبر البريد الإلكتروني.",
+    learnMore: "المزيد"
+  },
+  fr: {
+    appName: "Fekra! Articles de Blog",
+    shortTag: "Contenu de qualité facilement.",
+    plansTitle: "Service d'Articles",
+    plansSub: "Chaque article coûte 5$. Choisissez la quantité et ajoutez vos instructions.",
+    articleTitle: "Articles de Blog Personnalisés",
+    articleDur: "/ article",
+    payText: "Payer $5",
+    secureTitle: "Paiements Sécurisés",
+    secureText: "Nous acceptons PayPal. Reçus envoyés par e-mail.",
+    learnMore: "En savoir plus"
+  }
+};
+
+const els = {
+  lang: document.getElementById('lang'),
+  appName: document.getElementById('appName'),
+  shortTag: document.getElementById('shortTag'),
+  plansTitle: document.getElementById('plansTitle'),
+  plansSub: document.getElementById('plansSub'),
+  articleTitle: document.getElementById('articleTitle'),
+  articleDur: document.getElementById('articleDur'),
+  totalAmount: document.getElementById('totalAmount'),
+  payBtn: document.getElementById('payBtn'),
+  secureTitle: document.getElementById('secureTitle'),
+  secureText: document.getElementById('secureText'),
+  more: document.getElementById('moreLink'),
+  quantity: document.getElementById('quantity'),
+  requirements: document.getElementById('requirements')
+};
+
+function updateLocale(code){
+  const L = LOCALES[code];
+  document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
+  els.appName.textContent = L.appName;
+  els.shortTag.textContent = L.shortTag;
+  els.plansTitle.textContent = L.plansTitle;
+  els.plansSub.textContent = L.plansSub;
+  els.articleTitle.textContent = L.articleTitle;
+  els.articleDur.textContent = L.articleDur;
+  els.payBtn.textContent = L.payText;
+  els.secureTitle.textContent = L.secureTitle;
+  els.secureText.textContent = L.secureText;
+  els.more.textContent = L.learnMore;
+  updatePayLink();
+}
+
+function updatePayLink(){
+  const qty = parseInt(els.quantity.value) || 1;
+  const amount = (qty * 5).toFixed(2);
+  els.totalAmount.textContent = `$${amount}`;
+  els.payBtn.textContent = `Pay $${amount}`;
+  els.payBtn.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=${amount}&currency_code=USD&item_name=${encodeURIComponent("Blog Articles")}&custom=${encodeURIComponent("Qty:"+qty+";Req:"+els.requirements.value)}`;
+}
+
+els.quantity.addEventListener('input', updatePayLink);
+els.requirements.addEventListener('input', updatePayLink);
+els.lang.addEventListener('change', (e)=>updateLocale(e.target.value));
+document.getElementById('year').textContent = new Date().getFullYear();
+
+updateLocale('en');
+</script>
+
+</body>
+</html>
