@@ -100,23 +100,68 @@ layout: null
       font-size: 1rem;
     }
 
-    .answers {
-      display: grid;
-      gap: 10px;
-    }
+    /* 3) UPDATED ANSWERS STYLING */
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
 
-    .answer {
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
+.answer {
+  padding: 16px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  color: var(--text);
+  text-align: right;
+}
 
-    .answer:hover {
-      background: #e2e8f0;
-    }
+/* Hover: Light blue tint and border */
+.answer:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+  transform: translateX(-5px); /* Gentle nudge for RTL */
+}
+
+/* Success State */
+.answer.correct-flash {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+/* Error State */
+.answer.incorrect-flash {
+  background: #fee2e2;
+  border-color: #ef4444;
+  color: #991b1b;
+}
+
+/* 3.1) FEEDBACK MESSAGE */
+#quiz-feedback {
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 700;
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+.feedback-success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.feedback-error {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
 
     /* ============================
        4) FLOATING BUTTONS WIDGET
@@ -209,21 +254,47 @@ layout: null
 </section>
 
   <!-- 3) QUESTIONS & ANSWERS -->
-  <section class="qa-section">
-    <div class="qa-title">سؤال الدرس</div>
-    <div class="question">يلتزم كل من المحاسب المالي والمحاسب الإداري بالمعايير المحاسبية خلال إعداد التقارير</div>
-    <div class="answers">
-      <div class="answer">المحاسب المالي يتبع المعايير، المحاسب الإداري يهتم أكثر بإعداد تقارير تساعد في اتخاذ القرار</div>
-      <div class="answer">فقط المحاسب الإداري يجب أن يتبع المعايير المحاسبية</div>
-      <div class="answer">صحيح. يجب على المحاسب المالي والإداري اتباع المعايير المحاسبية</div>
-    </div>
-  </section>
+<section class="qa-section">
+  <div class="qa-title">سؤال الدرس</div>
+  <div class="question">يلتزم كل من المحاسب المالي والمحاسب الإداري بالمعايير المحاسبية خلال إعداد التقارير</div>
+  
+  <div class="answers">
+    <div class="answer" onclick="checkAnswer(this, true)">المحاسب المالي يتبع المعايير، المحاسب الإداري يهتم أكثر بإعداد تقارير تساعد في اتخاذ القرار</div>
+    
+    <div class="answer" onclick="checkAnswer(this, false)">فقط المحاسب الإداري يجب أن يتبع المعايير المحاسبية</div>
+    
+    <div class="answer" onclick="checkAnswer(this, false)">صحيح. يجب على المحاسب المالي والإداري اتباع المعايير المحاسبية</div>
+  </div>
 
-  <!-- 4) FLOATING BUTTONS -->
+  <div id="quiz-feedback"></div>
+</section>
+
 <section class="navigation-section">
   <button class="nav-btn">التالي</button>
   <button class="nav-btn disabled">السابق</button>
 </section>
+<script>
+function checkAnswer(element, isCorrect) {
+  const feedback = document.getElementById('quiz-feedback');
+  const allAnswers = document.querySelectorAll('.answer');
 
+  // Reset all styles first
+  allAnswers.forEach(btn => {
+    btn.classList.remove('correct-flash', 'incorrect-flash');
+  });
+
+  feedback.style.display = "block";
+
+  if (isCorrect) {
+    element.classList.add('correct-flash');
+    feedback.innerHTML = "صحيح، أحسنت! ✅";
+    feedback.className = "feedback-success";
+  } else {
+    element.classList.add('incorrect-flash');
+    feedback.innerHTML = "خطأ، جرب مرة أخرى ❌";
+    feedback.className = "feedback-error";
+  }
+}
+</script>
 </body>
 </html>
