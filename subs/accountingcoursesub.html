@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Accounting Beginner to Advanced Course</title>
+  <link rel="icon" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png" />
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --muted: rgba(255,255,255,0.75);
+      --glass: rgba(255,255,255,0.04);
+      --accent: linear-gradient(135deg,#00c853,#009624);
+      --accent-2: linear-gradient(135deg,#0066ff,#003ecb);
+      --radius: 14px;
+      --glass-border: rgba(255,255,255,0.06);
+      --maxw: 1200px;
+      --shadow: 0 8px 30px rgba(2,6,23,0.6);
+      font-family: "Cairo", system-ui, -apple-system, sans-serif;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%; margin:0; padding:0;}
+    body{
+      background: radial-gradient(1200px 600px at 10% 10%, rgba(0,120,255,0.05), transparent 8%),
+                  linear-gradient(180deg,#071027 0%, #071824 50%, #071027 100%),
+                  url('https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png');
+      background-size: cover;
+      color:var(--muted);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    .wrap{
+      width:100%;
+      max-width:var(--maxw);
+      display:flex;
+      flex-direction:column;
+      gap:20px;
+    }
+
+    /* Header */
+    header.brand{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width: 100%;
+    }
+    .brand-left{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:54px;height:54px;border-radius:12px;overflow:hidden;
+      border:1px solid var(--glass-border);
+      background:rgba(255,255,255,0.02);
+    }
+    .logo img{width:100%;height:100%;object-fit:cover}
+    h1.app-title{font-size:22px;margin:0;color:#fff;}
+
+    .lang-select select{
+      background-color: #0b1220;
+      border:1px solid var(--glass-border);
+      color:#fff;
+      padding:8px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+
+    /* Main Pricing Area */
+    .aside{
+      background: rgba(255,255,255,0.02);
+      border-radius: var(--radius);
+      padding:30px;
+      border:1px solid var(--glass-border);
+      box-shadow: var(--shadow);
+    }
+
+    .price-head { margin-bottom: 25px; text-align: center; }
+    .price-head h3 { font-size: 28px; color: #fff; margin: 0 0 10px 0; }
+
+    /* THE FIX: SIDE BY SIDE CARDS */
+    .cards{
+      display: flex;
+      flex-direction: row; /* Horizontal */
+      gap: 20px;
+      justify-content: center;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .card{
+      flex: 1; /* Equal widths */
+      background: rgba(255,255,255,0.03);
+      border-radius:12px;
+      padding:24px;
+      border: 1px solid rgba(255,255,255,0.05);
+      display:flex;
+      flex-direction:column;
+      transition: transform 0.2s;
+    }
+    .card:hover{ transform: translateY(-5px); background: rgba(255,255,255,0.05); }
+
+    .price{ margin: 15px 0; }
+    .amount{ font-size: 32px; color: #fff; font-weight: 800; }
+    .dur{ font-size: 14px; opacity: 0.8; }
+
+    .features-list{
+      margin: 20px 0;
+      flex-grow: 1; /* Pushes button to bottom */
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .fitem{ display: flex; align-items: center; gap: 8px; font-size: 14px; }
+    .fitem svg{ width: 16px; height: 16px; flex-shrink: 0; }
+
+    .btn{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 700;
+      transition: opacity 0.2s;
+    }
+    .btn:hover{ opacity: 0.9; }
+/* TO THIS: */
+.btn-pay-month, .btn-pay-quarter, .btn-pay-year { 
+  background: var(--accent); 
+}
+
+    footer.small{
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      opacity: 0.6;
+    }
+    footer.small a{ color: #fff; text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .cards { flex-direction: column; }
+      body { height: auto; padding: 40px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="brand">
+    <div class="brand-left">
+      <div class="logo"><img src="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png" alt="Logo"></div>
+      <div>
+        <h1 class="app-title" id="appName">Fekra! Accounting Courses</h1>
+        <p id="shortTag" style="margin:0; font-size:12px; opacity:0.7;"></p>
+      </div>
+    </div>
+    <div class="lang-select">
+      <select id="lang">
+        <option value="ar">العربية</option>
+        <option value="en" selected>English</option>
+        <option value="fr">Français</option>
+      </select>
+    </div>
+  </header>
+
+  <main class="aside">
+    <div class="price-head">
+      <h3 id="plansTitle">Courses Packs</h3>
+      <div id="plansSub" class="price-sub"></div>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <strong id="monthlyTitle">Financial Accounting Basics</strong>
+        <div class="price">
+          <span class="amount" id="monthlyAmount">$10</span>
+          <span class="dur" id="monthlyDur"></span>
+        </div>
+        <div class="features-list" id="cardFeatures1"></div>
+        <a href="#" class="btn btn-pay-month" id="payMonthly"><span id="payMonthText"></span></a>
+      </div>
+
+      <div class="card">
+        <strong id="quarterlyTitle">Preparation of Financial Statements</strong>
+        <div class="price">
+          <span class="amount" id="quarterlyAmount">$10</span>
+          <span class="dur" id="quarterlyDur"></span>
+        </div>
+        <div class="features-list" id="cardFeatures3"></div>
+        <a href="#" class="btn btn-pay-quarter" id="payQuarterly"><span id="payQuarterText"></span></a>
+      </div>
+
+      <div class="card">
+        <strong id="yearlyTitle">Financial Analysis</strong>
+        <div class="price">
+          <span class="amount" id="yearlyAmount">$10</span>
+          <span class="dur" id="yearlyDur"></span>
+        </div>
+        <div class="features-list" id="cardFeatures2"></div>
+        <a href="#" class="btn btn-pay-year" id="payYearly"><span id="payYearText"></span></a>
+      </div>
+    </div>
+
+    <div style="margin-top:25px; text-align:center; font-size:13px; opacity:0.6;">
+      <strong id="secureTitle"></strong><br>
+      <span id="secureText"></span>
+    </div>
+  </main>
+
+  <footer class="small">
+    <div>© <span id="year"></span> Fekra! Business Solutions</div>
+    <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" id="moreLink" target="_blank">Learn more</a>
+  </footer>
+</div>
+
+<script>
+const LOCALES = {
+  en: {
+    appName: "Fekra! Accounting Courses",
+    shortTag: "It's all about one Equation to understand..",
+    plansTitle: "Courses Packs",
+    plansSub: "Choose the course that fits your needs.",
+    monthly: "Financial Accounting Basics",
+    monthlyDur: "/ Course",
+    payMonthText: "Pay $10 / Course",
+    quarterly: "Preparation of Financial Statements",
+    quarterlyDur: "/ Course",
+    payQuarterText: "Pay $10 / Course",
+    yearly: "Financial Analysis",
+    yearlyDur: "/ Course",
+    payYearText: "Pay $10 / Course",
+    secureTitle: "Secure Payments",
+    secureText: "We accept PayPal. Receipts sent via email.",
+    features: ["7 Zoom Video Chat Lessons", "Material & Assignments", "24/7 Support"],
+    learnMore: "Learn more"
+  },
+  ar: {
+    appName: "فكرة! دورات المحاسبة",
+    shortTag: "كل ما تحتاجه هو فهم معادلة واحدة..",
+    plansTitle: "حزم الدورات",
+    plansSub: "اختر الدورة التي تناسب احتياجاتك.",
+    monthly: "مبادئ المحاسبة المالية",
+    monthlyDur: "/ دورة",
+    payMonthText: "دفع $10 / للدورة",
+    quarterly: "إعداد القوائم المالية",
+    quarterlyDur: "/ دورة",
+    payQuarterText: "دفع $10 / للدورة",
+    yearly: "التحليل المالي",
+    yearlyDur: "/ دورة",
+    payYearText: "دفع $10 / للدورة",
+    secureTitle: "دفع آمن",
+    secureText: "نقبل PayPal. يتم إرسال الإيصالات عبر البريد الإلكتروني.",
+    features: ["7 دروس زووم مباشرة", "المادة العلمية والتكليفات", "دعم 24/7"],
+    learnMore: "المزيد"
+  },
+  fr: {
+    appName: "Fekra! Cours de Comptabilité",
+    shortTag: "Tout repose sur une seule équation à comprendre..",
+    plansTitle: "Packs de Cours",
+    plansSub: "Choisissez le cours qui correspond à vos besoins.",
+    monthly: "Bases de la Comptabilité Financière",
+    monthlyDur: "/ Cours",
+    payMonthText: "Payer $10 / Cours",
+    quarterly: "Préparation des États Financiers",
+    quarterlyDur: "/ Cours",
+    payQuarterText: "Payer $10 / Cours",
+    yearly: "Analyse Financière",
+    yearlyDur: "/ Cours",
+    payYearText: "Payer $10 / Cours",
+    secureTitle: "Paiements Sécurisés",
+    secureText: "Nous acceptons PayPal. Reçus envoyés par e-mail.",
+    features: ["7 leçons via Zoom", "Supports et exercices", "Assistance 24h/24 et 7j/7"],
+    learnMore: "En savoir plus"
+  }
+};
+
+const els = {
+  lang: document.getElementById('lang'),
+  appName: document.getElementById('appName'),
+  shortTag: document.getElementById('shortTag'),
+  plansTitle: document.getElementById('plansTitle'),
+  plansSub: document.getElementById('plansSub'),
+  mTitle: document.getElementById('monthlyTitle'),
+  mDur: document.getElementById('monthlyDur'),
+  mPay: document.getElementById('payMonthText'),
+  qTitle: document.getElementById('quarterlyTitle'),
+  qDur: document.getElementById('quarterlyDur'),
+  qPay: document.getElementById('payQuarterText'),
+  yTitle: document.getElementById('yearlyTitle'),
+  yDur: document.getElementById('yearlyDur'),
+  yPay: document.getElementById('payYearText'),
+  secT: document.getElementById('secureTitle'),
+  secX: document.getElementById('secureText'),
+  more: document.getElementById('moreLink'),
+  feat1: document.getElementById('cardFeatures1'),
+  feat2: document.getElementById('cardFeatures2'),
+  feat3: document.getElementById('cardFeatures3'),
+  payM: document.getElementById('payMonthly'),
+  payQ: document.getElementById('payQuarterly'),
+  payY: document.getElementById('payYearly')
+};
+
+function update(code){
+  const L = LOCALES[code];
+  document.documentElement.dir = code === 'ar' ? 'rtl' : 'ltr';
+  els.appName.textContent = L.appName;
+  els.shortTag.textContent = L.shortTag;
+  els.plansTitle.textContent = L.plansTitle;
+  els.plansSub.textContent = L.plansSub;
+  els.mTitle.textContent = L.monthly;
+  els.mDur.textContent = L.monthlyDur;
+  els.mPay.textContent = L.payMonthText;
+  els.qTitle.textContent = L.quarterly;
+  els.qDur.textContent = L.quarterlyDur;
+  els.qPay.textContent = L.payQuarterText;
+  els.yTitle.textContent = L.yearly;
+  els.yDur.textContent = L.yearlyDur;
+  els.yPay.textContent = L.payYearText;
+  els.secT.textContent = L.secureTitle;
+  els.secX.textContent = L.secureText;
+  els.more.textContent = L.learnMore;
+
+  const check = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+  [els.feat1, els.feat2, els.feat3].forEach(container => {
+    container.innerHTML = L.features.map(f => `<div class="fitem">${check}<span>${f}</span></div>`).join('');
+  });
+
+  els.payM.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=10.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' Monthly')}`;
+  els.payQ.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=10.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' Quarterly')}`;
+  els.payY.href = `https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=fekrabusinesssolutions%40gmail.com&amount=10.00&currency_code=USD&item_name=${encodeURIComponent(L.appName + ' Yearly')}`;
+}
+
+els.lang.addEventListener('change', (e) => update(e.target.value));
+document.getElementById('year').textContent = new Date().getFullYear();
+update('en');
+</script>
+
+</body>
+</html>
