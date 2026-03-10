@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://fekrasolutions.github.io/Remote-Virtual-Assistance/sitemap.xml
