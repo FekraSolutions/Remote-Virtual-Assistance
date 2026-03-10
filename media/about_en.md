@@ -1,5 +1,5 @@
 ## About Fekra! Business Solutions
-We have been delivering success with our clients since 2019. We are the most efficient solution at an ideal cost. Wherever you are, we provide you with professional technical support for various businesses (programming - financial accounting - various web services and creative writing, content management, advertising and marketing). We are in constant contact 24 hours a week with our clients.
+We have been delivering success with our clients since 2019. We are the most efficient solution at an ideal cost. Wherever you are, we provide you with professional technical support for various businesses (programming - financial accounting - various web services and creative writing, content management, advertising and marketing). We are in constant contact 24 hours a week with our clients. 
 
 ## Our vision, our goals, where we are now
 We are Fekra! We are a team that is constantly growing towards our main goal, which is to achieve sales in all countries of the world. So far, we have exceeded 50% and we are moving in the right direction. Our journey began with automating simple payroll and inventory accounting software for small businesses and local shops. Our team was formed in 2009 with a combination of financial and technical expertise that brought us to where we are today.
