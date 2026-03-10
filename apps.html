@@ -50,16 +50,71 @@
     </style>
 </head>
 <body>
-    <div style="position: absolute; top: 10px; left: 10px;">
-        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
-    <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-</a>
+
+<div style="position: absolute; top: 10px; left: 10px;">
+    <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
+        <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
+    </a>
+
+    <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
+        <option value="en">English</option>
+        <option value="ar">العربية</option>
+        <option value="fr">Français</option>
+    </select>
+</div>
+
+<div class="label-container">
+    <div class="label" onclick="window.open('arabicclinic.html', '_self')" data-i18n="clinic">
+        ClinicERP
     </div>
-     <div class="label-container">
-       <div class="label" onclick="window.open('arabicclinic.html', '_self')">ClinicERP</div>
-        <div class="label" onclick="window.open('https://fekrasolutions.github.io/EyeRelax/', '_blank')">EyeRelax - 202020 Alarm</div>
+
+    <div class="label" onclick="window.open('https://fekrasolutions.github.io/EyeRelax/', '_blank')" data-i18n="eyerelax">
+        EyeRelax - 202020 Alarm
     </div>
+</div>
+
 <script>
+
+const translations = {
+
+    en: {
+        clinic: "ClinicERP",
+        eyerelax: "EyeRelax - 202020 Alarm"
+    },
+
+    ar: {
+        clinic: "نظام إدارة العيادات",
+        eyerelax: "إراحة العين - منبه 20-20-20"
+    },
+
+    fr: {
+        clinic: "ERP Clinique",
+        eyerelax: "EyeRelax - Alarme 20-20-20"
+    }
+
+};
+
+const languageSelect = document.getElementById("languageSelect");
+
+function setLanguage(lang){
+
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
+
+    document.querySelectorAll("[data-i18n]").forEach(el=>{
+        const key = el.getAttribute("data-i18n");
+        el.textContent = translations[lang][key] || key;
+    });
+
+}
+
+languageSelect.addEventListener("change", ()=>{
+    setLanguage(languageSelect.value);
+});
+
+setLanguage("en");
+
 </script>
+
 </body>
 </html>
