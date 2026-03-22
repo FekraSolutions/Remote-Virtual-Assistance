@@ -2,15 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <!-- Top-level pages -->
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/about.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/apps.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/Learn.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/Affiliate.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/blog.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/subscription.html</loc></url>
-  <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/services.html</loc></url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/about.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/apps.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/Learn.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/Affiliate.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/blog.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/subscription.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/services.html</loc>
+    <lastmod>2026-03-22</lastmod>
+    <priority>0.7</priority>
+  </url>
 
   <!-- Courses folder -->
   <url><loc>https://fekrasolutions.github.io/Remote-Virtual-Assistance/courses/accountingcourse.html</loc></url>
