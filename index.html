@@ -42,30 +42,6 @@
     height: auto;
 }
 
-#languageSelect {
-    font-size: 16px;
-    padding: 5px;
-    background-color: transparent;
-    color: white;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    border: 1px solid;
-    border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
-    border-radius: 5px;
-    outline: none;
-    appearance: none;
-    cursor: pointer;
-    position: relative; /* Ensure it stays in place */
-    top: -12px; /* Adjust as needed */
-}
-
-
-        #languageSelect:focus {
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8); /* Add glow effect when focused */
-        }
-#languageSelect option {
-    color: black;
-    background-color: transparent; /* Keep background transparent */
-}
 
 .label-container {
     position: relative;
@@ -111,18 +87,7 @@
   flex-direction: column;
 }
 
-.contact-options {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
 
-.contact-options img {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
 #introVideo {
     position: absolute;
     top: 80px;  /* Position the video just below the logo and language select */
@@ -134,33 +99,18 @@
 }
 
 
-
-
-    </style>
+</style>
 </head>
 <body>
-    <div style="position: absolute; top: 10px; left: 10px;">
-        <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-        <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-            <option value="fr">Français</option>
-        </select>
-    </div>
-
     <video id="introVideo" autoplay muted playsinline>
         <source src="media/intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <div class="label-container">
-        <div class="label" onclick="location.href='apps.html'" data-i18n="apps">Applications</div>
-        <div class="label" onclick="location.href='Learn.html'" data-i18n="learn">Learn</div>
-        <div class="label" onclick="location.href='services.html'" data-i18n="services">Our Services</div>
-        <div class="label" onclick="location.href='Affiliate.html'" data-i18n="affiliate">Affiliate Program</div>
-        <div class="label" onclick="location.href='blog.html'" data-i18n="blog">BLOG</div>
-        <div class="label" onclick="location.href='about.html'" data-i18n="about">About us</div>
-        <div class="label" onclick="window.open('https://wa.me/201060469453', '_blank')" data-i18n="contact">Contact us</div>
+        <div class="label" onclick="location.href='ar/index.html'">العربية</div>
+        <div class="label" onclick="location.href='en/index.html'">English</div>
+        <div class="label" onclick="location.href='fr/index.html'">Français</div>
     </div>
 
 </div>
@@ -172,79 +122,6 @@ window.onload = function() {
         video.pause();
     };
 };
-</script>
-
-<!-- Robot animation -->
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-
-<dotlottie-wc id="robot"
-    src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
-    style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
-    speed="1"
-    autoplay
-    loop>
-</dotlottie-wc>
-
-<script>
-
-const translations = {
-    en: {
-        apps: "Applications",
-        learn: "Learn",
-        services: "Our Services",
-        affiliate: "Affiliate Program",
-        blog: "BLOG",
-        about: "About us",
-        contact: "Contact us",
-        robotHello: "Hello from Fekra! 🤖"
-    },
-
-    ar: {
-        apps: "التطبيقات",
-        learn: "تعلم",
-        services: "خدماتنا",
-        affiliate: "برنامج الشركاء",
-        blog: "المدونة",
-        about: "من نحن",
-        contact: "تواصل معنا",
-        robotHello: "مرحبا من فكرة! 🤖"
-    },
-
-    fr: {
-        apps: "Applications",
-        learn: "Apprendre",
-        services: "Nos services",
-        affiliate: "Programme d'affiliation",
-        blog: "Blog",
-        about: "À propos",
-        contact: "Contactez-nous",
-        robotHello: "Bonjour de Fekra! 🤖"
-    }
-};
-
-const languageSelect = document.getElementById("languageSelect");
-
-function setLanguage(lang) {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        el.textContent = translations[lang][key] || key;
-    });
-}
-
-languageSelect.addEventListener("change", () => {
-    setLanguage(languageSelect.value);
-});
-
-setLanguage("en");
-
-document.getElementById('robot').addEventListener('click', function() {
-    const lang = languageSelect.value;
-    alert(translations[lang].robotHello);
-});
-
 </script>
 
 </body>
