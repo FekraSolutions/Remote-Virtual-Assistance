@@ -286,16 +286,16 @@
   
   <!-- 2) MEDIA -->
 <section class="media-section">
-  <div class="video-container" style="position: relative; width: 100%; max-width: 560px; cursor: pointer;">
-    <a href="https://www.youtube.com/watch?v=rDncp1QFBk4" target="_blank">
+  <div class="video-container" style="position: relative; width: 100%; max-width: 560px; padding-top: 56.25%; cursor: pointer; overflow: hidden;">
+    <a href="https://www.youtube.com/watch?v=rDncp1QFBk4" target="_blank" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
       
-      <!-- Thumbnail -->
+      <!-- Thumbnail fills container -->
       <img 
         src="https://img.youtube.com/vi/rDncp1QFBk4/hqdefault.jpg" 
         style="width: 100%; height: 100%; object-fit: cover; display: block;" 
         alt="Video thumbnail">
 
-      <!-- YouTube logo overlay -->
+      <!-- YouTube play overlay centered -->
       <img 
         src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg"
         style="
@@ -303,8 +303,8 @@
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
-          width: 60px;
-          height: 40px;
+          width: 80px;
+          height: 80px;
           opacity: 0.9;
         "
         alt="YouTube logo">
