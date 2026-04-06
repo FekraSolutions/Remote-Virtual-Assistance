@@ -3,25 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Remote Virtual Assistant Services | Fekra Business Solutions</title>
-    <meta name="description" content="Professional remote virtual assistant services to manage your business tasks, automation, and learning curves. Accounting, Programming, Web, Courses, and more!">
-    <meta name="keywords" content="virtual assistant, remote assistant, business support, Accounting, Finance, Web services, SEO, programming, website, custom application, excel courses, excel help, web services, translation, Arabic, data entry, Fekra business solutions">
-    <meta property="og:title" content="Remote Virtual Assistant Services | Fekra">
-<meta property="og:description" content="Hire a professional virtual assistant to manage your daily business tasks, automations, and learning curves.">
-<meta property="og:image" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png">
-<meta property="og:url" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/">
-<meta property="og:type" content="website">
-
-    <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Remote Virtual Assistant Services | Fekra">
-<meta name="twitter:description" content="Hire a professional virtual assistant to manage your daily business tasks, automations, and learning curves.">
-<meta name="twitter:image" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png">
+    <title>Fekra Business Solutions | Select Language</title>
+    <meta name="description" content="Professional remote virtual assistant services. Choose your language to continue to Fekra Business Solutions.">
     
-<meta name="robots" content="index, follow">
-<meta name="author" content="Fekra Business Solutions">
+    <link rel="alternate" hreflang="en" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/en/" />
+    <link rel="alternate" hreflang="ar" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/ar/" />
+    <link rel="alternate" hreflang="fr" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/fr/" />
+    <link rel="alternate" hreflang="x-default" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/en/" />
+
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Fekra Business Solutions">
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="media/Tlogo.png">
+    
     <style>
         body {
             display: flex;
@@ -32,220 +27,106 @@
             font-family: 'Cairo', sans-serif;
             flex-direction: column;
             background: url('media/back.webp') center center no-repeat;
-            background-size: 100% 100%;
+            background-size: cover;
             position: relative;
             overflow: hidden;
+            background-color: #000; /* Fallback color */
         }
 
-.icon img {
-    width: 80%; /* Adjust image size */
-    height: auto;
-}
-
-#languageSelect {
-    font-size: 16px;
-    padding: 5px;
-    background-color: transparent;
-    color: white;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    border: 1px solid;
-    border-image: linear-gradient(45deg, #d4af37, #f8f8ff, #d4af37) 1;
-    border-radius: 5px;
-    outline: none;
-    appearance: none;
-    cursor: pointer;
-    position: relative; /* Ensure it stays in place */
-    top: -12px; /* Adjust as needed */
-}
-
-
-        #languageSelect:focus {
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8); /* Add glow effect when focused */
+        .logo-container {
+            position: absolute; 
+            top: 20px; 
+            left: 20px;
+            z-index: 10;
         }
-#languageSelect option {
-    color: black;
-    background-color: transparent; /* Keep background transparent */
-}
 
-.label-container {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    flex-direction: row;      /* make buttons horizontal */
-    gap: 20px;                /* add spacing between buttons */
-    margin-top: 60px;
-    flex-wrap: wrap;          /* optional: wrap on smaller screens */
-    justify-content: center;  /* center them horizontally */
-}
-
-
-
-.label {
-    font-size: 24px;
-    direction: rtl;
-    padding: 10px 20px;
-    border: 1px solid;
-    border-image: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0) 1; /* silver gradient */
-    border-radius: 5px;
-    cursor: pointer;
-    text-align: center;
-    background-color: transparent;
-    color: white;
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.label:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 10px rgba(192, 192, 192, 0.6); /* silver glow on hover */
-}
-
-        /* Style specifically for the "Contact Us" label */
-        .label:last-child {
-            background-color: #8c6e4f; /* Even darker sand color */
+        .logo-container img {
+            height: 50px;
+            width: auto;
         }
-        #contact-us-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
 
-.contact-options {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  align-items: center;
-}
+        .label-container {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: row;
+            gap: 25px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-.contact-options img {
-  width: 50px;
-  height: 50px;
-  cursor: pointer;
-}
-#introVideo {
-    position: absolute;
-    top: 80px;  /* Position the video just below the logo and language select */
-    left: 0;
-    width: 100%; /* Full width */
-    max-height: 50vh; /* Limit the height to 50% of the viewport height */
-    object-fit: cover; /* Scale the video proportionally */
-    z-index: -1; /* Keep the video behind the other elements */
-}
+        .label {
+            font-size: 22px;
+            min-width: 150px;
+            padding: 12px 30px;
+            border: 1px solid;
+            border-image: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0) 1;
+            cursor: pointer;
+            text-align: center;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: white;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
 
+        .label:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 15px rgba(192, 192, 192, 0.6);
+            transform: translateY(-2px);
+        }
 
+        #introVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+            opacity: 0.6; /* Slight fade to make buttons pop */
+        }
 
-
+        /* Mobile Optimization */
+        @media (max-width: 600px) {
+            .label-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .label {
+                font-size: 20px;
+                width: 200px;
+            }
+        }
     </style>
 </head>
 <body>
-    <div style="position: absolute; top: 10px; left: 10px;">
-        <img src="media/Tlogo.png" alt="Language" style="height: 40px; margin-left: 2px;">
-        <select id="languageSelect" style="margin-left: 10px; position: relative; top: -12px;">
-            <option value="en">English</option>
-            <option value="ar">العربية</option>
-            <option value="fr">Français</option>
-        </select>
+
+    <div class="logo-container">
+        <img src="media/Tlogo.png" alt="Fekra Business Solutions Logo">
     </div>
 
-    <video id="introVideo" autoplay muted playsinline>
+    <video id="introVideo" autoplay muted playsinline loop>
         <source src="media/intro.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
 
     <div class="label-container">
-        <div class="label" onclick="location.href='apps.html'" data-i18n="apps">Applications</div>
-        <div class="label" onclick="location.href='Learn.html'" data-i18n="learn">Learn</div>
-        <div class="label" onclick="location.href='services.html'" data-i18n="services">Our Services</div>
-        <div class="label" onclick="location.href='Affiliate.html'" data-i18n="affiliate">Affiliate Program</div>
-        <div class="label" onclick="location.href='blog.html'" data-i18n="blog">BLOG</div>
-        <div class="label" onclick="location.href='about.html'" data-i18n="about">About us</div>
-        <div class="label" onclick="window.open('https://wa.me/201060469453', '_blank')" data-i18n="contact">Contact us</div>
+        <div class="label" onclick="location.href='ar/index.html'">العربية</div>
+        <div class="label" onclick="location.href='en/index.html'">English</div>
+        <div class="label" onclick="location.href='fr/index.html'">Français</div>
     </div>
 
-</div>
-
-<script>
-window.onload = function() {
-    var video = document.getElementById('introVideo');
-    video.onended = function() {
-        video.pause();
-    };
-};
-</script>
-
-<!-- Robot animation -->
-<script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.6.2/dist/dotlottie-wc.js" type="module"></script>
-
-<dotlottie-wc id="robot"
-    src="https://lottie.host/566498bf-85ea-4ce3-90ab-fe13e94f08cb/Ddxa0WVDVS.lottie"
-    style="width: 72px; height: 72px; position: fixed; bottom: 20px; right: 20px; z-index: 9999; cursor: pointer;"
-    speed="1"
-    autoplay
-    loop>
-</dotlottie-wc>
-
-<script>
-
-const translations = {
-    en: {
-        apps: "Applications",
-        learn: "Learn",
-        services: "Our Services",
-        affiliate: "Affiliate Program",
-        blog: "BLOG",
-        about: "About us",
-        contact: "Contact us",
-        robotHello: "Hello from Fekra! 🤖"
-    },
-
-    ar: {
-        apps: "التطبيقات",
-        learn: "تعلم",
-        services: "خدماتنا",
-        affiliate: "برنامج الشركاء",
-        blog: "المدونة",
-        about: "من نحن",
-        contact: "تواصل معنا",
-        robotHello: "مرحبا من فكرة! 🤖"
-    },
-
-    fr: {
-        apps: "Applications",
-        learn: "Apprendre",
-        services: "Nos services",
-        affiliate: "Programme d'affiliation",
-        blog: "Blog",
-        about: "À propos",
-        contact: "Contactez-nous",
-        robotHello: "Bonjour de Fekra! 🤖"
-    }
-};
-
-const languageSelect = document.getElementById("languageSelect");
-
-function setLanguage(lang) {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = (lang === "ar") ? "rtl" : "ltr";
-
-    document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        el.textContent = translations[lang][key] || key;
-    });
-}
-
-languageSelect.addEventListener("change", () => {
-    setLanguage(languageSelect.value);
-});
-
-setLanguage("en");
-
-document.getElementById('robot').addEventListener('click', function() {
-    const lang = languageSelect.value;
-    alert(translations[lang].robotHello);
-});
-
-</script>
+    <script>
+        // Ensure video stays paused if it ends (if not looping)
+        window.onload = function() {
+            var video = document.getElementById('introVideo');
+            video.onended = function() {
+                video.pause();
+            };
+        };
+    </script>
 
 </body>
 </html>
