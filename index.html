@@ -2,36 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Fekra Business Solutions | Select Language</title>
-    <meta name="description" content="Professional remote virtual assistant services. Choose your language to continue to Fekra Business Solutions.">
     
     <link rel="alternate" hreflang="en" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/en/" />
     <link rel="alternate" hreflang="ar" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/ar/" />
     <link rel="alternate" hreflang="fr" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/fr/" />
     <link rel="alternate" hreflang="x-default" href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/en/" />
 
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Fekra Business Solutions">
-    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="media/Tlogo.png">
     
     <style>
-body {
+        /* Force the container to be exactly the screen size */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background-color: #000;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
             font-family: 'Cairo', sans-serif;
-            flex-direction: column;
-            /* Using the background image as a fallback that matches the video */
-            background: #000 url('media/back.webp') center center no-repeat;
-            background-size: cover;
-            position: relative;
-            overflow: hidden;
-        }    
+        }
+
+        /* THE FIX: Fixed position with viewport units and object-fit cover */
+        #introVideo {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Change to 'fill' if you want zero cropping, but it might stretch the faces */
+            z-index: -1;
+        }
 
         .logo-container {
             position: absolute; 
@@ -41,67 +49,47 @@ body {
         }
 
         .logo-container img {
-            height: 50px;
+            height: 45px;
             width: auto;
         }
 
         .label-container {
             position: relative;
-            z-index: 1;
+            z-index: 5;
             display: flex;
             flex-direction: row;
-            gap: 25px;
-            margin-top: 20px;
+            gap: 20px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .label {
-            font-size: 22px;
-            min-width: 150px;
-            padding: 12px 30px;
+            font-size: 20px;
+            min-width: 140px;
+            padding: 12px 25px;
             border: 1px solid;
             border-image: linear-gradient(45deg, #C0C0C0, #ffffff, #C0C0C0) 1;
             cursor: pointer;
             text-align: center;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
             transition: all 0.3s ease;
-            text-decoration: none;
         }
 
         .label:hover {
-            background-color: rgba(255, 255, 255, 0.15);
-            box-shadow: 0 0 15px rgba(192, 192, 192, 0.6);
-            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
         }
 
-#introVideo {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%; 
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            z-index: -1;
-            transform: translate(-50%, -50%);
-            /* "cover" is usually best for full-screen, but let's 
-               lower the opacity so the "crop" feels intentional */
-            object-fit: cover; 
-            opacity: 0.5; 
-        }
-
-        /* Mobile Optimization */
         @media (max-width: 600px) {
             .label-container {
                 flex-direction: column;
                 gap: 15px;
             }
             .label {
-                font-size: 20px;
-                width: 200px;
+                width: 180px;
             }
         }
     </style>
@@ -109,12 +97,11 @@ body {
 <body>
 
     <div class="logo-container">
-        <img src="media/Tlogo.png" alt="Fekra Business Solutions Logo">
+        <img src="media/Tlogo.png" alt="Fekra Logo">
     </div>
 
     <video id="introVideo" autoplay muted playsinline loop>
         <source src="media/intro.mp4" type="video/mp4">
-        Your browser does not support the video tag.
     </video>
 
     <div class="label-container">
@@ -122,16 +109,6 @@ body {
         <div class="label" onclick="location.href='en/index.html'">English</div>
         <div class="label" onclick="location.href='fr/index.html'">Français</div>
     </div>
-
-    <script>
-        // Ensure video stays paused if it ends (if not looping)
-        window.onload = function() {
-            var video = document.getElementById('introVideo');
-            video.onended = function() {
-                video.pause();
-            };
-        };
-    </script>
 
 </body>
 </html>
