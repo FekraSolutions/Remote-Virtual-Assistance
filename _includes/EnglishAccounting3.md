@@ -1,3 +1,4 @@
+
 ## Debit and Credit: The Foundation of Financial Accounting
 
 Accounting is the essential language of the business world, used to record financial transactions, analyze them, and understand the financial health of any entity. Among the most critical core concepts that every accounting beginner must correctly grasp are the terms **Debit** and **Credit**.
