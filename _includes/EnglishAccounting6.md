@@ -1,3 +1,4 @@
+
 # Posting Entries to the General Ledger: A Step-by-Step Guide
 
 The process of posting accounting entries to the General Ledger is one of the most critical steps in the accounting cycle. After recording financial transactions in the Journal, the posting stage organizes these entries into separate accounts, which helps track balances accurately and understand the company's financial position.
