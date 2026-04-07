@@ -1,3 +1,4 @@
+
 # The Basic Accounting Equation: The Foundation of the Accounting System
 
 The basic accounting equation is one of the most important principles upon which the science of financial accounting is built. This simple equation represents the cornerstone for understanding how financial transactions are recorded, analyzed, and presented in financial statements. The equation states that:
