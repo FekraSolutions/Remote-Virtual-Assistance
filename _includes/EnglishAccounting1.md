@@ -1,3 +1,4 @@
+
 ## Financial Accounting for Beginners: Definition, Stakeholders, and Core Branches
 
 **Definition of Financial Accounting:** It is the process of recording and reporting financial transactions in companies by following accounting standards (GAAP - IFRS).
