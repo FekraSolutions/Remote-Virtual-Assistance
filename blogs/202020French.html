@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sécheresse oculaire et confort visuel : découvrez 10 conseils indispensables et gratuits pour protéger vos yeux lors d'une exposition prolongée aux écrans.">
+    <title>Sécheresse oculaire et écrans - 10 conseils pour une utilisation prolongée</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="../media/Tlogo.png" href="../media/Tlogo.png">
+    
+    <meta property="og:title" content="Sécheresse oculaire : 10 conseils pour se protéger des écrans">
+    <meta property="og:description" content="Découvrez 10 conseils simples et gratuits pour préserver votre santé visuelle au quotidien devant les écrans.">
+    <meta property="og:image" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png">
+    <meta property="og:url" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/blogs/202020French.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Fekra! Business Solutions">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Application Caisse & Gestion Commerciale pour Boutiques">
+    <meta name="twitter:description" content="Gérez votre boutique en toute simplicité grâce à un système de caisse gratuit et sécurisé. Optimisez vos ventes et votre stock efficacement dès aujourd'hui !">
+    <meta name="twitter:image" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/media/Tlogo.png">
+    <meta name="twitter:url" content="https://fekrasolutions.github.io/Remote-Virtual-Assistance/blogs/202020French.html">
+    
+    <style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    flex-direction: column;
+    background: url('../media/back.webp') center center no-repeat;
+    background-size: cover; /* Ensures the image fully fits the screen */
+    background-attachment: fixed; /* Keeps background fixed while scrolling */
+    background-position: center; /* Centers the image */
+    min-height: 100vh; /* Ensures the background covers the full screen */
+    width: 100%;
+    overflow: auto; /* Enables scrolling if content is longer */
+    direction: ltr; /* Changé de rtl à ltr pour le français */
+    text-align: left; /* Changé de right à left */
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 1200px; /* Increase max-width for wider screens */
+    margin-top: 5vh; /* Provides suitable spacing for all devices */
+}
+
+.blog-subcontainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+.blog-textsubcontainer {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden; /* Ensure content doesn't overflow */
+}
+.content-text img {
+    max-width: 100%; /* Make sure the image fits within the container */
+    height: auto;    /* Maintain the aspect ratio */
+    object-fit: contain; /* Ensure the image stays contained within the bounds */
+}
+
+        .blog-item {
+            display: flex;
+            align-items: center;
+        }
+        .blog-item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-right: 15px; /* Aligné pour la lecture LTR */
+        }
+
+        .blog-item .blog-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+    <div style="position: absolute; top: 10px; left: 10px;">
+        <a href="https://fekrasolutions.github.io/Remote-Virtual-Assistance/" target="_self">
+            <img src="../media/Tlogo.png" alt="Logo" style="height: 40px; margin-left: 2px;">
+        </a>
+    </div>
+
+     <div class="container">
+        <div class="blog-subcontainer" onclick="window.open('https://www.youtube.com/watch?v=-8kdMhXdCkY', '_blank')">
+            <div class="blog-item">
+                <img src="../media/screen.jpg" alt="Vignette Vidéo">
+                <div class="blog-text">Regarder la vidéo sur YouTube (2 min)</div>
+            </div>
+        </div>
+        <div class="blog-textsubcontainer" >
+            <div class="content-text">Chargement du contenu...</div>
+        </div>
+    </div>
+    
+    <!-- Include marked.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Changé pour appeler le fichier markdown en version française
+    fetch('../blogs/202020French.md')
+        .then(response => response.text())
+        .then(data => {
+            // Parse the Markdown into HTML
+            var htmlContent = marked.parse(data);
+
+            // Manually fix image URLs if necessary
+            var container = document.querySelector('.content-text');
+            container.innerHTML = htmlContent;
+
+            // Fix any potential image URL issues dynamically
+            var images = container.querySelectorAll('img');
+            images.forEach(img => {
+                if (img.src.startsWith('https://raw.githubusercontent.com/')) {
+                    img.src = img.src; // Ensure the URL is correct
+                }
+            });
+        })
+        .catch(error => {
+            console.error('Erreur lors du chargement du Markdown:', error);
+            document.querySelector('.content-text').innerHTML = "Impossible de charger l'article pour le moment.";
+        });
+});
+</script>
+
+</body>
+</html>
