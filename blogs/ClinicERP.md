@@ -31,30 +31,22 @@ It's all yours! You have a simple page to manage your database of employees name
 ***
 
 ### Patient Reception
-Easily register patient reception / create invoices for patients. A single simple window to view/receive all patient data and save it easily in the reception record. After creating the invoice, you can directly book patient sessions/appointments.  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/receptionpreview.jpg)  
-Very easy entry for all invoice data, automatic query of recorded data, discount coupons registration, corporate tax data, partial payments from clients, and detailed features that help you receive patients quickly and accurately.
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/Reception.jpg)
+Easily register patient reception / create invoices for patients. A single, simple window to view/receive all patient data and save it easily in the reception record. After creating the invoice, you can directly book patient sessions/appointments.  
+Very easy entry for all invoice data, automatic query of recorded data, discount coupons registration, corporate tax data, partial payments from clients, and detailed features that help you register patients quickly and accurately.
 
 ***
 
 ### Sessions Table
-The blue table is a smart tool that shows you the day’s data, helps you register available appointments in the gray table, and finally, you click save to record the data in the green table (sessions database) easily.  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/sessionpreview.jpg)  
-This is certainly the main workspace for reception staff. Easy management of all client sessions, viewing and tracking all invoice data. Daily schedule overview. Attendance status (Present/Excused/Absent), WhatsApp messaging with one click to remind patients of session appointments and request confirmation. The message can be fully customized and automatically includes session data. Smart messaging for all sessions with one click.
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/Sessions.jpg) 
+This is certainly the main workspace for reception staff. Easy management of all client sessions, viewing, and tracking all invoice data. Daily schedule overview. Attendance status (Present/Excused/Absent), WhatsApp messaging with one click to remind patients of session appointments and request confirmation. The message can be fully customized and automatically includes session data. Smart messaging for all sessions with one click.
 
 ***
 
-### Records
-All reception entries are available in the Records page. You can filter, print, and edit as you like.  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/recedatapreview.jpg)  
-This is the manager’s favorite page! A database containing all information for every invoice simply and comprehensively. Each transaction in a row with full details. Features help you work quickly and efficiently. Column order and colors help filter and generate large reports for invoices and patient reception.
-
-***
-
-### Invoices
-You can query invoices by ID number/phone number and print directly. Also, an easy method to send any invoice directly via WhatsApp to the client.  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/invoicepreview.jpg)  
-Three pages in the app as shown in the image. (1) Query and edit invoices by phone number. (2) Query and edit invoices by patient ID. (3) Send invoice PDF via WhatsApp with one click easily.
+### Invoices Records
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/Invoices.jpg) 
+All reception entries are available on the Invoices page. You can filter, print, and edit as you like.
+This is the manager’s favorite page! A database containing all information for every invoice, simply and comprehensively. Each transaction in a row with full details. Features help you work quickly and efficiently. Column order and colors help filter and generate large reports for invoices and patient reception.
 
 ***
 
