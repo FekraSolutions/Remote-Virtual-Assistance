@@ -1,8 +1,9 @@
-Welcome back to ClinicERP! In this article, you can check out all the features of the application. **ClinicERP** is a [comprehensive clinic management system](https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html) and easy to use.
+Welcome back to ClinicERP! In this article, you can check out all the features of the application. **ClinicERP** is a [comprehensive clinic management system](https://clinic-erp-frontend.vercel.app/login) and easy to use.
 
 ## 1️⃣: Latest Updates of ClinicERP: Clinic Management Software
-#### Dated: December 1, 2025
+#### Dated: June 1, 2026
 
+- **It's a Web Application Now!:** Access and use the application via any internet browser. ClinicERP is now a web application based on web pages instead of Google Spreadsheets. A massive update!
 - **New Language Support:** The app supports (Arabic - English - French)  
 - **QR Tax Invoices:** A valid QR code has been added to invoices, along with formatting and including the information required by tax authorities to generate acceptable invoices for your clients.  
 - **New Dashboard:** ClinicERP is an (ERP) system for clinics, easy to use for all users. We regularly update the homepage to provide a better user experience.
@@ -11,15 +12,21 @@ Welcome back to ClinicERP! In this article, you can check out all the features o
 
 ## 2️⃣: Detailed Explanation of All ClinicERP Features
 
-### [Try the App & Login](https://fekrasolutions.github.io/Remote-Virtual-Assistance/arabicclinic.html)
+### [Try the App & Login](https://clinic-erp-frontend.vercel.app/login)
 ![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/loginpagepreview.jpg)  
-You can try **ClinicERP** by clicking "Try the App" at the top of the homepage. You can test all app features and contact us for any customization or update requests. Everything is doable. After activating your subscription, you can use the same homepage to log in and use the ClinicERP application.
+You can try **ClinicERP** right now! On the homepage, use the following credentials to login and try the demo version right away: 
+**username: user1**
+**password: 111111**
+
+- On the same homepage, you can see a link to a [YouTube video of the ERP Complete Test](https://www.youtube.com/watch?v=pIg6ZAXfkQI)
+
+- Also, on the homepage, you will find buttons to subscribe/renew with ease, and buttons to contact us immediately if you need any help or have any questions. 
 
 ***
 
-### Homepage
-You can choose the app language and access all app features from the homepage. You will also find simple instructions that help in some cases, such as allowing the app to run for the first time or undoing any mistake or unwanted change.  
-![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/clinicERPhomepage.png)
+### Database
+![My Image](https://raw.githubusercontent.com/FekraSolutions/Remote-Virtual-Assistance/refs/heads/main/media/Database.jpg)
+It's all yours! You have a simple page to manage your database of employees names, doctors names, services with their prices, inventory items, selling and purchase prices, everything! You simply fill your database, add an infinite number of rows, and just hit save! 
 
 ***
 
